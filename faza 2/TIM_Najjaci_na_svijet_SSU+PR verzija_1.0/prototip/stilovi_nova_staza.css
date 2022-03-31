@@ -1,0 +1,112 @@
+div{
+    font-family: Verdana, sans-serif; 
+    color: rgb(240, 240, 245);
+    text-align: left;
+    text-decoration:double;
+    font-size:larger;
+    background-color:rgb(205, 193, 236);
+    line-height: 1.5;
+    margin-top:0%;
+    border-bottom: 3cm;
+    border-bottom:rgb(65, 50, 204);
+    border-width: 3cm;
+    /*background-image: url(slika1.jpg);*/
+    
+}
+
+#logoId{
+    height: fit-content;
+    height: 100px;
+    width: 100px;
+    border-style:groove;
+    border-color: rgb(0, 26, 59);
+    border-left-width: 0.25cm;
+    border-right-width: 0.25cm;
+    border-bottom-width:0.5cm;
+    border-top-width: 0.5cm;
+    margin-left: 3%;
+    text-align:center;
+    text-decoration: double;
+    color:rgb(6, 6, 83);
+    background-color: aquamarine;
+}
+
+#pocetniDiv{
+    height: 60px;
+    background-image:linear-gradient(rgb(115, 166, 241), rgb(144, 178, 253), rgb(133, 170, 252));
+    text-align: center;
+}
+
+
+a{
+    color: rgb(53, 6, 139);
+}
+
+#logoDiv{
+    color: rgb(4, 4, 88);
+    text-align: center;
+    font-size:xx-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image:linear-gradient(rgb(98, 135, 255), rgb(125, 167, 247));
+}
+
+h1{
+    box-shadow: none !important;
+}
+
+html{
+    min-width: 100%;
+    background-size: cover;
+    background-image: url("slike/slidza.jpg");
+}
+
+#novastazaDiv
+{
+    width: 50%;
+    margin: auto;
+    margin-top: 1cm;
+    background-color: rgb(0, 26, 59);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#novastazaForma{
+    background-color: transparent;
+}
+
+#novastazaForma p:nth-of-type(2n+1){
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+    background-color: rgb(0, 41, 94);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#novastazaForma p:nth-of-type(2n){
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+    background-color: rgb(144, 189, 248);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.buttons{
+    font-size: large;
+    padding: 5px;
+    border-radius:2em;
+    font-weight:300;
+    color:#FFFFFF;
+    background-color:#00456d;
+    text-align:center;
+}
+.buttons:hover{
+    background-color:#d2dd35;
+}
+
+.boja{
+    font-size: large;
+    padding: 10px;
+    border-radius:50%;
+}

@@ -1,0 +1,209 @@
+div{
+    font-family: Verdana, sans-serif; 
+    color: rgb(240, 240, 245);
+    text-align: left;
+    text-decoration:double;
+    font-size:larger;
+    background-color:rgb(205, 193, 236);
+    line-height: 1.5;
+    margin-top:0%;
+    border-bottom: 3cm;
+    border-bottom:rgb(65, 50, 204);
+    border-width: 3cm;
+    /*background-image: url(slika1.jpg);*/
+    
+}
+
+#logoId{
+    height: fit-content;
+    height: 100px;
+    width: 100px;
+    border-style:groove;
+    border-color: rgb(0, 26, 59);
+    border-left-width: 0.25cm;
+    border-right-width: 0.25cm;
+    border-bottom-width:0.5cm;
+    border-top-width: 0.5cm;
+    margin-left: 3%;
+    text-align:center;
+    text-decoration: double;
+    color:rgb(6, 6, 83);
+    background-color: aquamarine;
+}
+
+#pocetniDiv{
+    height: 60px;
+    background-image:linear-gradient(rgb(115, 166, 241), rgb(144, 178, 253), rgb(133, 170, 252));
+    text-align: center;
+}
+
+
+a{
+    color: rgb(53, 6, 139);
+}
+
+#logoDiv{
+    color: rgb(4, 4, 88);
+    text-align: center;
+    font-size:xx-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image:linear-gradient(rgb(98, 135, 255), rgb(125, 167, 247));
+}
+
+h1{
+    box-shadow: none !important;
+    
+}
+
+html{
+    min-width: 100%;
+    background-size: cover;
+    background-image: url("slike/slidza.jpg");
+}
+
+#div1{
+    border-radius: 10px;
+    display: flex;
+    margin: auto;
+    width: 80%;
+    border: 3px solid #acbdfa;
+    background-color: #dedede;
+    background-image: none;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.p2{
+    border-radius: 10px;
+    margin: auto;
+    padding-left: 7px;
+    width: 98%;
+    border: 3px solid purple;
+    background-color: #c9c9c9;
+    background-image: none;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+}
+
+.div2{
+    background-color: #c9c9c9;
+    width: 50%;
+    color: black;
+    background-image: none;
+}
+
+div.unosOpisa{
+    border-radius: 10px;
+    box-shadow: 7px 7px 4px grey;
+}
+
+
+h3{
+    margin: 1%;
+}
+
+p.obavestenjeLose{
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px grey;
+    margin: auto;
+    border: 3px solid red;
+    padding: 2%;
+    width: 90%;
+    background-color: #ffd640;
+    color: black;
+}
+
+p.obavestenjeDobro{
+    box-shadow: 10px 10px 5px grey;
+    border-radius: 10px;
+    margin: auto;
+    border: 3px solid #6ce354;
+    padding: 2%;
+    width: 90%;
+    background-color: #9cffaa;
+    color: black;
+}
+
+p.obavestenje{
+    box-shadow: 10px 10px 5px grey;
+    border-radius: 10px;
+    margin: auto;
+    border: 3px solid #8FBFD3;
+    padding: 2%;
+    width: 90%;
+    background-color: #C2E5F3;
+    color: black;
+}
+
+#centerDiv{
+    border-radius: 10px;
+    padding: 5px;
+    margin: auto;
+    font-size: large;
+    width: 93%;
+    background-color:white;
+    color: black;
+    background-image: none;
+}
+
+img.center{
+    margin: auto;
+    width: 100%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.refresh{
+    border-radius: 10px;
+    width: 20%;
+    background-color: #2FA8D5;
+    color: whitesmoke;
+    padding: 7px;
+    margin-top: 4px;
+}
+
+.add{
+    border-radius: 10px;
+    background-color: #2FA8D5;
+    color: whitesmoke;
+    padding: 7px;
+    width: 94%;
+    margin-left: 20px;
+    margin-top: 15px;
+    font-size: large;
+
+}
+
+select{
+    font-size: large;
+    background-color: lightblue;
+}
+
+textarea{
+    width: 98%;
+    resize: none;
+    height: 50px;
+    font-size: large;
+}
+
+a#btnHref:link{
+    text-decoration: none;
+    color: whitesmoke;
+}
+a#btnHref:visited{
+    text-decoration: none;
+    color: whitesmoke;
+
+}
+a#btnHref:hover{
+    text-decoration: none;
+    color: whitesmoke;
+
+}
+a#btnHref:active{
+    text-decoration: none;
+    color: whitesmoke;
+
+
+}

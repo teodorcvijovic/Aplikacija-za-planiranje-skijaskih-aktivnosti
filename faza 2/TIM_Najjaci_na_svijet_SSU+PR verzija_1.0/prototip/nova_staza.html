@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="stilovi_nova_staza.css">
+    <title>Jahorina-Ko prezivi, pricace!</title>
+    <script src="https://kit.fontawesome.com/4a6a29aea0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="logoDiv"> 
+       <img src="slike/logokon.jpg" id="logoId">   &nbsp;&nbsp;&nbsp;
+        <br>
+        JAHORINA-KO PREZIVI, PRICACE!
+     </div>
+    <div id="pocetniDiv" >
+          <a href="registracija.html"> REGISTRACIJA</a> &nbsp;&nbsp;&nbsp;
+        <a href="login.html"> LOGIN</a>  &nbsp;&nbsp;&nbsp;
+        <a href="pocetna.html"> POCETNA </a>  &nbsp;&nbsp;&nbsp;
+        <a href="isplaniraj.html">ISPLANIRAJ DAN</a> &nbsp;&nbsp;&nbsp;
+        <a href="instruktori.html">ZAKAZI INSTRUKTORA</a> &nbsp;&nbsp;&nbsp;
+        <a href="staze.html">SKI STAZE</a>
+    </div>
+    <div id="novastazaDiv">
+        <h2 style="text-align:center;">Dodavanje nove staze</h2>
+        <h4>Drago nam je da cujemo da se skijaliste prosiruje. Molimo vas da unesete tehnicke specifikacije staze.</h4>
+    </div>
+    <div id="novastazaForma">
+        <p>Naziv:&nbsp<input type="text" name="user" value=" " size="20"></p>
+        <p>Boja:&nbsp
+            <input style="background-color: rgb(0, 65, 187);" class="boja" type="button" name="blue" value="    " onClick="bluePiste()">
+            <input style="background-color: rgb(197, 17, 47);"  class="boja" type="button" name="red" value="    " onClick="redPiste()">
+            <input style="background-color: rgb(22, 22, 22);"  class="boja" type="button" name="black" value="    " onClick="blackPiste()">
+        </p>
+        <p>Duzina:&nbsp<input type="text" name="user" value=" " size="20"></p>
+        <p>Maglovitost:&nbsp<select name="" id="">
+            <option value="">
+                magla
+            </option>
+            <option value="">
+                izmaglica
+            </option>
+            <option value="">
+                bez magle
+            </option>
+        </select></p>
+        <p>Guzva:&nbsp<select name="" id="">
+            <option value="">
+                velika gužva
+            </option>
+            <option value="">
+                srednja gužva
+            </option>
+            <option value="">
+                bez gužve
+            </option>
+        </select></p>
+        <p>Stanje staze:&nbsp <input type="radio" id="lab1" name="stanje"><label for="lab1">OTVORENA</label>
+            <input type="radio" id="lab2" name="stanje"><label for="lab2">ZATVORENA</label></p>
+        <p style="background-color: transparent;"><input class="buttons" type="button" name="addPiste" value="DODAJ STAZU" onClick="addPiste()">
+        <a href="staze_instruktor.html"><input class="buttons" type="button" name="cancel" value="OTKAZI" onClick="cancel()"></p></a>
+    </div>
+    
+</body>
+</html>

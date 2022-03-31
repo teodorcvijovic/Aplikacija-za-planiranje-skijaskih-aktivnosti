@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="stilovi_aktivnost.css">
+    <title>Jahorina-Ko prezivi, pricace!</title>
+    <script src="https://kit.fontawesome.com/4a6a29aea0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="logoDiv"> 
+       <img src="slike/logokon.jpg" id="logoId">   &nbsp;&nbsp;&nbsp;
+        <br>
+        JAHORINA-KO PREZIVI, PRICACE!
+     </div>
+    <div id="pocetniDiv" >
+   <a href="registracija.html"> REGISTRACIJA</a> &nbsp;&nbsp;&nbsp;
+        <a href="login.html"> LOGIN</a>  &nbsp;&nbsp;&nbsp;
+        <a href="pocetna.html"> POCETNA </a>  &nbsp;&nbsp;&nbsp;
+        <a href="isplaniraj.html">ISPLANIRAJ DAN</a> &nbsp;&nbsp;&nbsp;
+        <a href="instruktori.html">ZAKAZI INSTRUKTORA</a> &nbsp;&nbsp;&nbsp;
+        <a href="staze.html">SKI STAZE</a>
+    </div>
+    <div id="aktivnostDiv">
+        <h2>Kategorija: Jutarnja kafica</h2>
+        <h4>Dajte nam malo vise detalja...</h4>
+        <p>Naziv:<input type="select" name="naziv" value="" size="20"></p>
+        <p>Na stazi:<select name="staze" id="cars">
+            <option value="">Poljice</option>
+            <option value="">Skocine</option>
+          </select></p>
+        <h4>Da li je Vasa aktivnost vezana za neki konkretan lokal?</h4>
+        <p>Naziv objekta (opciono):<input type="text" name="objekat" value="" size="20"></p></p>
+        <p>Kontakt (opciono):<input type="text" name="kontakt" value="" size="20"></p></p>
+        <p>
+        <input type="button" name="activityAdd" value="DODAJ AKTIVNOST" onClick="activityAdd()">&nbsp;
+        <input type="button" name="activityCancel" value="OTKAZI" onClick="activityCancel()"></p>
+    </div>
+    
+</body>
+</html>
