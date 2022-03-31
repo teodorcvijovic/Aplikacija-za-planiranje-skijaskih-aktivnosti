@@ -1,0 +1,13 @@
+html{
+    min-width: 100%;
+    background-size: cover;
+    background-image: url("slike/slidza.jpg");
+}
+
+h1, h2{
+    text-align: center;
+}
+
+form{
+    text-align: center;
+}
