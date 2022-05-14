@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Prijava
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ loginform }}
+        <input type="submit" value="Prijavite se">
+    </form>
+    <p>
+        <!-- TO DO: registration link -->
+    </p>
+{% endblock %}
