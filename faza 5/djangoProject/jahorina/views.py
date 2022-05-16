@@ -1,5 +1,6 @@
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import Group
 from django.shortcuts import render, redirect
 
 from .forms import *
@@ -8,7 +9,7 @@ from .models import *
 # Create your views here.
 
 # teodor
-# home page view
+# home page
 def index(request):
     # TO DO
     context = {
@@ -39,4 +40,36 @@ def loginRequest(request):
 def logoutRequest(request):
     logout(request)
     return redirect('index')
+
+# teodor
+def register(request):
+    regform = SkiInstructorCreationForm(request.POST)
+
+    if regform.is_valid():
+        user = regform.save()
+        group = Group.objects.get(name="default")
+        user.groups.add(group)
+        login(request, user)
+
+        return redirect('index')
+
+    context = {
+        'regform': regform,
+    }
+    return render(request, 'authentication/registration.html', context)
+
+# teodor
+# page that shows all SkiInstructors
+def instructors(request):
+    ins = SkiInstructor.objects.all()
+
+    # sending SkiInstructor objects without password field for safety reasons and without other unnecessary fields
+    Instructors = [{
+            'name': i.first_name + ' ' + i.last_name,
+        } for i in ins]
+
+    context = {
+        'instructors': Instructors
+    }
+    return render(request, 'instructors.html', context)
 

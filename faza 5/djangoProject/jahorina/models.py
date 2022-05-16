@@ -12,32 +12,34 @@ class MyUser(AbstractUser):
         # last_name
         # email
 
-    phone = models.CharField(max_length=17)
-    instagram = models.CharField(max_length=30, null=True)
-    facebook = models.CharField(max_length=30, null=True)
-
-    # moderator can delete SkiTracks, non-moderator Users, Services and Facilities
+    # moderator can delete SkiTracks, non-moderator Users, Acitivites and Categories
     is_moderator = models.BooleanField(default=False)
 
-# every facility (restaurant, spa-center, hotel, etc.) is represented by a manager
-# facility should only have one manager
-class FacilityManager(MyUser):
-    facility = models.ForeignKey('Facility', on_delete=models.CASCADE)
-
 class SkiInstructor(MyUser):
-    snapchat = models.CharField(max_length=30, null=True)
-    skirent = models.ForeignKey('Facility', on_delete=models.DO_NOTHING, null=True) # ski-instructor can work in ski-rent facility (not required)
+    phone = models.CharField(max_length=17)
+    instagram = models.CharField(max_length=30, null=True, blank=True)
+    facebook = models.CharField(max_length=30, null=True, blank=True)
+    snapchat = models.CharField(max_length=30, null=True, blank=True)
+    experience = models.IntegerField()
+    birthdate = models.DateField()
 
-# static table
-class FacilityType(Model):
-    name = models.CharField(max_length=100)
+    def __init__(self, *args, **kwargs):
+        super(SkiInstructor, self).__init__(*args, **kwargs)
+        # removing default username validators
+        # username is validated in clean_username() method in SkiInstructorCreationForm class
+        self._meta.get_field('username').validators = []
 
-# when user chooses to register as FacilityManager, Facility is also added to the database
-class Facility(Model):
-    type = models.ForeignKey(FacilityType, on_delete=models.CASCADE)
+
+class Category(Model):
     name = models.CharField(max_length=100)
-    skitrack = models.ForeignKey('SkiTrack', on_delete=models.CASCADE)  # facility location
-    # possible change: adding x and y coordinates for frontend facility view
+    root = models.IntegerField() # 0 - jutarnja, 1 - popodnevna, 2 - vecernja
+
+class Acitivity(Model):
+    type = models.ForeignKey(Category, on_delete=models.CASCADE)
+    skitrack = models.ForeignKey('SkiTrack', on_delete=models.CASCADE)  # location
+    obj_name = models.CharField(max_length=100, null=True, blank=True)
+    obj_contact = models.CharField(max_length=17, null=True, blank=True)
+    # possible change: adding x and y coordinates for front-end view
 
 class SkiTrack(Model):
     name = models.CharField(max_length=50)
@@ -47,16 +49,4 @@ class SkiTrack(Model):
     is_opened = models.BooleanField(default=True)
     is_busy = models.BooleanField(default=False)
     last_updated = models.DateField(default=datetime.datetime.now()) # SkiInstructor can update a SkiTrack
-
-# FacilityManager can add services that can be included in facility's list of services
-# examples:
-    # restaurant - food and drinks
-    # spa-center - massages
-    # ski-rent - ski rent
-class Service(Model):
-    name = models.CharField(max_length=100)
-
-class is_included(Model):
-    facility = models.ForeignKey(Facility, on_delete=models.CASCADE)
-    service = models.ForeignKey(Service, on_delete=models.CASCADE)
 

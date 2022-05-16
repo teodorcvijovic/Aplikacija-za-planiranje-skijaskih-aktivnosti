@@ -7,10 +7,21 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
-        {{ loginform }}
+
+        Korisničko ime: {{ loginform.username }}
+        Lozinka: {{ loginform.password }}
+
+        <!-- ValidationErrors raised in form's clean() method -->
+        {% if loginform.non_field_errors %}
+            {% for error in loginform.non_field_errors %}
+                {{ error }} <br>
+            {% endfor %}
+        {% endif %}
+
         <input type="submit" value="Prijavite se">
     </form>
+
     <p>
-        <!-- TO DO: registration link -->
+        Ukoliko nemate nalog, registrujte se <a href="{% url 'register' %}">ovde</a>.
     </p>
 {% endblock %}
