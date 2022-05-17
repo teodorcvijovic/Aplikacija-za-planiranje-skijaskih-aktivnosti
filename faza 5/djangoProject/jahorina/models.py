@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models import Model
 
+
 class MyUser(AbstractUser):
     # fields that already exist in AbstractUser:
         # username
@@ -14,6 +15,7 @@ class MyUser(AbstractUser):
 
     # moderator can delete SkiTracks, non-moderator Users, Acitivites and Categories
     is_moderator = models.BooleanField(default=False)
+
 
 class SkiInstructor(MyUser):
     phone = models.CharField(max_length=17)
@@ -34,12 +36,14 @@ class Category(Model):
     name = models.CharField(max_length=100)
     root = models.IntegerField() # 0 - jutarnja, 1 - popodnevna, 2 - vecernja
 
+
 class Acitivity(Model):
     type = models.ForeignKey(Category, on_delete=models.CASCADE)
     skitrack = models.ForeignKey('SkiTrack', on_delete=models.CASCADE)  # location
     obj_name = models.CharField(max_length=100, null=True, blank=True)
     obj_contact = models.CharField(max_length=17, null=True, blank=True)
     # possible change: adding x and y coordinates for front-end view
+
 
 class SkiTrack(Model):
     name = models.CharField(max_length=50)

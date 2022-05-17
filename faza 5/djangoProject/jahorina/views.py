@@ -65,11 +65,22 @@ def instructors(request):
 
     # sending SkiInstructor objects without password field for safety reasons and without other unnecessary fields
     Instructors = [{
-            'name': i.first_name + ' ' + i.last_name,
+            'name': i.first_name,
+            'surname': i.last_name,
+            'experience': i.experience,
+            'phone': i.phone,
+            'instagram': i.instagram,
+            'facebook': i.facebook,
+            'snapchat': i.snapchat
         } for i in ins]
 
     context = {
         'instructors': Instructors
     }
     return render(request, 'instructors.html', context)
+
+
+def map(request):
+    context = {}
+    return render(request, 'map.html', context)
 

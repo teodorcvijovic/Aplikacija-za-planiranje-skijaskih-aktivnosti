@@ -1,25 +1,89 @@
 <!-- teodor -->
 <!-- ski instructors -->
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     Naši ski-instruktori
 {% endblock %}
 
+{% block links %}
+<link href="{% static 'css/instructors.css' %}" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
-   <div id="instructorList">
-        {% if instructors %}
-            <p>
-                Zakažite čas kod nekog od naših licenciranih ski-instruktora.
-            </p>
-            {% for instructor in instructors %}
-                <div id="instructor">
-                    <!-- TO DO: front-end view -->
-                    {{ instructor.name }}
+
+        <div id="instructorList" class="d-flex justify-content-center">
+
+            {% if instructors %}
+                <div class="alert alert-light instructors_alert">
+                    Zakažite čas kod nekog od naših licenciranih ski-instruktora.
                 </div>
+            {% else %}
+                <div class="alert alert-light instructors_alert">
+                    Nažalost, nema registrovanih ski-instruktora.
+                </div>
+            {% endif %}
+
+        </div>
+
+    <!-- this row will be displayed only if there is instructors
+     it is ont in the if above, because of the display issues-->
+    {% if instructors %}
+        <div class="d-flex justify-content-center">
+        <div class="row" id="instructorsRow">
+
+            {% for instructor in instructors %}
+
+            <div class="col-md-12 col-lg-6 alert alert-light instructorBox">
+
+                <strong>{{ instructor.name }} </strong>
+                {{ instructor.surname }} <br>
+
+                {% if instructor.experience == 3 or instructor.experience == 2 or instructor.experience == 4 %}
+                    Iskustvo: {{ instructor.experience }} godine.
+                    {% else %}
+                    Iskustvo: {{ instructor.experience }} godina.
+                {% endif %}
+                <br>
+                    Broj telefona: <a href="tel:{{ instructor.phone }}">{{ instructor.phone }}</a>
+                <br><br>
+
+                <div id="linksDiv">
+                    {% if instructor.instagram %}
+                        <a href="{{ instructor.instagram }}">
+                            <button id="btnInsta">
+                               <i class="fa-brands fa-instagram"></i> Instagram
+                            </button>
+                        </a>
+                    {% endif %}
+
+                    {% if instructor.facebook %}
+                        <a href="{{ instructor.facebook }}">
+                            <button id="btnFb">
+                                <i class="fa-brands fa-facebook"></i> Facebook
+                            </button>
+                        </a>
+                    {% endif %}
+
+                    {% if instructor.snapchat %}
+                        <a href="{{ instructor.snapchat }}">
+                            <button id="btnSnap">
+                                <i class="fa-brands fa-snapchat"></i> Snapchat
+                            </button>
+                        </a>
+                    {% endif %}
+                </div>
+
+            </div>
+
             {% endfor %}
-        {% else %}
-            <p>Nažalost, nema registrovanih ski-instruktora.</p>
-        {% endif %}
-   </div>
+
+        </div>
+        </div>
+
+    {% endif %}
+
+
+
 {% endblock %}

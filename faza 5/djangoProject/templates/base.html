@@ -9,6 +9,7 @@
         Title
         {% endblock %}
     </title>
+
     <link rel="shortcut icon" href="{% static 'icons/browser_icon.ico' %}">
 
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -17,6 +18,10 @@
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
 
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
+
+    {% block links %}
+
+    {% endblock %}
 </head>
 <body>
     <div class="container">
