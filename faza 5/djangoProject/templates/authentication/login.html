@@ -1,27 +1,44 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
     Prijava
 {% endblock %}
 
+{% block links %}
+    <link href="{% static 'css/authentication.css' %}" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
+    <div class="col-sm-12 col-md-1 col-lg-3"></div>
+    <div class="col-sm-12 col-md-10 col-lg-6">
+        <div id="login">
+            <div id="loginFormWindow">
+                <form method="post">
+                    {% csrf_token %}
 
-        Korisničko ime: {{ loginform.username }}
-        Lozinka: {{ loginform.password }}
+                    <span class="loginLabel">Korisničko ime</span> <br>
+                    {{ loginform.username }} <br>
+                    <span class="loginLabel">Lozinka</span> <br>
+                    {{ loginform.password }} <br>
 
-        <!-- ValidationErrors raised in form's clean() method -->
-        {% if loginform.non_field_errors %}
-            {% for error in loginform.non_field_errors %}
-                {{ error }} <br>
-            {% endfor %}
-        {% endif %}
+                    <!-- ValidationErrors raised in form's clean() method -->
+                    {% if loginform.non_field_errors %}
+                        {% for error in loginform.non_field_errors %}
+                            <span class="loginError">{{ error }}</span> <br>
+                        {% endfor %}
+                    {% endif %}
+                    <hr>
+                    <button type="submit" class="loginButton"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;Prijavi me</button>
+                    <!-- <input type="submit" value="Prijavi me" class="loginButton"> -->
+                </form>
+                <p>
+                    Ukoliko nemate nalog, registrujte se <a href="{% url 'register' %}">ovde</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-1 col-lg-3"></div>
 
-        <input type="submit" value="Prijavite se">
-    </form>
-
-    <p>
-        Ukoliko nemate nalog, registrujte se <a href="{% url 'register' %}">ovde</a>.
-    </p>
 {% endblock %}

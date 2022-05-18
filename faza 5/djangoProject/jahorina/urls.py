@@ -11,4 +11,5 @@ urlpatterns = [
     path('logout/', logoutRequest, name='logoutRequest'),
     path('register/', register, name='register'),
     path('instructors/', instructors, name='instructors'),
+    path('delete_skiinstrutor/', deleteSkiInstructor, name='deleteSkiInstructor')
 ]

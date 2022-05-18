@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
     <meta charset="UTF-8">
     <title>
@@ -17,9 +17,13 @@
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
 
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
+
+    {% block links %}
+
+    {% endblock %}
 </head>
-<body>
-    <div class="container">
+<body class="h-100">
+    <div class="container h-100">
 
         <div class="row" id="header">
 
@@ -56,9 +60,11 @@
             {% endblock %}
         </div>
 
-        <div class="row" id="footer">
-            <p>Copyright &copy 2022</p>
-        </div>
+        {% block footer %}
+            <div class="row" id="footer">
+                <p>Copyright &copy 2022</p>
+            </div>
+        {% endblock %}
     </div>
 </body>
 </html>

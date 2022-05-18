@@ -29,7 +29,6 @@ class SkiInstructor(MyUser):
         # username is validated in clean_username() method in SkiInstructorCreationForm class
         self._meta.get_field('username').validators = []
 
-
 class Category(Model):
     name = models.CharField(max_length=100)
     root = models.IntegerField() # 0 - jutarnja, 1 - popodnevna, 2 - vecernja

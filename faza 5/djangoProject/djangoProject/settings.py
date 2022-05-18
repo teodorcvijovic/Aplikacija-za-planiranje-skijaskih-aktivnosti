@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jahorina.apps.JahorinaConfig',
-    #'fontawesomefree' # remove in case of error, and add again if icons in .html files are not properly loaded
+    'fontawesomefree'  # remove in case of error, and add again if icons in .html files are not properly loaded
 ]
 
 MIDDLEWARE = [
