@@ -138,3 +138,12 @@ form button:hover {
     /* position: fixed;
     bottom: 0; */
 }
+
+.instDeleteButton {
+    color: red;
+}
+
+.instDeleteButton:hover {
+    color:white;
+    background-color: red;
+}

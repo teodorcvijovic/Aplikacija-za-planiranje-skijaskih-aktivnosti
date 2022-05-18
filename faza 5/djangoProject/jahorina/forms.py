@@ -62,17 +62,17 @@ class SkiInstructorCreationForm(Form):
         widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': '+38* ** *******'})
     )
     instagram = forms.CharField(
-        label='Instagram',
+        label='Link ka Instagram profilu',
         required=False,
         widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Opciono polje'})
     )
     facebook = forms.CharField(
-        label='Facebook',
+        label='Link ka Facebook profilu',
         required=False,
         widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Opciono polje'})
     )
     snapchat = forms.CharField(
-        label='Snapchat',
+        label='Link ka Snapchat profilu',
         required=False,
         widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Opciono polje'})
     )

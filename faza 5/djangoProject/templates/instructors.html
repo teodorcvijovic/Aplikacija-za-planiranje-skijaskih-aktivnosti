@@ -63,7 +63,7 @@
                     {% if perms.jahorina.delete_skiinstructor %}
                         <form method="post" action="{% url 'deleteSkiInstructor' %}">
                             {% csrf_token %}
-                            <button type="submit" name="skiinstructor_id" value="{{ instructor.id }}"><i class="fa-solid fa-user-xmark"></i>&nbsp;Ukloni</button>
+                            <button class="instDeleteButton" type="submit" name="skiinstructor_id" value="{{ instructor.id }}"><i class="fa-solid fa-user-xmark"></i>&nbsp;Ukloni</button>
                         </form>
                     {% endif %}
 
