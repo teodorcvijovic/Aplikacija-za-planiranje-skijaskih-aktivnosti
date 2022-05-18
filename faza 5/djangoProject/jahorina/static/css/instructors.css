@@ -1,9 +1,14 @@
+/* filip */
+/* css for page with instructors */
+
+/* for alert on top of the page */
 .instructors_alert {
     width: 80%;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
+/* for the entire row with all instructors */
 #instructorsRow {
     width: 80%;
     background-color: #c2e4f0;
@@ -12,22 +17,24 @@
     margin-bottom: 50px;
 }
 
+/* for container div with instructors card */
 .instructorBox {
-    margin-bottom: 5px;
-    margin-top: 10px;
+    background-color: #c2e4f0;
 }
 
-.instructorBox:hover {
+/* for instructors card animation */
+.instructors:hover {
     color: white;
     background-color: #48c798;
 }
 
+/* for various effects on social media buttons */
 #linksDiv a {
     text-decoration: none;
 }
 
 #linksDiv button {
-    border: 0px;
+    border: 0;
     border-radius: 5px;
     padding: 10px;
 }
