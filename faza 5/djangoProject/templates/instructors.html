@@ -13,17 +13,32 @@
 
 {% block content %}
 
-        <div id="instructorList" class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center">
 
-            {% if instructors %}
-                <div class="alert alert-light instructors_alert">
-                    Zakažite čas kod nekog od naših licenciranih ski-instruktora.
+            <div class="row" id="instructorsForm">
+
+                <div class="col-xl-4 col-lg-12" style="padding: 20px" id="searchText">
+                    {% if instructors %}
+                        Zakažite čas kod nekog od licenciranih ski-instruktora.
+                        {% else %}
+                        <i class="fa-regular fa-face-tired"></i>
+                        Nema instruktora koji ispunjavaju Vaše uslove.
+                    {% endif %}
                 </div>
-            {% else %}
-                <div class="alert alert-light instructors_alert">
-                    Nažalost, nema registrovanih ski-instruktora.
+
+                <div class="col-xl-8 col-lg-12" id="searchBar">
+
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ searchform }}
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            Pretraži
+                        </button>
+                    </form>
+
                 </div>
-            {% endif %}
+            </div>
 
         </div>
 
@@ -39,8 +54,9 @@
                 <!-- container box for instructors card -->
                 <div class="col-md-12 col-lg-6 col-xl-4 instructorBox">
 
-                <div class="alert alert-light instructors">
+                <div class="alert alert-light instructors" style="border:0">
                     <div style="font-size: larger">
+                        <i class="fa-solid fa-person-skiing"></i>
                         <strong>{{ instructor.name }} </strong>
                         {{ instructor.surname }} <br>
                     </div>
@@ -51,7 +67,7 @@
                         Iskustvo: {{ instructor.experience }} godina
                     {% endif %}
                     <br>
-                        Broj telefona: <a href="tel:{{ instructor.phone }}">{{ instructor.phone }}</a>
+                        <i class="fa-solid fa-phone"></i> &nbsp;<a href="tel:{{ instructor.phone }}">{{ instructor.phone }}</a>
                     <br><br>
 
                     <div id="linksDiv">

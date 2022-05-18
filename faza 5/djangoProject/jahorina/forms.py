@@ -1,7 +1,10 @@
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django import forms
+from django.forms import Form
+from pip._internal import req
 
 from jahorina.models import *
+
 
 # teodor
 class MyLoginForm(AuthenticationForm):
@@ -18,6 +21,7 @@ class MyLoginForm(AuthenticationForm):
             raise forms.ValidationError('Uneli ste neispravnu lozinku!')
 
         return self.cleaned_data
+
 
 # teodor
 class SkiInstructorCreationForm(UserCreationForm):
@@ -106,3 +110,17 @@ class SkiInstructorCreationForm(UserCreationForm):
     # def clean_birthdate(self):
     #     pass
     #     # TO DO: front-end
+
+
+# filip
+EXP_CHOICES = [
+    ('other', 'Prikaži sve'),
+    ('low', 'Do tri godine'),
+    ('mid', 'Od tri do pet godina'),
+    ('high', 'Preko pet godina')
+]
+
+
+class SkiInstructorSearchForm(Form):
+    name = forms.CharField(label='Ime', max_length=50, required=False)
+    experience = forms.CharField(label='Iskustvo instruktora', widget=forms.Select(choices=EXP_CHOICES))

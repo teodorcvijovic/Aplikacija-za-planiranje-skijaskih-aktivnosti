@@ -1,12 +1,14 @@
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import Group
+from django.db.models import Q
 from django.shortcuts import render, redirect
 
 from .forms import *
 from .models import *
 
 # Create your views here.
+
 
 # teodor
 # home page
@@ -16,6 +18,7 @@ def index(request):
 
     }
     return render(request, 'index.html', context)
+
 
 # teodor
 def loginRequest(request):
@@ -36,10 +39,12 @@ def loginRequest(request):
     }
     return render(request, 'authentication/login.html', context)
 
+
 # teodor
 def logoutRequest(request):
     logout(request)
     return redirect('index')
+
 
 # teodor
 def register(request):
@@ -58,10 +63,49 @@ def register(request):
     }
     return render(request, 'authentication/registration.html', context)
 
-# teodor
+
+# teodor & filip
 # page that shows all SkiInstructors
 def instructors(request):
-    ins = SkiInstructor.objects.all()
+    searchForm = SkiInstructorSearchForm(data=request.POST or None)
+    ins = []
+
+    if searchForm.is_valid():
+        name = searchForm.cleaned_data.get('name')
+
+        if name:
+            experience = searchForm.cleaned_data.get('experience')
+
+            if experience == 'low':
+                ins = SkiInstructor.objects.filter(
+                    Q(first_name__icontains=name) | Q(last_name__icontains=name), experience__lt=3
+                )
+            elif experience == 'mid':
+                ins = SkiInstructor.objects.filter(
+                    Q(first_name__icontains=name) | Q(last_name__icontains=name), experience__gte=3, experience__lt=5
+                )
+            elif experience == 'high':
+                ins = SkiInstructor.objects.filter(
+                    Q(first_name__icontains=name) | Q(last_name__icontains=name), experience__gte=5
+                )
+            else:
+                ins = SkiInstructor.objects.filter(
+                    Q(first_name__icontains=name) | Q(last_name__icontains=name)
+                )
+        else:
+            experience = searchForm.cleaned_data.get('experience')
+
+            if experience == 'low':
+                ins = SkiInstructor.objects.filter(experience__lt=3)
+            elif experience == 'mid':
+                ins = SkiInstructor.objects.filter(experience__gte=3, experience__lt=5)
+            elif experience == 'high':
+                ins = SkiInstructor.objects.filter(experience__gte=5)
+            else:
+                ins = SkiInstructor.objects.filter()
+
+    else:
+        ins = SkiInstructor.objects.all()
 
     # sending SkiInstructor objects without password field for safety reasons and without other unnecessary fields
     Instructors = [{
@@ -75,6 +119,7 @@ def instructors(request):
         } for i in ins]
 
     context = {
+        'searchform': searchForm,
         'instructors': Instructors
     }
     return render(request, 'instructors.html', context)

@@ -2,31 +2,61 @@
 /* css for page with instructors */
 
 /* for alert on top of the page */
+#instructorsForm {
+    background-color: white;
+    border-radius: 5px;
+    width: 80%;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px;
+
+}
+
 .instructors_alert {
     width: 80%;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
+
 /* for the entire row with all instructors */
 #instructorsRow {
     width: 80%;
     background-color: #c2e4f0;
     border-radius: 5px;
-    padding: 1%;
+    padding-top: 10px;
     margin-bottom: 50px;
 }
+
 
 /* for container div with instructors card */
 .instructorBox {
     background-color: #c2e4f0;
 }
 
+
+
 /* for instructors card animation */
+
+.instructors {
+    min-height: 180px;
+}
+
+.instructors .fa-phone {
+    color: #48c798;
+}
+
+.instructors:hover .fa-phone {
+    color: white;
+}
+
 .instructors:hover {
     color: white;
     background-color: #48c798;
 }
+
+
 
 /* for various effects on social media buttons */
 #linksDiv a {
@@ -56,4 +86,38 @@
 
 #btnSnap:hover {
     background-color: #FFFC00;
+}
+
+/* for search form */
+form {
+    float: right;
+}
+
+form input, select {
+    border: 1px solid #92cbdf;
+    border-radius: 5px;
+    padding: 10px;
+
+}
+
+form button {
+    border: 0;
+    border-radius: 5px;
+
+    background-color: #efefef;
+    padding: 10px;
+}
+
+form button:hover {
+    background-color: #48c798;
+    color: white;
+}
+
+#searchBar {
+    padding: 10px;
+}
+
+#searchText {
+    padding: 20px;
+    font-size: large;
 }
