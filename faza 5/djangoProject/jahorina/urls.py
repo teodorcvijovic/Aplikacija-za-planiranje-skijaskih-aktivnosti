@@ -11,7 +11,10 @@ urlpatterns = [
     path('logout/', logoutRequest, name='logoutRequest'),
     path('register/', register, name='register'),
 
-    # jahorina
+    # ski-instructors
     path('instructors/', instructors, name='instructors'),
+    path('delete_skiinstructor/', deleteSkiInstructor, name='deleteSkiInstructor'),
+
+    # day planning
     path('map/', map, name='map'),
 ]

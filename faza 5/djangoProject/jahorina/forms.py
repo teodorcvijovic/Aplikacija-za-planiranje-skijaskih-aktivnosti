@@ -102,11 +102,11 @@ class SkiInstructorCreationForm(Form):
 # filip
 EXP_CHOICES = [
     ('other', 'Prikaži sve'),
-    ('low', 'Do tri godine'),
-    ('mid', 'Od tri do pet godina'),
-    ('high', 'Preko pet godina')
+    ('low', 'Do 3 godine'),
+    ('mid', 'Od 3 do 5 godina'),
+    ('high', 'Preko 5 godina')
 ]
 
 class SkiInstructorSearchForm(Form):
     name = forms.CharField(label='Ime', max_length=50, required=False)
-    experience = forms.CharField(label='Iskustvo instruktora', widget=forms.Select(choices=EXP_CHOICES))
+    experience = forms.CharField(label='Iskustvo', widget=forms.Select(choices=EXP_CHOICES))

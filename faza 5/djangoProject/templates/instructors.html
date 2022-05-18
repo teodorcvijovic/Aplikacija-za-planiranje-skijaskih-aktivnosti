@@ -17,9 +17,9 @@
 
             <div class="row" id="instructorsForm">
 
-                <div class="col-xl-4 col-lg-12" style="padding: 20px" id="searchText">
+                <div class="col-xl-4 col-lg-12" style="padding: 0px" id="searchText">
                     {% if instructors %}
-                        Zakažite čas kod nekog od licenciranih ski-instruktora.
+                        Zakažite čas kod nekog od naših licenciranih ski-instruktora.
                         {% else %}
                         <i class="fa-regular fa-face-tired"></i>
                         Nema instruktora koji ispunjavaju Vaše uslove.
@@ -30,7 +30,11 @@
 
                     <form method="post">
                         {% csrf_token %}
-                        {{ searchform }}
+                        Ime:&nbsp;
+                        {{ searchform.name }}
+                        Iskustvo:&nbsp;
+                        {{ searchform.experience }}
+                        &nbsp;
                         <button type="submit">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             Pretraži
@@ -70,9 +74,9 @@
                     </div>
 
                     {% if instructor.experience == 3 or instructor.experience == 2 or instructor.experience == 4 %}
-                        Iskustvo: {{ instructor.experience }} godine
+                        <b>{{ instructor.experience }}</b> godine iskustva
                         {% else %}
-                        Iskustvo: {{ instructor.experience }} godina
+                        <b>{{ instructor.experience }}</b> godina iskustva
                     {% endif %}
                     <br>
                         <i class="fa-solid fa-phone"></i> &nbsp;<a href="tel:{{ instructor.phone }}">{{ instructor.phone }}</a>
@@ -82,7 +86,7 @@
                         {% if instructor.instagram %}
                             <a href="{{ instructor.instagram }}">
                                 <button id="btnInsta">
-                                   <i class="fa-brands fa-instagram"></i> Instagram
+                                   <i class="fa-brands fa-instagram"></i>&nbsp;Instagram
                                 </button>
                             </a>
                         {% endif %}
@@ -90,7 +94,7 @@
                         {% if instructor.facebook %}
                             <a href="{{ instructor.facebook }}">
                                 <button id="btnFb">
-                                    <i class="fa-brands fa-facebook"></i> Facebook
+                                    <i class="fa-brands fa-facebook"></i>&nbsp;Facebook
                                 </button>
                             </a>
                         {% endif %}
@@ -98,12 +102,13 @@
                         {% if instructor.snapchat %}
                             <a href="{{ instructor.snapchat }}">
                                 <button id="btnSnap">
-                                    <i class="fa-brands fa-snapchat"></i> Snapchat
+                                    <i class="fa-brands fa-snapchat" ></i>&nbsp;Snapchat
                                 </button>
                             </a>
                         {% endif %}
                     </div>
 
+                </div>
                 </div>
 
             {% endfor %}
@@ -113,6 +118,10 @@
 
     {% endif %}
 
-
-
 {% endblock %}
+
+{#{% block footer %}#}
+{#    <div class="row" id="instFooter">#}
+{#        <p>Copyright &copy 2022</p>#}
+{#    </div>#}
+{#{% endblock %}#}

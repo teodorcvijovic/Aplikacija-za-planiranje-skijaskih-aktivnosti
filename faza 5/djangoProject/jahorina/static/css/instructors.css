@@ -9,8 +9,8 @@
 
     margin-top: 20px;
     margin-bottom: 20px;
-    padding: 5px;
-
+    padding: 20px 5px 0px 15px;
+    vertical-align: middle;
 }
 
 .instructors_alert {
@@ -33,6 +33,7 @@
 /* for container div with instructors card */
 .instructorBox {
     background-color: #c2e4f0;
+    font-size: 15px;
 }
 
 
@@ -40,7 +41,7 @@
 /* for instructors card animation */
 
 .instructors {
-    min-height: 180px;
+    min-height: 170px;
 }
 
 .instructors .fa-phone {
@@ -66,7 +67,9 @@
 #linksDiv button {
     border: 0;
     border-radius: 5px;
-    padding: 10px;
+    padding: 4px;
+    font-size: 15px;
+    color: gray;
 }
 
 #btnInsta:hover {
@@ -94,9 +97,9 @@ form {
 }
 
 form input, select {
-    border: 1px solid #92cbdf;
+    border: 2px solid #92cbdf;
     border-radius: 5px;
-    padding: 10px;
+    padding: 8px;
 
 }
 
@@ -105,7 +108,7 @@ form button {
     border-radius: 5px;
 
     background-color: #efefef;
-    padding: 10px;
+    padding: 8px;
 }
 
 form button:hover {
@@ -114,10 +117,24 @@ form button:hover {
 }
 
 #searchBar {
-    padding: 10px;
+    /*padding: 10px;*/
+    min-height: 70px;
+    vertical-align: middle;
 }
 
 #searchText {
-    padding: 20px;
-    font-size: large;
+    /*padding: 20px;*/
+    /*font-size: large;*/
+    min-height: 70px;
+    vertical-align: middle;
+}
+
+#instFooter {
+	width: 100%;
+    padding: 0;
+    margin: 0;
+	text-align: center;
+
+    /* position: fixed;
+    bottom: 0; */
 }
