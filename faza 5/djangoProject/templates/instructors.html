@@ -1,4 +1,4 @@
-<!-- teodor -->
+<!-- teodor & filip -->
 <!-- ski instructors -->
 {% extends 'base.html' %}
 {% load static %}
@@ -55,6 +55,14 @@
                 <div class="col-md-12 col-lg-6 col-xl-4 instructorBox">
 
                 <div class="alert alert-light instructors" style="border:0">
+                    <!-- delete button -->
+                    {% if perms.jahorina.delete_skiinstructor %}
+                        <form method="post" action="{% url 'deleteSkiInstructor' %}">
+                            {% csrf_token %}
+                            <button type="submit" name="skiinstructor_id" value="{{ instructor.id }}"><i class="fa-solid fa-user-xmark"></i>&nbsp;Ukloni</button>
+                        </form>
+                    {% endif %}
+
                     <div style="font-size: larger">
                         <i class="fa-solid fa-person-skiing"></i>
                         <strong>{{ instructor.name }} </strong>
@@ -95,8 +103,6 @@
                             </a>
                         {% endif %}
                     </div>
-
-                </div>
 
                 </div>
 

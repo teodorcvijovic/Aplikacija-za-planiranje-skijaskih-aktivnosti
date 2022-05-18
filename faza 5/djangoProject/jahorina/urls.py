@@ -10,6 +10,8 @@ urlpatterns = [
     path('login/', loginRequest, name='loginRequest'),
     path('logout/', logoutRequest, name='logoutRequest'),
     path('register/', register, name='register'),
+
+    # jahorina
     path('instructors/', instructors, name='instructors'),
     path('map/', map, name='map'),
 ]

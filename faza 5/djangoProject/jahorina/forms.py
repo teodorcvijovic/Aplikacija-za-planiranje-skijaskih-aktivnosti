@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django import forms
 from django.forms import Form
@@ -8,6 +9,12 @@ from jahorina.models import *
 
 # teodor
 class MyLoginForm(AuthenticationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite korisničko ime'})
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite lozinku'})
+    )
 
     def clean(self):
         username = self.cleaned_data.get('username')
@@ -17,100 +24,80 @@ class MyLoginForm(AuthenticationForm):
 
         if not user:
             raise forms.ValidationError('Korisnik nije registrovan!')
-        elif user.password != password:
+        elif not authenticate(username=username, password=password):
             raise forms.ValidationError('Uneli ste neispravnu lozinku!')
 
         return self.cleaned_data
 
 
 # teodor
-class SkiInstructorCreationForm(UserCreationForm):
+class SkiInstructorCreationForm(Form):
     username = forms.CharField(
         label='Korisničko ime',
-        widget=forms.TextInput(),  # css class can be specified in attrs dict
-        validators=[]  # removing predefined username validators
+        widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite korisničko ime'}),  # css class can be specified in attrs dict
+        # validators=[],  # removing predefined username validators
     )
     password1 = forms.CharField(
         label='Lozinka',
-        widget=forms.PasswordInput()
+        widget=forms.PasswordInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite lozinku'}),
     )
     password2 = forms.CharField(
         label='Potvrda lozinke',
-        widget=forms.PasswordInput()
+        widget=forms.PasswordInput(attrs={'class': 'loginInputs', 'placeholder': 'Potvrdite unetu lozinku'}),
     )
     first_name = forms.CharField(
         label='Ime',
-        widget=forms.TextInput()
+        widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite ime'})
     )
     last_name = forms.CharField(
         label='Prezime',
-        widget=forms.TextInput()
+        widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite prezime'})
     )
     email = forms.EmailField(
         label='Email adresa',
-        widget=forms.EmailInput()
+        widget=forms.EmailInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite e-mail adresu'})
     )
     phone = forms.CharField(
         label='Broj telefona',
-        widget=forms.TextInput(attrs={'placeholder': '+38* ** *******'})
+        widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': '+38* ** *******'})
     )
     instagram = forms.CharField(
         label='Instagram',
         required=False,
-        widget=forms.TextInput(attrs={'placeholder': 'Opciono polje'})
+        widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Opciono polje'})
     )
     facebook = forms.CharField(
         label='Facebook',
         required=False,
-        widget=forms.TextInput(attrs={'placeholder': 'Opciono polje'})
+        widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Opciono polje'})
     )
     snapchat = forms.CharField(
         label='Snapchat',
         required=False,
-        widget=forms.TextInput(attrs={'placeholder': 'Opciono polje'})
+        widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Opciono polje'})
     )
     experience = forms.IntegerField(
         label='Godine iskustva',
-        widget=forms.NumberInput(attrs={'min': 0})
+        widget=forms.NumberInput(attrs={'class': 'loginInputs', 'min': 0})
     )
     birthdate = forms.DateField(
         label='Datum rođenja',
-        widget=forms.widgets.DateInput(attrs={'type': 'date'})
+        widget=forms.widgets.DateInput(attrs={'class': 'loginInputs', 'type': 'date'})
     )
 
-    class Meta:
-        model = SkiInstructor
-        fields = ['username', 'password1', 'password2', 'first_name', 'last_name',
-                  'email', 'phone', 'instagram', 'facebook', 'snapchat', 'experience', 'birthdate']
+    # class Meta:
+    #     model = SkiInstructor
+    #     fields = ['username', 'password1', 'password2', 'first_name', 'last_name',
+    #               'email', 'phone', 'instagram', 'facebook', 'snapchat', 'experience', 'birthdate']
 
-    def clean_username(self):
-        username = self.cleaned_data.get('username')
-
-        user = MyUser.objects.filter(username=username).first()
-
-        if user:
-            raise forms.ValidationError('Korisnik sa datim korisničkim imenom već postoji!')
-
-        return self.cleaned_data
-
-    def clean_password2(self):
-        # TO DO: front-end
-        password1 = self.cleaned_data.get('password1')
-        password2 = self.cleaned_data.get('password2')
-
-        if password1 != password2:
-            raise forms.ValidationError('Lozinke se ne poklapaju!')
-
-        return self.cleaned_data
-
-    # def clean_phone(self):
-    #     pass
-    #     # TO DO: front-end
+    # def clean_username(self):
+    #     username = self.cleaned_data.get('username')
     #
-    # def clean_birthdate(self):
-    #     pass
-    #     # TO DO: front-end
-
+    #     user = MyUser.objects.filter(username=username).first()
+    #
+    #     if user:
+    #         raise forms.ValidationError('Korisnik sa datim korisničkim imenom već postoji!')
+    #
 
 # filip
 EXP_CHOICES = [
@@ -119,7 +106,6 @@ EXP_CHOICES = [
     ('mid', 'Od tri do pet godina'),
     ('high', 'Preko pet godina')
 ]
-
 
 class SkiInstructorSearchForm(Form):
     name = forms.CharField(label='Ime', max_length=50, required=False)
