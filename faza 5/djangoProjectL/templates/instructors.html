@@ -1,0 +1,25 @@
+<!-- teodor -->
+<!-- ski instructors -->
+{% extends 'base.html' %}
+
+{% block title %}
+    Naši ski-instruktori
+{% endblock %}
+
+{% block content %}
+   <div id="instructorList">
+        {% if instructors %}
+            <p>
+                Zakažite čas kod nekog od naših licenciranih ski-instruktora.
+            </p>
+            {% for instructor in instructors %}
+                <div id="instructor">
+                    <!-- TO DO: front-end view -->
+                    {{ instructor.name }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Nažalost, nema registrovanih ski-instruktora.</p>
+        {% endif %}
+   </div>
+{% endblock %}
