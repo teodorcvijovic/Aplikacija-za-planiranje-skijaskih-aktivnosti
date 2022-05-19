@@ -44,8 +44,16 @@
                         {#/* had to be changed to id, because it interfered with the carousel */#}
                         <li class="nav-item"><a href="{% url 'index' %}" class="active" id="activeNavItem"><i class="fa-solid fa-house-chimney"></i>&nbsp;Početna</a></li>
                         <li class="nav-item"><a href="{% url 'instructors' %}"><i class="fa-solid fa-person-skiing"></i>&nbsp;Instruktori</a></li>
-                        <li class="nav-item"><a href="#">Stranica 2</a></li>
-                        <li class="nav-item"><a href="#">Stranica 3</a></li>
+                        <li class="nav-item"><a href="{% url 'trackInformation' %}"><i class="fa-solid fa-mountain"></i>&nbsp;Staze</a></li>
+                        <li class="nav-item"><a href="{% url 'planMyDayFirst' %}"><i class="fa-solid fa-pen"></i>&nbsp;Isplaniraj moj dan</a></li>
+
+                        {% if user.is_authenticated %}
+                            <li class="nav-item"><a href="{% url 'addActivity' %}"><i class="fa-solid fa-calendar-plus"></i>&nbsp;Dodaj aktivnost</a></li>
+
+                            {% if perms.jahorina.delete_activity %}
+                                <li class="nav-item"><a href="{% url 'showAllActivities' %}"><i class="fa-solid fa-bolt"></i>&nbsp;Prikaz svih aktivnosti</a></li>
+                            {% endif %}
+                        {% endif %}
                     </ul>
                 </div>
 
