@@ -11,10 +11,22 @@ urlpatterns = [
     path('logout/', logoutRequest, name='logoutRequest'),
     path('register/', register, name='register'),
 
-    # ski-instructors
+    # instructors
     path('instructors/', instructors, name='instructors'),
-    path('delete_skiinstructor/', deleteSkiInstructor, name='deleteSkiInstructor'),
 
     # day planning
-    path('map/', map, name='map'),
+    path('addActivity/', addActivity, name='addActivity'),
+    path('showAllActivities/', showAllActivities, name='showAllActivities'),
+    path('deleteActivity', deleteActivity, name='deleteActivity'),
+    path('addCategory/', addCategory, name='addCategory'),
+    path('deleteCategory/', deleteCategory, name='deleteCategory'),
+    path('defineActivity/', defineActivity, name='defineActivity'),
+    path('planMyDayFirst/', planMyDayFirst, name='planMyDayFirst'),
+    path('planMyDaySecond/', planMyDaySecond, name='planMyDaySecond'),
+
+    # tracks
+    path('trackInformation/', showTrackInformation, name='trackInformation'),
+    path('updateTrackInformation/', updateTrackInformation, name='updateTrackInformation'),
+    path('deleteSkiTrack/', deleteSkiTrack, name='deleteSkiTrack'),
+    path('addTrack/', addTrack, name='addTrack'),
 ]
