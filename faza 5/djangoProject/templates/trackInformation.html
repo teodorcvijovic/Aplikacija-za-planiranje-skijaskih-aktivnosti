@@ -1,0 +1,68 @@
+<!-- lara -->
+{% extends 'base.html' %}
+
+{% block title %}
+    Ski-staze Jahorine
+{% endblock %}
+
+{% block content %}
+    <!-- TO DO: home page content -->
+     <div class="container">
+      <h3>Obavestenja o stazama:</h3>
+         {% for track in tracks %}
+             <div class="row ">
+                <div class="offset-sm-2 col-sm-6" style="background-color: lightpink; margin-bottom: 20px" >
+                   <!--ispis traka-->
+                    <h4>  {{ track.name }}</h4>
+                    Tezina: {% if track.color == 0 %}
+                                   Plava staza. <br>
+                            {% endif %}
+                            {% if track.color == 1 %}
+                                Crvena staza. <br>
+                            {% endif %}
+                            {% if track.color == 2 %}
+                                Crna staza. <br>
+                            {% endif %}
+                    Duzina: {{ track.length }} km <br>
+                    <hr>
+                    Maglovitost: {% if track.is_foggy == True %}
+                                   Maglovito. <br>
+                                 {% endif %}
+                                {% if track.is_foggy == False %}
+                                    Nije maglovito. <br>
+                                {% endif %}
+                    Guzva: {% if track.is_busy == True %}
+                                Velika guzva. <br>
+                           {% endif %}
+                           {% if track.is_busy == False %}
+                                Nema guzve. <br>
+                           {% endif %}
+                    Stanje staze: {% if track.is_opened == True %}
+                                   Otvorena staza. <br>
+                                  {% endif %}
+                                  {% if track.is_opened == False %}
+                                   Zatvorena staza. <br>
+                                  {% endif %}
+                    Azurirano: {{ track.last_updated }} <br>
+
+                    <div class="alert alert-light"> {{ track.comment }}</div>
+                    {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'updateTrackInformation' %}">
+                             {% csrf_token %}
+                             <button type="submit" class="btn btn-success" name="updateTrack" value="{{ track.id }}">Azuriraj</button>
+                        </form>
+                    {% endif %}
+                </div>
+             </div>
+         </div>
+        {% endfor %}
+
+
+    {% if user.is_authenticated %}
+        <!-- teodor -->
+        <!-- redirect to addTrack page -->
+         <button class="btn" type="submit" onclick="window.location.href={% url 'addTrack' %}"><i class="fa-solid fa-plus"></i>&nbsp;Dodaj novu stazu</button>
+    {% else %}
+
+    {% endif %}
+{% endblock %}

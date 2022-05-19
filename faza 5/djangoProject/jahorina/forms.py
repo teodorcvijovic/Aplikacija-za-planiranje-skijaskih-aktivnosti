@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django import forms
-from django.forms import Form
+from django.forms import Form, ModelForm
 from pip._internal import req
 
 from jahorina.models import *
@@ -31,7 +31,7 @@ class MyLoginForm(AuthenticationForm):
 
 
 # teodor
-class SkiInstructorCreationForm(Form):
+class SkiInstructorCreationForm(UserCreationForm):
     username = forms.CharField(
         label='Korisničko ime',
         widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite korisničko ime'}),  # css class can be specified in attrs dict
@@ -85,10 +85,10 @@ class SkiInstructorCreationForm(Form):
         widget=forms.widgets.DateInput(attrs={'class': 'loginInputs', 'type': 'date'})
     )
 
-    # class Meta:
-    #     model = SkiInstructor
-    #     fields = ['username', 'password1', 'password2', 'first_name', 'last_name',
-    #               'email', 'phone', 'instagram', 'facebook', 'snapchat', 'experience', 'birthdate']
+    class Meta:
+        model = SkiInstructor
+        fields = ['username', 'password1', 'password2', 'first_name', 'last_name',
+                  'email', 'phone', 'instagram', 'facebook', 'snapchat', 'experience', 'birthdate']
 
     # def clean_username(self):
     #     username = self.cleaned_data.get('username')
@@ -110,3 +110,66 @@ EXP_CHOICES = [
 class SkiInstructorSearchForm(Form):
     name = forms.CharField(label='Ime', max_length=50, required=False)
     experience = forms.CharField(label='Iskustvo', widget=forms.Select(choices=EXP_CHOICES))
+
+#lara
+class AddActivityForm(ModelForm):
+    class Meta:
+        model = Activity;
+        fields=['skitrack','obj_name','obj_contact'];
+        labels={
+            'skitrack':'Staza na kojoj se nalazi aktivnost:',
+            'obj_name':'Naziv objekta:',
+            'obj_contact':'Kontakt telefon objekta:',
+        }
+
+        #KOMENTAR ZA FILIPA
+        #svi dijelovi forme imaju klasu "addActClass", da mozes da ih stilizujes
+        def __init__(self, *args, **kwargs):
+            super(AddActivityForm, self).__init__(*args, **kwargs)  # Call to ModelForm constructor
+            for field in self.fields.values():
+                field.widget.attrs.update({'class': 'addActClass'})
+
+#lara
+class AddCategoryForm(ModelForm):
+    root=forms.ChoiceField(choices=[(0,'jutarnja'), (1,'popodnevna'), (2,'vecernja')], label='Tip kategorije');
+    class Meta:
+        model=Category;
+        fields=["name"]
+        labels = {
+            'name': 'Naziv kategorije:',
+        }
+
+#lara
+class UpdateTrackForm(ModelForm):
+    CHOICES = [(1, 'Otvorena'),   (0, 'Zatvorena')]
+
+    opened = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect, label='Stanje staze:')
+
+    class Meta:
+        model=SkiTrack;
+        fields=['is_foggy','is_busy','comment'];
+        labels={
+            'is_foggy': 'Maglovitost:',
+            'is_busy':'Guzva:',
+            'comment':'Komentar'
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(UpdateTrackForm, self).__init__(*args, **kwargs)
+        self.fields['comment'].required = False
+
+# teodor
+class AddTrackForm(Form):
+    name = forms.CharField(
+        label='Naziv',
+        widget=forms.TextInput(attrs={'placeholder': 'Unesite naziv staze'})
+    )
+
+    TRACK_COLORS = [(0, 'Plava'), (1, 'Crvena'), (2, 'Crna')]
+    color = forms.ChoiceField(choices=TRACK_COLORS, widget=forms.RadioSelect, label='Boja', initial={'0', 'Plava'})
+
+    length = forms.IntegerField(
+        label='Dužina',
+        widget=forms.NumberInput(attrs={'placeholder': 'Unesite dužinu u metrima', 'min': 0})
+    )
+
