@@ -1,0 +1,19 @@
+#carouselExampleControls {
+    height: 700px;
+}
+
+.carousel-inner {
+    height: 700px;
+
+}
+
+.carousel-item {
+    height: 700px;
+}
+
+#carouselDiv {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 50px;
+}

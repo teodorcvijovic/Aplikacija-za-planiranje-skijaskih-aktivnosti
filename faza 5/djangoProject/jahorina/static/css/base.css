@@ -86,9 +86,17 @@ div.container {
 }
 
 /* Current/active navbar link */
-.active {
+/* filip */
+/* had to be changed, because it interfered with the carousel */
+#activeNavItem {
   background-color: #04AA6D;
 }
+
+#activeNavItem:hover {
+    background-color: #000;
+    color: white;
+}
+
 
 /*!* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels *!*/
 /*@media screen and (max-width: 500px) {*/
