@@ -1,6 +1,7 @@
 <!-- teodor -->
 <!-- home page -->
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     Jahorina - Ko preživi, pričaće!
@@ -17,9 +18,4 @@
         </script>
     </div>
 
-    {% if user.is_authenticated %}
-
-    {% else %}
-
-    {% endif %}
 {% endblock %}
