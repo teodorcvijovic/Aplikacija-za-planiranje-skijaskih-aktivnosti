@@ -1,0 +1,127 @@
+<!-- teodor & filip -->
+<!-- ski instructors -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Naši ski-instruktori
+{% endblock %}
+
+{% block links %}
+<link href="{% static 'css/instructors.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+        <div class="d-flex justify-content-center">
+
+            <div class="row" id="instructorsForm">
+
+                <div class="col-xl-4 col-lg-12" style="padding: 0px" id="searchText">
+                    {% if instructors %}
+                        Zakažite čas kod nekog od naših licenciranih ski-instruktora.
+                        {% else %}
+                        <i class="fa-regular fa-face-tired"></i>
+                        Nema instruktora koji ispunjavaju Vaše uslove.
+                    {% endif %}
+                </div>
+
+                <div class="col-xl-8 col-lg-12" id="searchBar">
+
+                    <form method="post">
+                        {% csrf_token %}
+                        Ime:&nbsp;
+                        {{ searchform.name }}
+                        Iskustvo:&nbsp;
+                        {{ searchform.experience }}
+                        &nbsp;
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            Pretraži
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+    <!-- filip -->
+    <!-- this row will be displayed only if there is instructors
+     it is not in the if above, because of the display issues-->
+    {% if instructors %}
+        <div class="d-flex justify-content-center">
+        <div class="row" id="instructorsRow">
+
+            {% for instructor in instructors %}
+
+                <!-- container box for instructors card -->
+                <div class="col-md-12 col-lg-6 col-xl-4 instructorBox">
+
+                <div class="alert alert-light instructors" style="border:0">
+                    <!-- delete button -->
+                    {% if perms.jahorina.delete_skiinstructor %}
+                        <form method="post" action="{% url 'deleteSkiInstructor' %}">
+                            {% csrf_token %}
+                            <button class="instDeleteButton" type="submit" name="skiinstructor_id" value="{{ instructor.id }}"><i class="fa-solid fa-user-xmark"></i>&nbsp;Ukloni</button>
+                        </form>
+                    {% endif %}
+
+                    <div style="font-size: larger">
+                        <i class="fa-solid fa-person-skiing"></i>
+                        <strong>{{ instructor.name }} </strong>
+                        {{ instructor.surname }} <br>
+                    </div>
+
+                    {% if instructor.experience == 3 or instructor.experience == 2 or instructor.experience == 4 %}
+                        <b>{{ instructor.experience }}</b> godine iskustva
+                        {% else %}
+                        <b>{{ instructor.experience }}</b> godina iskustva
+                    {% endif %}
+                    <br>
+                        <i class="fa-solid fa-phone"></i> &nbsp;<a href="tel:{{ instructor.phone }}">{{ instructor.phone }}</a>
+                    <br><br>
+
+                    <div id="linksDiv">
+                        {% if instructor.instagram %}
+                            <a href="{{ instructor.instagram }}">
+                                <button id="btnInsta">
+                                   <i class="fa-brands fa-instagram"></i>&nbsp;Instagram
+                                </button>
+                            </a>
+                        {% endif %}
+
+                        {% if instructor.facebook %}
+                            <a href="{{ instructor.facebook }}">
+                                <button id="btnFb">
+                                    <i class="fa-brands fa-facebook"></i>&nbsp;Facebook
+                                </button>
+                            </a>
+                        {% endif %}
+
+                        {% if instructor.snapchat %}
+                            <a href="{{ instructor.snapchat }}">
+                                <button id="btnSnap">
+                                    <i class="fa-brands fa-snapchat" ></i>&nbsp;Snapchat
+                                </button>
+                            </a>
+                        {% endif %}
+                    </div>
+
+                </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+        </div>
+
+    {% endif %}
+
+{% endblock %}
+
+{#{% block footer %}#}
+{#    <div class="row" id="instFooter">#}
+{#        <p>Copyright &copy 2022</p>#}
+{#    </div>#}
+{#{% endblock %}#}
