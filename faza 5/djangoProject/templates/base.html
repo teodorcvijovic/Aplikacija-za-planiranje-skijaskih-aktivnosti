@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
     <meta charset="UTF-8">
     <title>
@@ -9,6 +9,7 @@
         Title
         {% endblock %}
     </title>
+
     <link rel="shortcut icon" href="{% static 'icons/browser_icon.ico' %}">
 
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -17,9 +18,13 @@
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
 
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
+
+    {% block links %}
+
+    {% endblock %}
 </head>
-<body>
-    <div class="container">
+<body class="h-100">
+    <div class="container h-100">
 
         <div class="row" id="header">
 
@@ -35,19 +40,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent" >
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a href="{% url 'index' %}" class="active"><i class="fa-solid fa-house-chimney"></i>&nbsp;Početna</a></li>
+                        {#/* filip */#}
+                        {#/* had to be changed to id, because it interfered with the carousel */#}
+                        <li class="nav-item"><a href="{% url 'index' %}" class="active" id="activeNavItem"><i class="fa-solid fa-house-chimney"></i>&nbsp;Početna</a></li>
                         <li class="nav-item"><a href="{% url 'instructors' %}"><i class="fa-solid fa-person-skiing"></i>&nbsp;Instruktori</a></li>
-                        <li class="nav-item"><a href="{% url 'trackInformation' %}"><i class="fa-solid fa-mountain"></i>&nbsp;Staze</a></li>
-                        <li class="nav-item"><a href="{% url 'planMyDayFirst' %}"><i class="fa-solid fa-pen"></i>&nbsp;Isplaniraj moj dan</a></li>
-
-                        {% if user.is_authenticated %}
-                        <li class="nav-item"><a href="{% url 'addActivity' %}"><i class="fa-solid fa-calendar-plus"></i>&nbsp;Dodaj aktivnost</a></li>
-
-                            {% if perms.jahorina.delete_activity %}
-                                <li class="nav-item"><a href="{% url 'showAllActivities' %}"><i class="fa-solid fa-bolt"></i>&nbsp;Prikaz svih aktivnosti</a></li>
-                            {% endif %}
-                        {% endif %}
-
+                        <li class="nav-item"><a href="#">Stranica 2</a></li>
+                        <li class="nav-item"><a href="#">Stranica 3</a></li>
                     </ul>
                 </div>
 
@@ -65,9 +63,11 @@
             {% endblock %}
         </div>
 
-        <div class="row" id="footer">
-            <p>Copyright &copy 2022</p>
-        </div>
+        {% block footer %}
+            <div class="row" id="footer">
+                <p>Copyright &copy 2022</p>
+            </div>
+        {% endblock %}
     </div>
 </body>
 </html>

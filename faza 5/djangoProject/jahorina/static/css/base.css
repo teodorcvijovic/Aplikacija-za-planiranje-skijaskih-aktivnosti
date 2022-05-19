@@ -5,12 +5,24 @@
     src: url(../fonts/logoFont.ttf);
 }
 
+@font-face {
+    font-family: bodyFont;
+    src: url(../fonts/Quicksand-Medium.ttf);
+}
+
+html {
+    height: 100%;
+}
+
 body {
     background-color: #92cbdf; /* light blue */
+    font-family: bodyFont, sans-serif;
+    height: 100%;
 }
 
 div.container {
 	width:100%;
+    height:100%;
 	margin: 0;
 	padding: 0;
 	max-width: none;
@@ -35,23 +47,26 @@ div.container {
 }
 
 #navigationBar {
+    font-family: bodyFont, sans-serif;
 	background-color: #0f3c4c; /* dark */
 	padding: 0;
     width: 100%;
 }
 
-.col-sm-12 {
-    width: 100%;
-}
+/*.col-sm-12 {*/
+/*    width: 100%;*/
+/*    margin: 0;*/
+/*}*/
 
 /* Style the navigation bar */
 .navbar {
-  width: 100%;
-  background-color: #555;
-  /*overflow: auto;*/
-  justify-content: left;
-  flex: auto;
-  padding: 5px;
+    width: 100%;
+    background-color: #555;
+    /*overflow: auto;*/
+    justify-content: left;
+    flex: auto;
+    padding: 5px;
+    font-family: 'bodyFont', sans-serif;
 }
 
 /* Navbar links */
@@ -71,9 +86,17 @@ div.container {
 }
 
 /* Current/active navbar link */
-.active {
+/* filip */
+/* had to be changed, because it interfered with the carousel */
+#activeNavItem {
   background-color: #04AA6D;
 }
+
+#activeNavItem:hover {
+    background-color: #000;
+    color: white;
+}
+
 
 /*!* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels *!*/
 /*@media screen and (max-width: 500px) {*/
@@ -101,6 +124,7 @@ div.container {
     width: 100%;
     padding: 0;
     margin: 0;
+    /*height: 100%;*/
 }
 
 #footer {

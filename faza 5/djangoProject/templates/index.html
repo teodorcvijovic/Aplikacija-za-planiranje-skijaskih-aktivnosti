@@ -1,6 +1,13 @@
 <!-- teodor -->
 <!-- home page -->
 {% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    <script src="{% static 'jquery/jquery-3.6.0.js' %}"></script>
+    <script src = "{% static 'js/index.js' %}"></script>
+{% endblock %}
 
 {% block title %}
     Jahorina - Ko preživi, pričaće!
@@ -8,9 +15,66 @@
 
 {% block content %}
     <!-- TO DO: home page content -->
-    {% if user.is_authenticated %}
 
-    {% else %}
+    <!-- weather -->
+    <div style="margin:0; padding: 0; width: 100%">
+        <a class="weatherwidget-io" href="https://forecast7.com/sr/43d7418d56/jahorina/" data-icons="Climacons Animated" data-basecolor="#15546b" data-textcolor="#f3ebdb" >Jahorina, Bosnia and Herzegovina</a>
+        <script>
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+        </script>
+    </div>
 
-    {% endif %}
+    <div id="carouselDiv">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static "images/slidza1.jpg" %}" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 >Poljice</h1>
+                        <p>Naš cilj je da osiguramo dobar provod svim skijašima koji su se odlučili da posete skijalište na Jahorini!</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{% static "images/slidza2.jpg" %}" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Ogorjelica</h1>
+                        <p>Da li dnevne aktivnosti uključuju i pauzu za rakiju i ćevape ili isključivo skijanje zavisi samo od Vas!</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{% static "images/slidza3.jpg" %}" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Rajska vrata</h1>
+                        <p>Tu smo da pomognemo pri planiranju aktivnosti tokom Vašeg boravka.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+{#    <div class="row" id="indexFooter">#}
+{#                <p>Copyright &copy 2022</p>#}
+{#    </div>#}
 {% endblock %}

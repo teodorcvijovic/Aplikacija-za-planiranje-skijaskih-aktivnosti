@@ -1,0 +1,36 @@
+#carouselExampleControls {
+    height: 700px;
+}
+
+.carousel-inner {
+    height: 700px;
+
+}
+
+.carousel-item {
+    height: 700px;
+}
+
+#carouselDiv {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /*margin-bottom: 50px;*/
+}
+
+.carousel-item img{
+    height: 100% !important;
+    width:  100% !important;
+}
+
+.carousel-caption {
+   position: absolute;
+   top: 40px
+}
+
+#indexFooter {
+	width: 100%;
+    padding: 0;
+    margin: 0;
+	text-align: center;
+}
