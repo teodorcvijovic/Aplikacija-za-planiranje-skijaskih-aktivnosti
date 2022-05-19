@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SESSION_ENGINE ="django.contrib.sessions.backends.signed_cookies";
+
 
 # Application definition
 
@@ -38,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jahorina.apps.JahorinaConfig',
-    'fontawesomefree' # remove in case of error, and add again if icons in .html files are not properly loaded
+    #'fontawesomefree' # remove in case of error, and add again if icons in .html files are not properly loaded
 ]
 
 MIDDLEWARE = [
@@ -81,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'jahorina', # database name
         'USER': 'root',
-        'PASSWORD': 'Lozinka123.', # depends on your local mysql settings
+        'PASSWORD':'Lozinka123.', # depends on your local mysql settings
         'PORT': '3306',
         'HOST': 'localhost'
     }

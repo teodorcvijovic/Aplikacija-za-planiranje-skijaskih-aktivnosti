@@ -1,0 +1,25 @@
+<!-- lara -->
+
+{% extends 'base.html' %}
+
+{% block title %}
+   Dodajte novu aktivnost
+{% endblock %}
+
+{% block content %}
+    <!-- TO DO: home page content -->
+    {% if user.is_authenticated %}
+        <h1> {{ msg }}</h1>
+        <h3>Kategorija: {{ category }} </h3>
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+              {{ field.label_tag }} {{ field }} <br>
+            {% endfor %}
+
+             <button type="submit" name="category" value="{{ category }}">Dodaj aktivnost</button>
+        </form>
+    {% else %}
+
+    {% endif %}
+{% endblock %}
