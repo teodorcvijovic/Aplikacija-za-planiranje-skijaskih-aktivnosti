@@ -1,23 +1,63 @@
 <!-- lara -->
-
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
    Dodajte novu aktivnost
 {% endblock %}
 
-{% block content %}
-    <!-- TO DO: home page content -->
-    {% if user.is_authenticated %}
-        <h3>Dodajte novu kategoriju: </h3>
+{% block links %}
+    <link href="{% static "css/addCategory.css" %}" rel="stylesheet">
+{% endblock %}
 
-          <form method="post">
-            {% csrf_token %}
-            {% for field in form %}
-              {{ field.label_tag }} {{ field }} <br>
-            {% endfor %}
-             <input type="submit" value="Dodaj kategoriju">
-        </form>
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class = "row justify-content-center">
+        <div class="alert alert-light" id="addCategoryContent">
+            <form method="post">
+                {% csrf_token %}
+                <div style="display: inline">
+                    <h3>Naziv kategorije aktivnosti&nbsp; {{ form.name }}</h3>
+                </div>
+                <hr>
+                <h5>Vaša kategorija obuhvata</h5>
+
+                        <input type="radio" class="btn-check" name="root" id="plava-outlined" value="0">
+                        <label class="btn  btn-outline-secondary" for="plava-outlined" id="plavaLabel"><i class="fa-solid fa-sun"></i>&nbsp;Jutarnje aktivnosti</label>
+
+                        <input type="radio" class="btn-check" name="root" id="crvena-outlined" value="1">
+                        <label class="btn  btn-outline-secondary" for="crvena-outlined" id="crvenaLabel"><i class="fa-solid fa-person-skiing"></i>&nbsp;Popopodnevne aktivnosti</label>
+
+                        <input type="radio" class="btn-check" name="root" id="crna-outlined" value="2">
+                        <label class="btn btn-outline-secondary" for="crna-outlined" id="crnaLabel" ><i class="fa-solid fa-moon"></i>&nbsp;Večernje aktivnosti</label>
+
+                <br>
+                <hr>
+                {% if errors %}
+                    <h6 style="color: crimson; margin-top: 25px">
+                        Kategorija sa datim imenom već postoji!
+                    </h6>
+                {% endif %}
+                <button class="btn btn-outline-success" id="addButton"  type="submit">
+                    <i class="fa-solid fa-plus"></i>&nbsp;
+                    Dodaj
+                </button>
+                <button class="btn btn-outline-secondary" id="cancelButton" onclick="window.location.href={% url 'addActivity' %}">
+                    <i class="fa-solid fa-ban"></i> Otkaži
+                </button>
+
+            </form>
+        </div>
+        </div>
+{#        <h3>Dodajte novu kategoriju: </h3>#}
+{##}
+{#          <form method="post">#}
+{#            {% csrf_token %}#}
+{#            {% for field in form %}#}
+{#              {{ field.label_tag }} {{ field }} <br>#}
+{#            {% endfor %}#}
+{#             <input type="submit" value="Dodaj kategoriju">#}
+{#        </form>#}
 
     {% endif %}
 {% endblock %}

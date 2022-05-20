@@ -8,7 +8,6 @@
 
 {% block links %}
     <link href="{% static "css/addTrack.css" %}" rel="stylesheet">
-
 {% endblock %}
 
 {% block content %}
@@ -17,10 +16,10 @@
             <form method="post">
                 {% csrf_token %}
                 <div style="display: inline">
-                    <h3>{{ trackform.name.label_tag }} {{ trackform.name }}</h3>
+                    <h3>Naziv&nbsp; {{ trackform.name }}</h3>
                 </div>
                 <hr>
-                <h5>Odaberite boju staze:</h5>
+                <h5><i class="fa-solid fa-flag"></i>&nbsp;Odaberite boju staze</h5>
             
 {#                {% for value, text in trackform.color.field.choices %}#}
 {#                    {% if value == 0 %}#}
@@ -38,10 +37,16 @@
 {#                {% endfor %}#}
             
 {#                {{ trackform.color }}#}
-                <br><br>
-                <h5><i class="fa-solid fa-ruler"></i> Dužina: {{ trackform.length }}</h5>
+                <br><hr>
+                <h5><i class="fa-solid fa-ruler"></i> Dužina &nbsp; {{ trackform.length }}</h5>
 
                 <hr>
+                {% if errors %}
+
+                    <h6 style="color: crimson; margin-top: 25px">
+                        Već postoji staza sa ovim imenom!
+                    </h6>
+                {% endif %}
                 <button class="btn btn-outline-success" id="addButton"  type="submit">
                     <i class="fa-solid fa-plus"></i>&nbsp;
                     Dodaj novu ski-stazu
@@ -49,12 +54,7 @@
                 <button class="btn btn-outline-secondary" id="cancelButton" onclick="window.location.href={% url 'trackInformation' %}">
                     <i class="fa-solid fa-ban"></i> Otkaži
                 </button>
-                {% if errors %}
 
-                    <h4 style="color: crimson; margin-top: 25px">
-                        Već postoji staza sa ovim imenom!
-                    </h4>
-                {% endif %}
             </form>
         </div>
     </div>

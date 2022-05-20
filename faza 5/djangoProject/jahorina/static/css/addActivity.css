@@ -1,0 +1,71 @@
+#addActivityContent {
+    width: 60%;
+    min-width: min-content;
+    margin: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#addButton {
+    background-color: white;
+    color: seagreen;
+    border-width: 3px;
+    margin-left: 0;
+}
+
+#addButton:hover {
+    background-color: seagreen;
+    color: white;
+}
+
+#aFooter {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+	text-align: center;
+}
+
+#newCategoryButton {
+
+}
+
+#trackContent {
+    /*width: 80%;*/
+    /*background-color: #c2e4f0;*/
+    /*border-radius: 5px;*/
+    text-align: center;
+}
+
+.categoryBox {
+    margin-top: 15px;
+}
+
+/* for each white box */
+.category {
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    background-color: #f2f2f2;
+    color: dimgrey;
+    border: 2px solid dimgrey;
+    border-radius: 5px;
+    padding: 5px 15px 5px 15px;
+    font-weight: bold;
+    width: 90%;
+    text-align: center;
+}
+
+.category:hover {
+    background-color: #04AA6D;
+    color: #f2f2f2;
+    border: 2px solid #04AA6D;
+}
+
+.deleteCategoryButton {
+    background-color: white;
+    color: #d11515;
+    border: none
+}
+
+.deleteCategoryButton:hover {
+    background-color: white;
+    color: red;
+}

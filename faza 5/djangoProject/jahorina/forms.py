@@ -132,7 +132,7 @@ class AddActivityForm(ModelForm):
 
 #lara
 class AddCategoryForm(ModelForm):
-    root=forms.ChoiceField(choices=[(0,'jutarnja'), (1,'popodnevna'), (2,'vecernja')], label='Tip kategorije');
+    # root=forms.ChoiceField(choices=[(0,'jutarnja'), (1,'popodnevna'), (2,'vecernja')], label='Tip kategorije');
     class Meta:
         model=Category;
         fields=["name"]

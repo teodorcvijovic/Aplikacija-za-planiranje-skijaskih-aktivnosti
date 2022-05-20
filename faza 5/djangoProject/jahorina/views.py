@@ -216,17 +216,24 @@ def defineActivity(request):
 # lara
 def addCategory(request):
     form = AddCategoryForm(request.POST);
+    errors = []
     if (form.is_valid()):
-        category = form.save(commit=False);
-        category.root = form.cleaned_data.get("root");
-        category.save();
-        return redirect('addActivity');
+        category = Category.objects.filter(name=form.cleaned_data.get('name'))
 
-    else:
-        context = {
-            'form': form
-        }
-        return render(request, 'addCategory.html', context);
+        if not category:
+            category = form.save(commit=False);
+            #category.root = form.cleaned_data.get("root");
+            category.root = request.POST.get('root');
+            category.save();
+            return redirect('addActivity');
+        else:
+            errors.append('Kategorija sa datim imenom već postoji!')
+
+    context = {
+        'form': form,
+        'errors': errors
+    }
+    return render(request, 'addCategory.html', context);
 
 
 # lara
@@ -286,7 +293,7 @@ def updateTrackInformation(request):
         is_bussy = form.cleaned_data.get("is_busy")
         comment = form.cleaned_data.get("comment");
         if not comment or len(comment) == 0:
-            comment = 'Nema novih obaveštenja.'
+            comment = 'Trenutno nema novih obaveštenja.'
         if len(comment) > 0:
             SkiTrack.objects.filter(id=trackId).update(comment=comment);
         SkiTrack.objects.filter(id=trackId).update(is_opened=opened, is_foggy=is_foggy, is_busy=is_bussy, last_updated=datetime.datetime.now());
