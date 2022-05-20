@@ -20,7 +20,17 @@
         {# first row with the header and delete button #}
         <div class="row">
             <div class="col-sm-9">
-                <h3>Uređivanje informacija za stazu: <i>{{ track.name }}</i></h3>
+                <h3><i class="fa-solid fa-pen"></i>&nbsp;
+                    {% if track.color == 0 %}
+                        <i class="fa-solid fa-circle" style="color: dodgerblue"></i>
+                        {% elif track.color == 1 %}
+                        <i class="fa-solid fa-circle" style="color: indianred"></i>
+                        {% else %}
+                        <i class="fa-solid fa-circle"></i>
+                    {% endif %}
+                    {{ track.name }}
+                    : <i>ažuriranje informacija</i>
+                </h3>
 
             </div>
             <div class="col-sm-3">
@@ -43,13 +53,13 @@
         {% csrf_token %}
 
             {# section 1 #}
-           <h5>Da li je staza maglovita, ili ima gužve?</h5>
+           <h5>Trenutno stanje na ski-stazi</h5>
            <div class="form-check form-switch sectionDiv">
-               {{ form.is_foggy.label_tag }} {{ form.is_foggy }} <br>
-               {{ form.is_busy.label_tag }} {{ form.is_busy }} <br>
+               Maglovito {{ form.is_foggy }} <br>
+               Gužva {{ form.is_busy }} <br>
            </div>
            <div class="sectionDiv">
-               <h5>Neki dodatni komentar:</h5>
+               <h5>Obaveštenje</h5>
                {{ form.comment }} <br>
            </div>
 
@@ -57,10 +67,20 @@
             <div class="sectionDiv">
                 <h5>Da li je staza trenutno otvorena?</h5>
                 {{ form.opened }}
+{#                <label>#}
+{#                    <input type="radio" name="isOpened" value="0" checked id="radio0"><label for="radio0"><i class="fa-solid fa-badge-check"></i>&nbsp;Otvorena</label>#}
+{#                    <input type="radio" name="isOpened" value="1" id="radio1"><label for="radio1">Zatvorena</label>#}
+{#                </label>#}
             </div>
 
+            <hr>
+            
            <button class="btn btn-outline-success" id="confirmButton" type="submit" value="{{ track.id }}" name="updateTrack">
                <i class="fa-solid fa-check"></i> Azuriraj
+           </button>
+
+            <button class="btn btn-outline-secondary" id="cancelButton" onclick="window.location.href ={% url 'trackInformation' %}">
+               <i class="fa-solid fa-ban"></i> Otkaži
            </button>
 
         </form>
@@ -69,5 +89,9 @@
 
     </div>
     {% endif %}
+
+{% endblock %}
+
+{% block footer %}
 
 {% endblock %}

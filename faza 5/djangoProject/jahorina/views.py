@@ -281,6 +281,7 @@ def updateTrackInformation(request):
     track = SkiTrack.objects.get(id=trackId);
     if (form.is_valid()):
         opened = form.cleaned_data.get("opened");
+        # opened = request.POST.get("isOpened")
         is_foggy = form.cleaned_data.get("is_foggy");
         is_bussy = form.cleaned_data.get("is_busy")
         comment = form.cleaned_data.get("comment");
@@ -351,9 +352,20 @@ def deleteCategory(request):
 @login_required(login_url='loginRequest')
 @permission_required('jahorina.delete_activity', raise_exception=True)
 def showAllActivities(request):
-    a = Activity.objects.all()
+    form = ActivitySearchForm(request.POST or None)
+
+    if form.is_valid():
+        name = form.cleaned_data.get('name')
+        if not name or len(name) == 0:
+            a = Activity.objects.all()
+        else:
+            a = Activity.objects.filter(obj_name__icontains=name)
+    else:
+        a = Activity.objects.all()
+
     context = {
         'activities': a,
+        'searchform': form,
     }
     return render(request, 'allActivities.html', context)
 
