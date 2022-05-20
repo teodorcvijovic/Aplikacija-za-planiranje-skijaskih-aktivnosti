@@ -25,6 +25,18 @@
     color: white;
 }
 
+#cancelButton {
+    background-color: white;
+    color: gray;
+    border-width: 3px;
+    margin-left: 0;
+}
+
+#cancelButton:hover {
+    background-color: gray;
+    color: white;
+}
+
 #deleteButton {
     background-color: white;
     color: crimson;

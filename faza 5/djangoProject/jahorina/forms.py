@@ -111,6 +111,9 @@ class SkiInstructorSearchForm(Form):
     name = forms.CharField(label='Ime', max_length=50, required=False)
     experience = forms.CharField(label='Iskustvo', widget=forms.Select(choices=EXP_CHOICES))
 
+class ActivitySearchForm(Form):
+    name = forms.CharField(label='Ime', max_length=50, required=False)
+
 #lara
 class AddActivityForm(ModelForm):
     class Meta:
@@ -122,8 +125,6 @@ class AddActivityForm(ModelForm):
             'obj_contact':'Kontakt telefon objekta:',
         }
 
-        #KOMENTAR ZA FILIPA
-        #svi dijelovi forme imaju klasu "addActClass", da mozes da ih stilizujes
         def __init__(self, *args, **kwargs):
             super(AddActivityForm, self).__init__(*args, **kwargs)  # Call to ModelForm constructor
             for field in self.fields.values():
@@ -148,7 +149,6 @@ class UpdateTrackForm(ModelForm):
         choices=CHOICES,
         widget=forms.RadioSelect,
         label='Stanje staze:'
-
     )
 
     class Meta:
@@ -162,7 +162,7 @@ class UpdateTrackForm(ModelForm):
         widgets = {
             'is_foggy': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
             'is_busy': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-            'comment': forms.Textarea(attrs={'rows':3, 'cols':35, 'style': 'resize:none'}),
+            'comment': forms.Textarea(attrs={'rows':3, 'cols':35, 'style': 'resize:none', 'placeholder': 'Opciono polje'}),
         }
 
     def __init__(self, *args, **kwargs):

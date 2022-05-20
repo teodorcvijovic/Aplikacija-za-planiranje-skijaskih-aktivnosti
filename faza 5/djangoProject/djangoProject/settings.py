@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'jahorina', # database name
         'USER': 'root',
-        'PASSWORD': 'password123', # depends on your local mysql settings
+        'PASSWORD': 'Lozinka123.', # depends on your local mysql settings
         'PORT': '3306',
         'HOST': 'localhost'
     }

@@ -7,8 +7,8 @@
     border-radius: 5px;
     width: 80%;
 
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 20px 5px 0px 15px;
     vertical-align: middle;
 }
@@ -142,10 +142,11 @@ form button:hover {
 }
 
 .instDeleteButton {
-    color: red;
+    color: #c72828;
+    font-weight: bold;
 }
 
 .instDeleteButton:hover {
     color:white;
-    background-color: red;
+    background-color: #c72828;
 }
