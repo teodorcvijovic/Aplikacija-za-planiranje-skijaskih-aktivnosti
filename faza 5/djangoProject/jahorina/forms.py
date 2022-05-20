@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django import forms
-from django.forms import Form, ModelForm
+from django.forms import Form, ModelForm, Textarea, BooleanField
 from pip._internal import req
 
 from jahorina.models import *
@@ -139,24 +139,36 @@ class AddCategoryForm(ModelForm):
             'name': 'Naziv kategorije:',
         }
 
-#lara
+
+# lara & filip
 class UpdateTrackForm(ModelForm):
     CHOICES = [(1, 'Otvorena'),   (0, 'Zatvorena')]
 
-    opened = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect, label='Stanje staze:')
+    opened = forms.ChoiceField(
+        choices=CHOICES,
+        widget=forms.RadioSelect,
+        label='Stanje staze:'
+
+    )
 
     class Meta:
-        model=SkiTrack;
-        fields=['is_foggy','is_busy','comment'];
-        labels={
-            'is_foggy': 'Maglovitost:',
-            'is_busy':'Guzva:',
-            'comment':'Komentar'
+        model = SkiTrack
+        fields = ['is_foggy', 'is_busy', 'comment']
+        labels = {
+            'is_foggy': 'Maglovitost',
+            'is_busy': 'Guzva',
+            'comment': 'Komentar'
+        }
+        widgets = {
+            'is_foggy': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'is_busy': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'comment': forms.Textarea(attrs={'rows':3, 'cols':35, 'style': 'resize:none'}),
         }
 
     def __init__(self, *args, **kwargs):
         super(UpdateTrackForm, self).__init__(*args, **kwargs)
         self.fields['comment'].required = False
+
 
 # teodor
 class AddTrackForm(Form):
