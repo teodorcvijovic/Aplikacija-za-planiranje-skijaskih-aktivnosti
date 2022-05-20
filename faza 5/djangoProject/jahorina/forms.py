@@ -177,11 +177,17 @@ class AddTrackForm(Form):
         widget=forms.TextInput(attrs={'placeholder': 'Unesite naziv staze'})
     )
 
-    TRACK_COLORS = [(0, 'Plava'), (1, 'Crvena'), (2, 'Crna')]
-    color = forms.ChoiceField(choices=TRACK_COLORS, widget=forms.RadioSelect, label='Boja', initial={'0', 'Plava'})
+    # TRACK_COLORS = [(0, 'Plava'), (1, 'Crvena'), (2, 'Crna')]
+    # color = forms.ChoiceField(
+    #     choices=TRACK_COLORS,
+    #     widget=forms.RadioSelect,
+    #     label='Boja',
+    #     initial={'0', 'Plava'},
+    #     required=False
+    # )
 
     length = forms.IntegerField(
         label='Dužina',
-        widget=forms.NumberInput(attrs={'placeholder': 'Unesite dužinu u metrima', 'min': 0})
+        widget=forms.NumberInput(attrs={'placeholder': 'Dužina u metrima', 'min': 0})
     )
 

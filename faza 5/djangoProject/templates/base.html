@@ -58,9 +58,9 @@
                 </div>
 
                 {% if not user.is_authenticated %}
-                  <button class="btn" type="submit" onclick="window.location.href={% url 'loginRequest' %}"><i class="fa-solid fa-user"></i>&nbsp;Prijavite se</button>
+                  <button class="btn navBtn" type="submit" onclick="window.location.href={% url 'loginRequest' %}"><i class="fa-solid fa-user"></i>&nbsp;Prijavite se</button>
                 {% else %}
-                  <button class="btn" type="submit" onclick="window.location.href={% url 'logoutRequest' %}"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;Odjavite se</button>
+                  <button class="btn navBtn" type="submit" onclick="window.location.href={% url 'logoutRequest' %}"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;Odjavite se</button>
                 {% endif %}
             </div>
         </div>

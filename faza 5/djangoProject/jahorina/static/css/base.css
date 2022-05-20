@@ -106,7 +106,8 @@ div.container {
 /*  }*/
 /*}*/
 
-.btn {
+/* changed from just btn because of interference with other buttons */
+.navBtn {
     color: rgb(243,235,219);
     background-color: #0a2a3a;
     font-size: 17px;
@@ -116,7 +117,7 @@ div.container {
     padding-bottom: 5px;
 }
 
-.btn:hover {
+.navBtn:hover {
     color: #04AA6D;
 }
 

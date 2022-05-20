@@ -1,26 +1,62 @@
 <!-- teodor -->
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     Dodajte novu ski-stazu
 {% endblock %}
 
+{% block links %}
+    <link href="{% static "css/addTrack.css" %}" rel="stylesheet">
+
+{% endblock %}
+
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
+    <div class = "row justify-content-center">
+        <div class="alert alert-light" id="addTrackContent">
+            <form method="post">
+                {% csrf_token %}
+                <div style="display: inline">
+                    <h3>{{ trackform.name.label_tag }} {{ trackform.name }}</h3>
+                </div>
+                <hr>
+                <h5>Odaberite boju staze:</h5>
+            
+{#                {% for value, text in trackform.color.field.choices %}#}
+{#                    {% if value == 0 %}#}
+                        <input type="radio" class="btn-check" name="trackColor" id="plava-outlined" value="0" checked>
+                        <label class="btn btn-outline-primary" for="plava-outlined" id="plavaLabel">Plava</label>
+{#                        {% elif value == 1 %}#}
+                        <input type="radio" class="btn-check" name="trackColor" id="crvena-outlined" value="1">
+                        <label class="btn btn-outline-danger" for="crvena-outlined" id="crvenaLabel">Crvena</label>
+{#                        {% else %}#}
+                        <input type="radio" class="btn-check" name="trackColor" id="crna-outlined" value="2">
+                        <label class="btn btn-outline-secondary" for="crna-outlined" id="crnaLabel" >Crna</label>
 
-        {% for field in trackform %}
-            {{ field.label_tag }} {{ field }} <br>
-        {% endfor %}
+{#                    {% endif %}#}
 
-        {% if errors %}
-            {% for error in errors %}
-                {{ error }} <br>
-            {% endfor %}
-        {% endif %}
+{#                {% endfor %}#}
+            
+{#                {{ trackform.color }}#}
+                <br><br>
+                <h5><i class="fa-solid fa-ruler"></i> Dužina: {{ trackform.length }}</h5>
 
-        <hr>
+                <hr>
+                <button class="btn btn-outline-success" id="addButton"  type="submit">
+                    <i class="fa-solid fa-plus"></i>&nbsp;
+                    Dodaj novu ski-stazu
+                </button>
+                <button class="btn btn-outline-secondary" id="cancelButton" onclick="window.location.href={% url 'trackInformation' %}">
+                    <i class="fa-solid fa-ban"></i> Otkaži
+                </button>
+                {% if errors %}
 
-        <button type="submit"><i class="fa-solid fa-plus"></i>&nbsp;Dodaj novu ski-stazu</button>
-    </form>
+                    <h4 style="color: crimson; margin-top: 25px">
+                        Već postoji staza sa ovim imenom!
+                    </h4>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+
 {% endblock %}
