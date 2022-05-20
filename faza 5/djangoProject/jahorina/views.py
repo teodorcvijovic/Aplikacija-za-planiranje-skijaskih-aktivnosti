@@ -307,7 +307,7 @@ def addTrack(request):
     if trackform.is_valid():
         name = trackform.cleaned_data.get('name')
         #color = trackform.cleaned_data.get('color')
-        color = trackform.cleaned_data.get('trackColor')
+        color = request.POST.get('trackColor')
         length = trackform.cleaned_data.get('length')
 
         track = SkiTrack.objects.filter(name=name)
