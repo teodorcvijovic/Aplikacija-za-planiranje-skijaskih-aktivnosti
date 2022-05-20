@@ -12,6 +12,7 @@ urlpatterns = [
 
     # instructors
     path('instructors/', instructors, name='instructors'),
+    path('deleteSkiInstructor/', deleteSkiInstructor, name='deleteSkiInstructor'),
 
     # day planning
     path('addActivity/', addActivity, name='addActivity'),

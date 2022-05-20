@@ -1,68 +1,169 @@
-<!-- lara -->
+<!-- lara & filip-->
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     Ski-staze Jahorine
 {% endblock %}
 
+{% block links %}
+    <link href="{% static "css/trackInformation.css" %}" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
     <!-- TO DO: home page content -->
-     <div class="container">
-      <h3>Obavestenja o stazama:</h3>
-         {% for track in tracks %}
-             <div class="row ">
-                <div class="offset-sm-2 col-sm-6" style="background-color: lightpink; margin-bottom: 20px" >
-                   <!--ispis traka-->
-                    <h4>  {{ track.name }}</h4>
-                    Tezina: {% if track.color == 0 %}
-                                   Plava staza. <br>
-                            {% endif %}
-                            {% if track.color == 1 %}
-                                Crvena staza. <br>
-                            {% endif %}
-                            {% if track.color == 2 %}
-                                Crna staza. <br>
-                            {% endif %}
-                    Duzina: {{ track.length }} km <br>
-                    <hr>
-                    Maglovitost: {% if track.is_foggy == True %}
-                                   Maglovito. <br>
-                                 {% endif %}
-                                {% if track.is_foggy == False %}
-                                    Nije maglovito. <br>
+
+    {# wrapper div to centralize others #}
+     <div class="row justify-content-center">
+
+        {# info header and add track button #}
+        <div class="row" id="trackAlert">
+            <div class="col-xl-8">
+                <h3>Obaveštenja o stazama:</h3>
+            </div>
+
+            <div class="col-xl-4">
+                {% if user.is_authenticated %}
+                    <!-- teodor -->
+                    <!-- redirect to addTrack page -->
+                    <button style="float: right" class="btn" type="submit"
+                            onclick="window.location.href={% url 'addTrack' %}">
+
+                        <i class="fa-solid fa-plus"></i>&nbsp;Dodaj novu stazu
+
+                    </button>
+                {% else %}
+
+                {% endif %}
+            </div>
+        </div>
+
+        {# div with all the tracks #}
+        <div class="row" id="trackContent">
+            {% for track in tracks %}
+                <div class="col-md-12 col-lg-6 col-xl-4 trackBox">
+                    <div class="alert alert-light tracks">
+
+                        {# top row with header and button #}
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h3>
+                                {% if track.color == 0 %}
+                                    <i class="fa-solid fa-circle" style="color: dodgerblue"></i>
+                                    {% elif track.color == 1 %}
+                                    <i class="fa-solid fa-circle" style="color: indianred"></i>
+                                    {% else %}
+                                    <i class="fa-solid fa-circle"></i>
                                 {% endif %}
-                    Guzva: {% if track.is_busy == True %}
-                                Velika guzva. <br>
-                           {% endif %}
-                           {% if track.is_busy == False %}
-                                Nema guzve. <br>
-                           {% endif %}
-                    Stanje staze: {% if track.is_opened == True %}
-                                   Otvorena staza. <br>
-                                  {% endif %}
-                                  {% if track.is_opened == False %}
-                                   Zatvorena staza. <br>
-                                  {% endif %}
-                    Azurirano: {{ track.last_updated }} <br>
+                                {{ track.name }}
+                                </h3>
+                            </div>
+                            <div class="col-sm-4">
+                                {% if user.is_authenticated %}
+                                    <form method="post" action="{% url 'updateTrackInformation' %}">
+                                     {% csrf_token %}
+                                     <button type="submit" class="btn btn-outline-warning" id="editButton"
+                                             name="updateTrack" value="{{ track.id }}">
+                                         <i class="fa-solid fa-pencil"></i>
+                                     </button>
+                                    </form>
+                                {% endif %}
+                            </div>
+                        </div>
 
-                    <div class="alert alert-light"> {{ track.comment }}</div>
-                    {% if user.is_authenticated %}
-                        <form method="post" action="{% url 'updateTrackInformation' %}">
-                             {% csrf_token %}
-                             <button type="submit" class="btn btn-success" name="updateTrack" value="{{ track.id }}">Azuriraj</button>
-                        </form>
-                    {% endif %}
+                    {# track length #}
+                        <i class="fa-solid fa-ruler"></i> {{ track.length }} m
+
+                        <hr>
+                    {# real-time track information #}
+                        Maglovitost:&nbsp;
+                        {% if track.is_foggy == True %}
+                            <i class="fa-solid fa-smog"></i> maglovito
+                            {% else %}
+                            <i class="fa-solid fa-sun"></i> vedro
+                        {% endif %}
+                        <br>
+                        Gužva:&nbsp;
+                        {% if track.is_busy == True %}
+                            <i class="fa-solid fa-people-group"></i> ima gužve
+                            {% else %}
+                            <i class="fa-solid fa-person"></i> nema gužve
+                        {% endif %}
+                        <br>
+
+                        {% if track.is_opened %}
+                            <div class="alert alert-success alertIsOpen">
+                                <i class="fa-solid fa-check"></i> otvorena
+                            </div>
+                            {% else %}
+                            <div class="alert alert-danger alertIsOpen">
+                                <i class="fa-solid fa-x"></i> zatvorena
+                            </div>
+                        {% endif %}
+
+                        <hr>
+                    {# real-time track alerts #}
+                        <div class="alert alert-warning">
+                            <h4>Obaveštenje</h4>
+                            {{ track.comment }}
+                        </div>
+
+                    </div>
                 </div>
-             </div>
-         </div>
-        {% endfor %}
+            {% endfor %}
+
+        </div>
+
+     </div>
+
+{#         {% for track in tracks %}#}
+{#             <div class="row ">#}
+{#                <div class="offset-sm-2 col-sm-6" style="background-color: lightpink; margin-bottom: 20px" >#}
+{#                   <!--ispis traka-->#}
+{#                    <h4>  {{ track.name }}</h4>#}
+{#                    Tezina: {% if track.color == 0 %}#}
+{#                                   Plava staza. <br>#}
+{#                            {% endif %}#}
+{#                            {% if track.color == 1 %}#}
+{#                                Crvena staza. <br>#}
+{#                            {% endif %}#}
+{#                            {% if track.color == 2 %}#}
+{#                                Crna staza. <br>#}
+{#                            {% endif %}#}
+{#                    Duzina: {{ track.length }} km <br>#}
+{#                    <hr>#}
+{#                    Maglovitost: {% if track.is_foggy == True %}#}
+{#                                   Maglovito. <br>#}
+{#                                 {% endif %}#}
+{#                                {% if track.is_foggy == False %}#}
+{#                                    Nije maglovito. <br>#}
+{#                                {% endif %}#}
+{#                    Guzva: {% if track.is_busy == True %}#}
+{#                                Velika guzva. <br>#}
+{#                           {% endif %}#}
+{#                           {% if track.is_busy == False %}#}
+{#                                Nema guzve. <br>#}
+{#                           {% endif %}#}
+{#                    Stanje staze: {% if track.is_opened == True %}#}
+{#                                   Otvorena staza. <br>#}
+{#                                  {% endif %}#}
+{#                                  {% if track.is_opened == False %}#}
+{#                                   Zatvorena staza. <br>#}
+{#                                  {% endif %}#}
+{#                    Azurirano: {{ track.last_updated }} <br>#}
+{##}
+{#                    <div class="alert alert-light"> {{ track.comment }}</div>#}
+{#                    {% if user.is_authenticated %}#}
+{#                        <form method="post" action="{% url 'updateTrackInformation' %}">#}
+{#                             {% csrf_token %}#}
+{#                             <button type="submit" class="btn btn-success" name="updateTrack" value="{{ track.id }}">Azuriraj</button>#}
+{#                        </form>#}
+{#                    {% endif %}#}
+{#                </div>#}
+{#             </div>#}
+{#         </div>#}
+{#        {% endfor %}#}
 
 
-    {% if user.is_authenticated %}
-        <!-- teodor -->
-        <!-- redirect to addTrack page -->
-         <button class="btn" type="submit" onclick="window.location.href={% url 'addTrack' %}"><i class="fa-solid fa-plus"></i>&nbsp;Dodaj novu stazu</button>
-    {% else %}
 
-    {% endif %}
 {% endblock %}
