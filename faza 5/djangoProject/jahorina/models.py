@@ -44,8 +44,8 @@ class Activity(Model):
     obj_contact = models.CharField(max_length=17, null=True, blank=True)
 
     # x and y coordinates for front-end view
-    x = models.IntegerField(default=0)
-    y = models.IntegerField(default=0)
+    x = models.DecimalField(decimal_places=20, max_digits=21, default=0.0)
+    y = models.DecimalField(decimal_places=20, max_digits=21, default=0.0)
 
 class SkiTrack(Model):
     name = models.CharField(max_length=50)

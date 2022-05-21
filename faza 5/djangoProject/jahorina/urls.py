@@ -29,4 +29,6 @@ urlpatterns = [
     path('updateTrackInformation/', updateTrackInformation, name='updateTrackInformation'),
     path('deleteSkiTrack/', deleteSkiTrack, name='deleteSkiTrack'),
     path('addTrack/', addTrack, name='addTrack'),
+
+    path('map/', map, name='map')
 ]

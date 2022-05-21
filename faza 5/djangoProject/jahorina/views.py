@@ -195,7 +195,7 @@ def defineActivity(request):
         activity = form.save(commit=False);
         cat = request.POST.get("category");
         x = request.POST.get("x");
-        # print(x);
+        y = request.POST.get("y");
 
         activity.type = Category.objects.get(name=cat);
 
@@ -203,6 +203,8 @@ def defineActivity(request):
         if alreadyExists:
             errors.append("Data aktivnost već postoji!")
         else:
+            activity.x = x;
+            activity.y = y;
             activity.save();
             msg = "Ušpesno ste dodali novu aktivnost.";
         category = cat

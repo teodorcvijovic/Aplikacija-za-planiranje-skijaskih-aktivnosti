@@ -4,6 +4,8 @@
 {% load static %}
 
 {% block links %}
+<script src="{% static 'jquery/jquery-3.6.0.js' %}"></script>
+<script src = "{% static 'js/defineActivity.js' %}"></script>
 <link href="{% static 'css/defineActivity.css' %}" rel="stylesheet">
 {% endblock %}
 
@@ -31,6 +33,7 @@
 {#                <i class="fa-solid fa-moon"></i>#}
 {#            {% endif %}#}
             <i class="fa-solid fa-pen"></i>
+
             {{ category }} : <i>definisanje aktivnosti</i>
         </h3>
         <hr>
@@ -48,6 +51,22 @@
                 Kontakt datog objekta:
                 {{ form.obj_contact }}
             </h5>
+            <hr>
+                <!-- mapa -->
+                <h5>
+                    <i class="fa-solid fa-location-dot"></i> Molimo Vas da na mapi označite lokaciju datog objekta
+                </h5>
+                <img src="{% static 'icons/marker.png' %}" id="marker" style="display: none; position: absolute; width: 20px;" />
+
+                <div id="mapDiv" class="d-flex justify-content-center">
+                    <img src="{% static 'icons/oc-jahorina-ski-mapa9.jpg' %}" id="jahorinaMap">
+                </div>
+
+                <!-- hidden -->
+                <div id="coords" class="d-flex justify-content-center">
+                    <input type="text" name="x" id="coordx" style="display: none">
+                    <input type="text" name="y" id="coordy" style="display: none">
+                </div>
             <hr>
             {% if errors %}
                 {% for error in errors %}
@@ -75,5 +94,9 @@
     </div>
     </div>
     {% endif %}
+
+{% endblock %}
+
+{% block footer %}
 
 {% endblock %}

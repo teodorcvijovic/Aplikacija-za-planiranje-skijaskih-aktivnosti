@@ -20,8 +20,9 @@
 
     <form method="post">
         {% csrf_token %}
-        <img src="{% static 'icons/marker.png' %}" id="marker" style="display: none; position: absolute; width: 20px;" />
-
+        <span id="marker" style="display: none; position: absolute; width: 20px;">
+            <img src="{% static 'icons/marker.png' %}" id="marker" style="display: none; position: absolute; width: 20px;"  alt="pin"/>
+        </span>
         <div id="mapDiv" class="d-flex justify-content-center">
             <img src="{% static 'icons/oc-jahorina-ski-mapa9.jpg' %}" id="jahorinaMap">
         </div>
@@ -30,7 +31,6 @@
             <input type="text" id="coordx">
             <input type="text" id="coordy">
             <input type="submit" value="Posalji koordinate!">
-
         </div>
 
 
