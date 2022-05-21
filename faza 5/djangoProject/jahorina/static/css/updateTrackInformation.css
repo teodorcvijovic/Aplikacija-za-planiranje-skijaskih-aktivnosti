@@ -30,6 +30,7 @@
     color: gray;
     border-width: 3px;
     margin-left: 0;
+    margin-top: 10px;
 }
 
 #cancelButton:hover {

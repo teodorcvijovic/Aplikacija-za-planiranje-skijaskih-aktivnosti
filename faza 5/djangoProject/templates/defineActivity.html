@@ -22,13 +22,23 @@
             </div>
         {% endif %}
 
-        <h3><i class="fa-solid fa-plus"></i> {{ category }} : <i>dodavanje nove aktivnosti</i> </h3>
+        <h3>
+{#            {% if category.root == 0 %}#}
+{#                <i class="fa-solid fa-sun"></i>#}
+{#            {% elif category.root == 1 %}#}
+{#                <i class="fa-solid fa-person-skiing"></i>#}
+{#            {% else %}#}
+{#                <i class="fa-solid fa-moon"></i>#}
+{#            {% endif %}#}
+            <i class="fa-solid fa-pen"></i>
+            {{ category }} : <i>definisanje aktivnosti</i>
+        </h3>
         <hr>
         <form method="post" style="padding-bottom: 10px">
             {% csrf_token %}
-            <h5>Na kojoj stazi se nalazi nova aktivnost?</h5>
+            <h5>Na kojoj stazi se nalazi objekat koji je vezan za Vašu aktivnost?</h5>
             {{ form.skitrack }}
-            <br>
+            <hr>
             <h5>
                 <i class="fa-solid fa-house"></i> Naziv objekta: {{ form.obj_name }}
             </h5>
@@ -38,12 +48,18 @@
                 Kontakt datog objekta:
                 {{ form.obj_contact }}
             </h5>
-            <br>
+            <hr>
+            {% if errors %}
+                {% for error in errors %}
+                    <h6 style="color: red">{{ error }}</h6>
+                {% endfor %}
+
+            {% endif %}
 
 
              <button type="submit" name="category" value="{{ category }}" class="btn btn-outline-success" style="border-width: 2px">
                     <i class="fa-solid fa-plus"></i>&nbsp;
-                    Dodaj
+                    Dodaj &nbsp;&nbsp;&nbsp;
              </button>
 
 
@@ -53,7 +69,7 @@
         <button class="btn btn-outline-secondary" style="border-width: 2px"
                     onclick="window.location.href={% url 'addActivity' %}">
 
-            <i class="fa-solid fa-ban"></i> Završi sa dodavanjem aktivnosti
+            <i class="fa-solid fa-ban"></i> Obustavi
 
         </button>
     </div>

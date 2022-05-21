@@ -189,6 +189,7 @@ def addActivity(request):
 # lara
 def defineActivity(request):
     form = AddActivityForm(request.POST);
+    errors = []
     msg = "";
     if (form.is_valid()):
         activity = form.save(commit=False);
@@ -198,8 +199,12 @@ def defineActivity(request):
 
         activity.type = Category.objects.get(name=cat);
 
-        activity.save();
-        msg = "Ušpesno ste dodali novu aktivnost.";
+        alreadyExists = Activity.objects.filter(obj_name=activity.obj_name).filter(type=activity.type);
+        if alreadyExists:
+            errors.append("Data aktivnost već postoji!")
+        else:
+            activity.save();
+            msg = "Ušpesno ste dodali novu aktivnost.";
         category = cat
     else:
         categoryName = request.POST.get("cat");
@@ -209,7 +214,8 @@ def defineActivity(request):
         'msg': msg,
         'form': form,
         'category': category,
-        'request': request
+        'request': request,
+        'errors': errors
     }
     return render(request, 'defineActivity.html', context);
 
