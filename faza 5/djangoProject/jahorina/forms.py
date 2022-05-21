@@ -114,7 +114,8 @@ class SkiInstructorSearchForm(Form):
 class ActivitySearchForm(Form):
     name = forms.CharField(label='Ime', max_length=50, required=False)
 
-#lara
+
+#lara & filip
 class AddActivityForm(ModelForm):
     class Meta:
         model = Activity;
@@ -124,11 +125,15 @@ class AddActivityForm(ModelForm):
             'obj_name':'Naziv objekta:',
             'obj_contact':'Kontakt telefon objekta:',
         }
+        widgets = {
+            'skitrack': forms.Select(attrs={'class': 'form-select'})
+        }
 
         def __init__(self, *args, **kwargs):
             super(AddActivityForm, self).__init__(*args, **kwargs)  # Call to ModelForm constructor
             for field in self.fields.values():
                 field.widget.attrs.update({'class': 'addActClass'})
+
 
 #lara
 class AddCategoryForm(ModelForm):

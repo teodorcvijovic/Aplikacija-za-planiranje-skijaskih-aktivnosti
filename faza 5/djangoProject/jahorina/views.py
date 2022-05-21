@@ -197,9 +197,10 @@ def defineActivity(request):
         # print(x);
 
         activity.type = Category.objects.get(name=cat);
+
         activity.save();
-        msg = "Uspesno ste dodali novu aktivnost.";
-        category = ""
+        msg = "Ušpesno ste dodali novu aktivnost.";
+        category = cat
     else:
         categoryName = request.POST.get("cat");
         category = Category.objects.get(name=categoryName);

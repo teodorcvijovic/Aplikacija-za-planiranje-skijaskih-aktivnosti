@@ -13,7 +13,7 @@
 {% block content %}
     <div class = "row justify-content-center">
         <div class="alert alert-light" id="addTrackContent">
-            <form method="post">
+            <form method="post" style="padding-bottom: 10px">
                 {% csrf_token %}
                 <div style="display: inline">
                     <h3>Naziv&nbsp; {{ trackform.name }}</h3>
@@ -51,11 +51,15 @@
                     <i class="fa-solid fa-plus"></i>&nbsp;
                     Dodaj novu ski-stazu
                 </button>
-                <button class="btn btn-outline-secondary" id="cancelButton" onclick="window.location.href={% url 'trackInformation' %}">
-                    <i class="fa-solid fa-ban"></i> Otkaži
-                </button>
+
 
             </form>
+
+            {# must be out of form, othervise it acts as if its submit button #}
+            <button class="btn btn-outline-secondary" id="cancelButton" onclick="window.location.href={% url 'trackInformation' %}">
+                <i class="fa-solid fa-ban"></i> Otkaži
+            </button>
+
         </div>
     </div>
 
