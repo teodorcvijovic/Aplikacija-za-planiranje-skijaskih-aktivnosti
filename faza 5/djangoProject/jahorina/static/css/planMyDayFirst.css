@@ -1,0 +1,32 @@
+#planHeader {
+    background-color: white;
+    width: 60%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+#planContent {
+    background-color: #c2e4f0;
+    width: 60%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.alertPlanner {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+#idRange {
+    width: 30%;
+    margin: auto;
+    display: block;
+    padding: 10px;
+}
+
+#nextBtn {
+    border-width: 2px;
+    float: right;
+}

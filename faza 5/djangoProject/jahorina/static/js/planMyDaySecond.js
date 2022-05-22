@@ -47,8 +47,8 @@ $(document).ready(function() {
             let imgY = elem.offsetLeft
 
             // koliko levo i dole u odnosu na POCETAK SLIKE
-            let x = Math.round(width * percX) + imgX - 15;
-            let y = Math.round(height * percY) + imgY - 35;
+            let x = Math.round(width * percX) + imgX - 50;
+            let y = Math.round(height * percY) + imgY ;
 
 
             $(this).css({

@@ -1,30 +1,109 @@
+{# filip #}
+
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
    Plan dana
 {% endblock %}
 
+{% block links %}
+    <link href="{% static "css/planMyDayFinal.css" %}" rel="stylesheet">
+
+{% endblock %}
+
 {% block content %}
+    <div class="row justify-content-center">
+    <div class="row" id="finalHeader">
+        <h3>Vaš plan dana je:</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+    </div>
 
-     <h1>Vas plan dana</h1>
-        <!-- morning activities -->
+    <div class="row" id="finalContent">
         {% if morning %}
-            {% for a in morning %}
-                {{ a }} <br>
-            {% endfor %}
+            <div class="col-xl-4 col-lg-6 col-md-12">
+                <div class="alert alert-light finalAlert">
+                    <h5><i class="fa-solid fa-sun"></i> Jutro</h5>
+                    <p>Ah, kako je lepo zapošeti jutro nekom od sledećih aktivnosti...</p>
+                    <hr>
+                    {% for foo in morning %}
+                        <strong><i>{{ foo.type.name }}</i></strong> - {{ foo.obj_name }} <br>
+                        Na stazi : {{ foo.skitrack.name }} <br>
+                        <i class="fa-solid fa-phone" style="color: #48c798"></i>
+                        <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
+
+                        <hr>
+                    {% endfor %}
+
+                </div>
+            </div>
+
         {% endif %}
 
-        <!-- afternoon activities -->
         {% if afternoon %}
-            {% for a in afternoon %}
-                {{ a }} <br>
-            {% endfor %}
+            <div class="col-xl-4 col-lg-6 col-md-12">
+                <div class="alert alert-light finalAlert">
+                    <h5><i class="fa-solid fa-person-skiing"></i> Popodne</h5>
+                    <p>A u toku dana treba i odmoriti, napraviti pauzu...</p>
+                    <hr>
+                    {% for foo in afternoon %}
+                        <strong><i>{{ foo.type.name }}</i></strong> - {{ foo.obj_name }} <br>
+                        Na stazi : {{ foo.skitrack.name }} <br>
+                        <i class="fa-solid fa-phone" style="color: #48c798"></i>
+                        <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
+
+                        <hr>
+                    {% endfor %}
+
+                </div>
+            </div>
+
         {% endif %}
 
-        <!-- evening activities -->
         {% if evening %}
-            {% for a in evening %}
-                {{ a }} <br>
-            {% endfor %}
+            <div class="col-xl-4 col-lg-6 col-md-12">
+                <div class="alert alert-light finalAlert">
+                    <h5><i class="fa-solid fa-moon"></i> Veče</h5>
+                    <p>I za kraj, nešto za dušu...</p>
+                    <hr>
+                    {% for foo in evening %}
+                        <strong><i>{{ foo.type.name }}</i></strong> - {{ foo.obj_name }} <br>
+                        Na stazi : {{ foo.skitrack.name }} <br>
+                        <i class="fa-solid fa-phone" style="color: #48c798"></i>
+                        <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
+
+                        <hr>
+                    {% endfor %}
+
+                </div>
+            </div>
         {% endif %}
+
+    </div>
+
+    </div>
+{##}
+{#     <h1>Vas plan dana</h1>#}
+{#        <!-- morning activities -->#}
+{#        {% if morning %}#}
+{#            {% for a in morning %}#}
+{#                {{ a }} <br>#}
+{#            {% endfor %}#}
+{#        {% endif %}#}
+{##}
+{#        <!-- afternoon activities -->#}
+{#        {% if afternoon %}#}
+{#            {% for a in afternoon %}#}
+{#                {{ a }} <br>#}
+{#            {% endfor %}#}
+{#        {% endif %}#}
+{##}
+{#        <!-- evening activities -->#}
+{#        {% if evening %}#}
+{#            {% for a in evening %}#}
+{#                {{ a }} <br>#}
+{#            {% endfor %}#}
+{#        {% endif %}#}
 {% endblock %}
