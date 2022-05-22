@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+   Plan dana
+{% endblock %}
+
+{% block content %}
+
+     <h1>Vas plan dana</h1>
+        <!-- morning activities -->
+        {% if morning %}
+            {% for a in morning %}
+                {{ a }} <br>
+            {% endfor %}
+        {% endif %}
+
+        <!-- afternoon activities -->
+        {% if afternoon %}
+            {% for a in afternoon %}
+                {{ a }} <br>
+            {% endfor %}
+        {% endif %}
+
+        <!-- evening activities -->
+        {% if evening %}
+            {% for a in evening %}
+                {{ a }} <br>
+            {% endfor %}
+        {% endif %}
+{% endblock %}

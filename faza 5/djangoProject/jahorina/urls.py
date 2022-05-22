@@ -23,6 +23,7 @@ urlpatterns = [
     path('defineActivity/', defineActivity, name='defineActivity'),
     path('planMyDayFirst/', planMyDayFirst, name='planMyDayFirst'),
     path('planMyDaySecond/', planMyDaySecond, name='planMyDaySecond'),
+    path('planMyDayFinal/', planMyDayFinal, name='planMyDayFinal'),
 
     # tracks
     path('trackInformation/', showTrackInformation, name='trackInformation'),
@@ -30,5 +31,6 @@ urlpatterns = [
     path('deleteSkiTrack/', deleteSkiTrack, name='deleteSkiTrack'),
     path('addTrack/', addTrack, name='addTrack'),
 
+    # test
     path('map/', map, name='map')
 ]

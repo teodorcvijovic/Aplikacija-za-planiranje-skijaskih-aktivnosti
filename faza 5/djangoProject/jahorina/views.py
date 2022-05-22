@@ -279,6 +279,26 @@ def planMyDaySecond(request):
         }
         return render(request, 'planMyDaySecond.html', context);
 
+# teodor
+def planMyDayFinal(request):
+    if request.method == "POST":
+        activity_id_list = request.POST.get('activity_id_list')
+        activity_id_list = activity_id_list[1:-1]  # ignore last comma
+        morning = []
+        afternoon = []
+        evening = []
+        roots = [morning, afternoon, evening]
+
+        for a_id in activity_id_list.split(','):
+            a = Activity.objects.filter(pk=a_id).first()
+            roots[a.type.root].append(a)
+
+        context = {
+            'morning': morning,
+            'afternoon': afternoon,
+            'evening': evening
+        }
+        return render(request, 'planMyDayFinal.html', context)
 
 # lara
 def showTrackInformation(request):

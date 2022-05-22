@@ -47,6 +47,9 @@ class Activity(Model):
     x = models.DecimalField(decimal_places=20, max_digits=21, default=0.0)
     y = models.DecimalField(decimal_places=20, max_digits=21, default=0.0)
 
+    def __str__(self):
+        return self.obj_name + ' ' + self.obj_contact
+
 class SkiTrack(Model):
     name = models.CharField(max_length=50)
     color = models.IntegerField() # 0 - blue, 1 - red, 2 - black
