@@ -2,6 +2,7 @@
 
 $(document).ready(function() {
 
+    // active listeners for every label tag on the map
     function addListeners() {
         let activities = $("[name='a_id']")
         let a_ids = ","
@@ -28,10 +29,10 @@ $(document).ready(function() {
         })
     }
 
+    // for positioning pins on the map
     function positionPins() {
         let pins = $(".pinLabel")
         pins.each(function (event) {
-            let idElem = this.id;
             let arr = this.id.split(" ");
             let regex = /\d\.\d*/;
 
@@ -58,12 +59,16 @@ $(document).ready(function() {
         })
     }
 
+    // for toggling whether the pin is clicked or not
     $(".pinLabel").click(function () {
         $(this).toggleClass("pinClicked");
     })
 
+    // to reposition pins when you resize the window
     $(window).resize(function(){location.reload();});
 
+
+    // ************ MAIN ************
     addListeners()
     positionPins()
 })
