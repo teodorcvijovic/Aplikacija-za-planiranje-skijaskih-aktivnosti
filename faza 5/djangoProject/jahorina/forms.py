@@ -138,6 +138,7 @@ class AddActivityForm(ModelForm):
 #lara
 class AddCategoryForm(ModelForm):
     # root=forms.ChoiceField(choices=[(0,'jutarnja'), (1,'popodnevna'), (2,'vecernja')], label='Tip kategorije');
+    message=forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 30, 'placeholder' : 'Unesite Vašu poruku'}))
     class Meta:
         model=Category;
         fields=["name"]

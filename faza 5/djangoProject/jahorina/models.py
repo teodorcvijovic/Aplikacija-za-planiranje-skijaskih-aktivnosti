@@ -33,6 +33,7 @@ class SkiInstructor(MyUser):
 class Category(Model):
     name = models.CharField(max_length=100)
     root = models.IntegerField() # 0 - jutarnja, 1 - popodnevna, 2 - vecernja
+    message = models.CharField(max_length=250, default=" ")
 
     def __str__(self):
         return self.name;

@@ -233,6 +233,7 @@ def addCategory(request):
             category = form.save(commit=False);
             #category.root = form.cleaned_data.get("root");
             category.root = request.POST.get('root');
+            category.message = form.cleaned_data.get('message')
             category.save();
             return redirect('addActivity');
         else:
