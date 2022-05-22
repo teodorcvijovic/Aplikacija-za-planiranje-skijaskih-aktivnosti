@@ -1,4 +1,4 @@
-<!-- lara -->
+<!-- filip -->
 
 {% extends 'base.html' %}
 {% load static %}
@@ -6,6 +6,7 @@
 {% block links %}
     <script src="{% static 'jquery/jquery-3.6.0.js' %}"></script>
     <script src = "{% static 'js/planMyDaySecond.js' %}"></script>
+    <link href="{% static "css/planMyDaySecond.css" %}" rel="stylesheet">
 {% endblock %}
 
 {% block title %}
@@ -13,22 +14,46 @@
 {% endblock %}
 
 {% block content %}
+<div class="row justify-content-center">
+<div class="alert alert-light" id="planMyDaySecondContent">
 
-        <h3>Plan dana: kliknite na objekte </h3>
+    <h3>Plan dana: kliknite na objekte </h3>
 
-          <form method="post" action="{% url 'planMyDayFinal' %}">
-            {% csrf_token %}
-            {% for act in activities %}
-                 <!-- action listeners are added via javascript -->
-                 <input type="checkbox" name="a_id" value="{{ act.id }}" id="a_id{{ act.id }}" style="display: none">
-                    <label for="a_id{{ act.id }}">{{ act.obj_name }} </label>
-                 <br>
-            {% endfor %}
-            <!-- needs to be hidden, used for activity ids passing -->
-            <input type="text" name="activity_id_list" id="a_id_list">
-            <input type="submit" value="Dalje">
-          </form>
+    <form method="post" action="{% url 'planMyDayFinal' %}">
+    {% csrf_token %}
+    <div style="height: 0">
+     {% for act in activities %}
+         <!-- action listeners are added via javascript -->
+         <input type="checkbox" name="a_id" value="{{ act.id }}" id="a_id{{ act.id }}" style="display: none">
+            <label class="pinLabel" for="a_id{{ act.id }}" id="x{{ act.x }} y{{ act.y }}">
+                {% if act.type.root == 0 %}
+                    <i class="fa-solid fa-sun"></i> {{ act.type.name }}
+                    {% elif act.type.root == 1 %}
+                    <i class="fa-solid fa-person-skiing"></i> {{ act.type.name }}
+                    {% else %}
+                    <i class="fa-solid fa-moon"></i> {{ act.type.name }}
+                {% endif %}
+                <hr>
+                <i class="fa-solid fa-location-dot" style="color: crimson"></i>
+                {{ act.obj_name }}
+            </label>
+         <br>
+    {% endfor %}
+    </div>
 
-            <button onclick="window.location.reload()">Izaberi ponovo</button>
+    <div id="jahorinaMap" class="d-flex justify-content-center">
+        <img src="{% static 'icons/oc-jahorina-ski-mapa9.jpg' %}" id="jahorinaPict" style="width: 95%">
+    </div>
+    <br>
+    <!-- needs to be hidden, used for activity ids passing -->
+    <input type="text" name="activity_id_list" id="a_id_list">
+    <input type="submit" value="Dalje">
+    </form>
+
+    <button onclick="window.location.reload()">Izaberi ponovo</button>
+
+</div>
+</div>
+
 
 {% endblock %}

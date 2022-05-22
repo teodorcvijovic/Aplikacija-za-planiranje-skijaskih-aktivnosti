@@ -1,20 +1,34 @@
 $(document).ready(function() {
 
     $("#jahorinaMap").click(function (event) {
-        let realX = $(this).width();
-        let realY = $(this).height();
+        let elem = document.getElementById("jahorinaMap");
+        let imgX = 0
+        let imgY = 0
 
-        let x = event.pageX - this.offsetLeft;
-        let y = event.pageY - this.offsetTop;
+        do {
+            imgY += elem.offsetTop  || 0;
+            imgX += elem.offsetLeft || 0;
+            elem = elem.offsetParent;
+        } while(elem);
 
-        let percX = x / realX;
-        let percY = y / realY;
+
+        let width = $(this).width();
+        let height = $(this).height();
+
+        let x = event.pageX - imgX;
+        let y = event.pageY - imgY;
+
+        let percX = x / width;
+        let percY = y / height;
         $("#coordx").val(percX);
         $("#coordy").val(percY);
 
         $('#marker')
-            .css('left', event.pageX - 160)
+            // TODO proveri koordinate kako treba
+            .css('left', event.pageX - 200)
             .css('top', event.pageY - 180)
             .show(700);
     })
+
+    $(window).resize(function(){location.reload();});
 })
