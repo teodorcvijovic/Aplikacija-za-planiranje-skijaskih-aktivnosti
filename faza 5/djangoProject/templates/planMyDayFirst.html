@@ -8,6 +8,8 @@
 {% endblock %}
 
 {% block links %}
+    <script src="{% static 'jquery/jquery-3.6.0.js' %}"></script>
+    <script src = "{% static 'js/planMyDayFirst.js' %}"></script>
     <link href="{% static "css/planMyDayFirst.css" %}" rel="stylesheet">
 
 {% endblock %}
@@ -34,11 +36,13 @@
                         Jutarnja aktivnost
                     </h5>
                     <p>Kojim aktivnostima najviše voliš da započneš dan?</p>
+                    <div class="form-check form-switch sectionDiv">
                     {% for cat in morningCategories %}
                         <input type="checkbox" class="form-check-input" name="checks[]" value="{{ cat.name }}" id="id{{ cat.name }}">
                         <label for="id{{ cat.name }}">{{ cat.name }}</label>
                         <br>
                     {% endfor %}
+                    </div>
                 </div>
             </div>
 
@@ -49,11 +53,13 @@
                         Popodnevna aktivnost
                     </h5>
                     <p>Kako želiš da provedeš kratku pauzu u sred napornog skijaškog dana?</p>
+                    <div class="form-check form-switch sectionDiv">
                     {% for cat in afternoonCategories %}
                         <input type="checkbox" class="form-check-input" name="checks[]" value="{{ cat.name }}" id="id{{ cat.name }}">
                         <label for="id{{ cat.name }}">{{ cat.name }}</label>
                         <br>
                     {% endfor %}
+                    </div>
                 </div>
             </div>
 
@@ -64,23 +70,41 @@
                         Večernja aktivnost
                     </h5>
                     <p>A kako zamišljaš kraj napornog dana?</p>
+                    <div class="form-check form-switch sectionDiv">
                     {% for cat in nightCategories %}
                         <input type="checkbox" class="form-check-input" name="checks[]" value="{{ cat.name }}" id="id{{ cat.name }}">
                         <label for="id{{ cat.name }}">{{ cat.name }}</label>
                         <br>
                     {% endfor %}
+                    </div>
                 </div>
             </div>
 
         <div class="row">
             <div class="alert alert-light alertPlanner justify-content-center" style="margin-left: 10px;">
                 <h3>I za kraj, reci nam kako skijaš? (nema varanja <i class="fa-regular fa-face-laugh-wink"></i>)</h3>
+                <div class="row" id="rangeRow">
+                    <div class="col-sm-6">
+                        <input type="range" min="0" max="2" name="range" id="idRange" oninput="changeRangeLabel(this.value)">
+                    </div>
 
-                <input type="range" min="0" max="2" name="range" id="idRange">
+                    <div class="col-sm-6">
+                        <label for="idRange" id="rangeLabel">
+                            <h5>
+                                <i class="fa-solid fa-person-skiing"></i>
+                                Onako
+                            </h5>
+
+                        </label>
+
+                    </div>
+                </div>
+
 
                 <button type="submit" id="nextBtn" class="btn btn-outline-success">
-                    <i class="fa-solid fa-angles-right"></i>
-                    Izaberi i pređi na sledeći korak
+                        <i class="fa-solid fa-angles-right"></i>
+                        Izaberi i pređi na sledeći korak
+
                 </button>
 {#                <input type="submit" id="nextBtn" class = "btn btn-outline-success"value="Izaberi i pređi na sledeći korak">#}
             </div>

@@ -24,17 +24,18 @@
     <div class="row" id="finalContent">
         {% if morning %}
             <div class="col-xl-4 col-lg-6 col-md-12">
-                <div class="alert alert-light finalAlert">
+                <div class="alert alert-light finalAlert finalMorning">
                     <h5><i class="fa-solid fa-sun"></i> Jutro</h5>
                     <p>Ah, kako je lepo zapošeti jutro nekom od sledećih aktivnosti...</p>
                     <hr>
                     {% for foo in morning %}
-                        <strong><i>{{ foo.type.name }}</i></strong> - {{ foo.obj_name }} <br>
-                        Na stazi : {{ foo.skitrack.name }} <br>
-                        <i class="fa-solid fa-phone" style="color: #48c798"></i>
-                        <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
+                        <div class="alert alert-light objectContent">
+                            <strong><i>{{ foo.type.name }}</i></strong> - {{ foo.obj_name }} <br>
+                            Na stazi : {{ foo.skitrack.name }} <br>
+                            <i class="fa-solid fa-phone"></i>
+                            <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
+                        </div>
 
-                        <hr>
                     {% endfor %}
 
                 </div>
@@ -44,17 +45,17 @@
 
         {% if afternoon %}
             <div class="col-xl-4 col-lg-6 col-md-12">
-                <div class="alert alert-light finalAlert">
+                <div class="alert alert-light finalAlert finalAfternoon">
                     <h5><i class="fa-solid fa-person-skiing"></i> Popodne</h5>
                     <p>A u toku dana treba i odmoriti, napraviti pauzu...</p>
                     <hr>
                     {% for foo in afternoon %}
-                        <strong><i>{{ foo.type.name }}</i></strong> - {{ foo.obj_name }} <br>
-                        Na stazi : {{ foo.skitrack.name }} <br>
-                        <i class="fa-solid fa-phone" style="color: #48c798"></i>
-                        <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
-
-                        <hr>
+                        <div class="alert alert-light objectContent">
+                            <strong><i>{{ foo.type.name }}</i></strong> - {{ foo.obj_name }} <br>
+                            Na stazi : {{ foo.skitrack.name }} <br>
+                            <i class="fa-solid fa-phone"></i>
+                            <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
+                        </div>
                     {% endfor %}
 
                 </div>
@@ -64,17 +65,17 @@
 
         {% if evening %}
             <div class="col-xl-4 col-lg-6 col-md-12">
-                <div class="alert alert-light finalAlert">
+                <div class="alert alert-light finalAlert finalEvening">
                     <h5><i class="fa-solid fa-moon"></i> Veče</h5>
                     <p>I za kraj, nešto za dušu...</p>
                     <hr>
                     {% for foo in evening %}
-                        <strong><i>{{ foo.type.name }}</i></strong> - {{ foo.obj_name }} <br>
-                        Na stazi : {{ foo.skitrack.name }} <br>
-                        <i class="fa-solid fa-phone" style="color: #48c798"></i>
-                        <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
-
-                        <hr>
+                        <div class="alert alert-light objectContent">
+                            <strong><i>{{ foo.type.name }}</i></strong> - {{ foo.obj_name }} <br>
+                            Na stazi : {{ foo.skitrack.name }} <br>
+                            <i class="fa-solid fa-phone"></i>
+                            <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
+                        </div>
                     {% endfor %}
 
                 </div>

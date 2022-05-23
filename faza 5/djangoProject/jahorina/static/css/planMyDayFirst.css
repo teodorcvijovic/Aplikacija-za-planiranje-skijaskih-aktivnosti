@@ -19,14 +19,53 @@
 
 }
 
+#rangeRow {
+    padding-top: 25px;
+}
+
 #idRange {
-    width: 30%;
+    width: 40%;
+    min-width: 130px;
     margin: auto;
     display: block;
-    padding: 10px;
+    /*padding: 10px;*/
+    float: right;
+
+    -webkit-appearance:none !important;
+     height:3px;
+     background:#04aa6d;
+     border:none;
+     outline:none;
+}
+
+#idRange::-webkit-slider-thumb {
+    -webkit-appearance:none !important;
+     width:25px;
+     height:25px;
+     background:#fcfcfc;
+     border:2px solid #04aa6d;
+     border-radius:50%;
+     cursor:pointer;
+}
+
+#idRange::-webkit-slider-thumb:hover {
+    background: #92cbdf;
 }
 
 #nextBtn {
     border-width: 2px;
     float: right;
+}
+
+input[type=checkbox]:checked {
+    background-color: #04aa6d;
+    border-color: #04aa6d;
+
+}
+
+#rangeLabel {
+    font-size: larger;
+    float: left;
+    position: relative;
+    top: -10px;
 }
