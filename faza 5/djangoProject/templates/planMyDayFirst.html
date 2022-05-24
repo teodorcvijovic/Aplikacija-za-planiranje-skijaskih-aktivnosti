@@ -20,11 +20,15 @@
     {% csrf_token %}
     <div class="row justify-content-center">
         <div class="row" id="planHeader">
-            <h3>Plan dana</h3>
+            <h3><i class="fa-solid fa-mountain"></i>&nbsp;Isplaniraj svoj savršen dan na Jahorini</h3>
+            <hr>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor finibus arcu,
-                sed consequat dui scelerisque vitae. Cras feugiat fermentum enim, a hendrerit nibh
-                tincidunt vel. Proin sed mi porta, imperdiet erat eget, ultricies mauris.
+                U saradnji sa našim dragim instruktorima osmislili smo vodič za organizovanje aktivnosti koji je namenjen svim strastvenim skijašima
+                koji su se odlučili da posete Jahorinu (uključujući i tebe).
+            </p>
+            <hr>
+            <p style="margin-bottom: 0">
+                U formi koja se nalazi u nastavku ponuđene su ti razne vrste aktivnosti koje možeš uključiti u svoj dnevni plan.
             </p>
         </div>
 
@@ -32,10 +36,11 @@
             <div class="col-xl-4 col-lg-12">
                 <div class="alert alert-light alertPlanner">
                     <h5>
-                        <i class="fa-solid fa-sun"></i>
-                        Jutarnja aktivnost
+                        <i class="fa-solid fa-sun" style="color: rgb(255,187,82);"></i>
+                        Jutarnje aktivnosti
                     </h5>
-                    <p>Kojim aktivnostima najviše voliš da započneš dan?</p>
+                    <hr>
+                    <p>Kojim aktivnostima bi želeo da započneš dan?</p>
                     <div class="form-check form-switch sectionDiv">
                     {% for cat in morningCategories %}
                         <input type="checkbox" class="form-check-input" name="checks[]" value="{{ cat.name }}" id="id{{ cat.name }}">
@@ -49,10 +54,11 @@
             <div class="col-xl-4 col-lg-12">
                 <div class="alert alert-light alertPlanner">
                     <h5>
-                        <i class="fa-solid fa-person-skiing"></i>
-                        Popodnevna aktivnost
+                        <i class="fa-solid fa-person-skiing" style="color: rgb(171,52,40);"></i>
+                        Popodnevne aktivnosti
                     </h5>
-                    <p>Kako želiš da provedeš kratku pauzu u sred napornog skijaškog dana?</p>
+                    <hr>
+                    <p>Pauza nakon intenzivnog skijanja?</p>
                     <div class="form-check form-switch sectionDiv">
                     {% for cat in afternoonCategories %}
                         <input type="checkbox" class="form-check-input" name="checks[]" value="{{ cat.name }}" id="id{{ cat.name }}">
@@ -66,10 +72,11 @@
             <div class="col-xl-4 col-lg-12">
                 <div class="alert alert-light alertPlanner">
                     <h5>
-                        <i class="fa-solid fa-moon"></i>
-                        Večernja aktivnost
+                        <i class="fa-solid fa-moon" style="color: rgb(112,96,165);"></i>
+                        Večernje aktivnosti
                     </h5>
-                    <p>A kako zamišljaš kraj napornog dana?</p>
+                    <hr>
+                    <p>Kako zamišljaš kraj ispunjenog dana?</p>
                     <div class="form-check form-switch sectionDiv">
                     {% for cat in nightCategories %}
                         <input type="checkbox" class="form-check-input" name="checks[]" value="{{ cat.name }}" id="id{{ cat.name }}">
@@ -82,7 +89,8 @@
 
         <div class="row">
             <div class="alert alert-light alertPlanner justify-content-center" style="margin-left: 10px;">
-                <h3>I za kraj, reci nam kako skijaš? (nema varanja <i class="fa-regular fa-face-laugh-wink"></i>)</h3>
+                <p> Na osnovu tvog skijaškog znanja ćemo ti preporučiti objekte koji odgovaraju tvojim željama, na stazama koje odgovaraju tvom skijaškom znanju.</p>
+                <hr>
                 <div class="row" id="rangeRow">
                     <div class="col-sm-6">
                         <input type="range" min="0" max="2" name="range" id="idRange" oninput="changeRangeLabel(this.value)">
@@ -92,15 +100,19 @@
                         <label for="idRange" id="rangeLabel">
                             <h5>
                                 <i class="fa-solid fa-person-skiing"></i>
-                                Onako
+                                Rekreativac
                             </h5>
 
                         </label>
 
                     </div>
+
+                    <div class="col-sm-3">
+
+                    </div>
                 </div>
 
-
+                <hr>
                 <button type="submit" id="nextBtn" class="btn btn-outline-success">
                         <i class="fa-solid fa-angles-right"></i>
                         Izaberi i pređi na sledeći korak
@@ -140,4 +152,10 @@
 {#        <input type="submit" class = "btn btn-success"value="Izaberi">#}
 
 
+{% endblock %}
+
+{% block footer %}
+    <div class="row" id="myFooter">
+                <p>Copyright &copy 2022</p>
+    </div>
 {% endblock %}

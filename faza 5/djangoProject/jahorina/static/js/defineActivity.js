@@ -11,7 +11,6 @@ $(document).ready(function() {
             elem = elem.offsetParent;
         } while(elem);
 
-
         let width = $(this).width();
         let height = $(this).height();
 
@@ -23,10 +22,14 @@ $(document).ready(function() {
         $("#coordx").val(percX);
         $("#coordy").val(percY);
 
+        $('#poruka').html('<i class="fa-solid fa-check"></i>&nbsp;Lokacija je uspešno selektovana.')
+
         $('#marker')
-            // TODO proveri koordinate kako treba
-            .css('left', event.pageX - 200)
-            .css('top', event.pageY - 180)
+            .css({
+                'position': 'relative',
+                'left': x,
+                'top': y,
+            })
             .show(700);
     })
 

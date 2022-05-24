@@ -1,17 +1,20 @@
 #planHeader {
     background-color: white;
-    width: 60%;
-    padding: 10px;
+    width: 70%;
+    padding: 20px;
     margin: 10px;
     border-radius: 5px;
+    color: #175167;
+    font-size: 18px;
 }
 
 #planContent {
     background-color: #c2e4f0;
-    width: 60%;
+    width: 70%;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
+    padding-top: 20px;
 }
 
 .alertPlanner {
@@ -21,12 +24,13 @@
 
 #rangeRow {
     padding-top: 25px;
+    color: #04aa6d;
 }
 
 #idRange {
     width: 40%;
     min-width: 130px;
-    margin: auto;
+    /*margin: auto;*/
     display: block;
     /*padding: 10px;*/
     float: right;
@@ -68,4 +72,11 @@ input[type=checkbox]:checked {
     float: left;
     position: relative;
     top: -10px;
+}
+
+#myFooter {
+	width: 100%;
+    padding: 0;
+    margin: 0;
+	text-align: center;
 }

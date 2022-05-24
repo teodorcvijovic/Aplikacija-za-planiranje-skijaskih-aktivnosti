@@ -15,27 +15,50 @@
 {% block content %}
     <div class="row justify-content-center">
     <div class="row" id="finalHeader">
-        <h3>Vaš plan dana je:</h3>
+        <h3>Plan dana</h3>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Nadamo se da ćeš uživati u svom isplaniranom danu!
         </p>
+        {% if skiing == 0 %}
+            <hr>
+            <p class="text-success">
+                S obzirom da si se izjasnio kao skijaš početnik, savetujemo ti da zakažeš čas
+                sa nekim od naših licenciranih ski-instruktora.
+                <br>
+                <button class="btn btn-outline-success" type="submit" onclick="window.location.href={% url 'instructors' %}" id="instructorButton"><i class="fa-solid fa-person-skiing"></i> Zakaži čas</button>
+            </p>
+        {% endif %}
     </div>
 
     <div class="row" id="finalContent">
         {% if morning %}
             <div class="col-xl-4 col-lg-6 col-md-12">
                 <div class="alert alert-light finalAlert finalMorning">
-                    <h5><i class="fa-solid fa-sun"></i> Jutro</h5>
-                    <p>Ah, kako je lepo zapošeti jutro nekom od sledećih aktivnosti...</p>
+                    <h4><i class="fa-solid fa-sun"></i> Jutro</h4>
+                    <h6>Sjajan način da se započne dan</h6>
                     <hr>
                     {% for foo in morning %}
                         <div class="alert alert-light objectContent">
-                            <strong><i>{{ foo.type.name }}</i></strong> - {{ foo.obj_name }} <br>
-                            Na stazi : {{ foo.skitrack.name }} <br>
-                            <i class="fa-solid fa-phone"></i>
-                            <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
-                        </div>
+                            <span style="font-size: 22px; font-weight: bolder">{{ foo.type.name }}</span><br>
+                            <i class="fa-solid fa-location-dot" style="color: #c23004"></i>
+                            {% if foo.skitrack.color == 0 %}
+                                <i class="fa-solid fa-circle" style="color: dodgerblue"></i>
+                            {% elif foo.skitrack.color == 1 %}
+                                <i class="fa-solid fa-circle" style="color: indianred"></i>
+                            {% else %}
+                                <i class="fa-solid fa-circle"></i>
+                            {% endif %}
 
+                            {{ foo.skitrack.name }}<br>
+
+                            <hr>
+
+                            <i class="fa-solid fa-house"></i> {{ foo.obj_name }} <br>
+
+                            <i class="fa-solid fa-phone"></i>
+                             <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
+
+                        </div>
                     {% endfor %}
 
                 </div>
@@ -46,15 +69,30 @@
         {% if afternoon %}
             <div class="col-xl-4 col-lg-6 col-md-12">
                 <div class="alert alert-light finalAlert finalAfternoon">
-                    <h5><i class="fa-solid fa-person-skiing"></i> Popodne</h5>
-                    <p>A u toku dana treba i odmoriti, napraviti pauzu...</p>
+                    <h4><i class="fa-solid fa-person-skiing"></i> Popodne</h4>
+                    <h6>Pauza za odmor</h6>
                     <hr>
                     {% for foo in afternoon %}
                         <div class="alert alert-light objectContent">
-                            <strong><i>{{ foo.type.name }}</i></strong> - {{ foo.obj_name }} <br>
-                            Na stazi : {{ foo.skitrack.name }} <br>
+                            <span style="font-size: 22px; font-weight: bolder">{{ foo.type.name }}</span><br>
+                            <i class="fa-solid fa-location-dot" style="color: #c23004"></i>
+                            {% if foo.skitrack.color == 0 %}
+                                <i class="fa-solid fa-circle" style="color: dodgerblue"></i>
+                            {% elif foo.skitrack.color == 1 %}
+                                <i class="fa-solid fa-circle" style="color: indianred"></i>
+                            {% else %}
+                                <i class="fa-solid fa-circle"></i>
+                            {% endif %}
+
+                            {{ foo.skitrack.name }}<br>
+
+                            <hr>
+
+                            <i class="fa-solid fa-house"></i> {{ foo.obj_name }} <br>
+
                             <i class="fa-solid fa-phone"></i>
-                            <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
+                             <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
+
                         </div>
                     {% endfor %}
 
@@ -66,15 +104,30 @@
         {% if evening %}
             <div class="col-xl-4 col-lg-6 col-md-12">
                 <div class="alert alert-light finalAlert finalEvening">
-                    <h5><i class="fa-solid fa-moon"></i> Veče</h5>
-                    <p>I za kraj, nešto za dušu...</p>
+                    <h4><i class="fa-solid fa-moon"></i> Veče</h4>
+                    <h6>Za savršen kraj savršenog dana</h6>
                     <hr>
                     {% for foo in evening %}
                         <div class="alert alert-light objectContent">
-                            <strong><i>{{ foo.type.name }}</i></strong> - {{ foo.obj_name }} <br>
-                            Na stazi : {{ foo.skitrack.name }} <br>
+                            <span style="font-size: 22px; font-weight: bolder">{{ foo.type.name }}</span><br>
+                            <i class="fa-solid fa-location-dot" style="color: #c23004"></i>
+                            {% if foo.skitrack.color == 0 %}
+                                <i class="fa-solid fa-circle" style="color: dodgerblue"></i>
+                            {% elif foo.skitrack.color == 1 %}
+                                <i class="fa-solid fa-circle" style="color: indianred"></i>
+                            {% else %}
+                                <i class="fa-solid fa-circle"></i>
+                            {% endif %}
+
+                            {{ foo.skitrack.name }}<br>
+
+                            <hr>
+
+                            <i class="fa-solid fa-house"></i> {{ foo.obj_name }} <br>
+
                             <i class="fa-solid fa-phone"></i>
-                            <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
+                             <a href="tel:{{ foo.obj_contact }}">{{ foo.obj_contact }}</a>
+
                         </div>
                     {% endfor %}
 
@@ -107,4 +160,10 @@
 {#                {{ a }} <br>#}
 {#            {% endfor %}#}
 {#        {% endif %}#}
+{% endblock %}
+
+{% block footer %}
+    <div class="row" id="myFooter">
+                <p>Copyright &copy 2022</p>
+    </div>
 {% endblock %}

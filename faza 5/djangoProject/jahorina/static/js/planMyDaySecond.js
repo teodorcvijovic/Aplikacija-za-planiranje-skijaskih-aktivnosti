@@ -50,7 +50,6 @@ $(document).ready(function() {
             let x = Math.round(width * percX) + imgX - 50;
             let y = Math.round(height * percY) + imgY ;
 
-
             $(this).css({
                 "position": "absolute",
                 "left": x,

@@ -13,12 +13,11 @@
     border-radius: 5px;
     border: 5px solid lightslategrey;
     width: 100%;
-
 }
 
 /* labels styling */
 .pinLabel {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 3px;
     border-radius: 5px;
     font-size: small;
@@ -44,4 +43,11 @@ hr {
 /* top row with header and button */
 #topRow {
     margin-bottom: 10px;
+}
+
+#myFooter {
+	width: 100%;
+    padding: 0;
+    margin: 0;
+	text-align: center;
 }

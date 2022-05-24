@@ -17,9 +17,9 @@ class MyUser(AbstractUser):
 
 class SkiInstructor(MyUser):
     phone = models.CharField(max_length=17)
-    instagram = models.CharField(max_length=300, null=True, blank=True)
-    facebook = models.CharField(max_length=300, null=True, blank=True)
-    snapchat = models.CharField(max_length=300, null=True, blank=True)
+    instagram = models.CharField(max_length=290, null=True, blank=True)
+    facebook = models.CharField(max_length=290, null=True, blank=True)
+    snapchat = models.CharField(max_length=290, null=True, blank=True)
     experience = models.IntegerField()
     birthdate = models.DateField()
 

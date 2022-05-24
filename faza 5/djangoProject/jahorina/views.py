@@ -12,9 +12,7 @@ from .models import *
 
 
 # teodor
-# home page
 def index(request):
-    # TO DO
     context = {
 
     }
@@ -143,6 +141,7 @@ def instructors(request):
 
     # sending SkiInstructor objects without password field for safety reasons and without other unnecessary fields
     Instructors = [{
+            'id': i.id,
             'name': i.first_name,
             'surname': i.last_name,
             'experience': i.experience,
@@ -169,11 +168,12 @@ def map(request):
 @login_required(login_url='loginRequest')
 @permission_required('jahorina.delete_skiinstructor', raise_exception=True)
 def deleteSkiInstructor(request):
-    id = request.POST.get('skiinstructor_id')
-    if id:
-        ins = SkiInstructor.objects.filter(pk=id).first()
-        if ins:
-            ins.delete()
+    if request.method == 'POST':
+        id = request.POST.get('i_id')
+        if id:
+            ins = SkiInstructor.objects.filter(pk=id).first()
+            if ins:
+                ins.delete()
     return redirect('instructors')
 
 # lara
@@ -202,6 +202,8 @@ def defineActivity(request):
         alreadyExists = Activity.objects.filter(obj_name=activity.obj_name).filter(type=activity.type);
         if alreadyExists:
             errors.append("Data aktivnost već postoji!")
+        elif x == '' or y == '':
+            errors.append("Niste locirali objekat na mapi!")
         else:
             activity.x = x;
             activity.y = y;
@@ -263,10 +265,14 @@ def planMyDayFirst(request):
 def planMyDaySecond(request):
     if (request.method == "POST"):
         checked = request.POST.getlist('checks[]');
+        if len(checked) == 0:
+            return redirect('planMyDayFirst')
+
         range = request.POST.get("range");
         # print(range);
         activities = [];
         range = int(range);
+        skiing = range
         while range >= 0:
             for c in checked:
                 print(c);
@@ -276,7 +282,8 @@ def planMyDaySecond(request):
 
         context = {
             'checked': checked,
-            'activities': activities
+            'activities': activities,
+            'skiing': skiing
         }
         return render(request, 'planMyDaySecond.html', context);
 
@@ -284,7 +291,12 @@ def planMyDaySecond(request):
 def planMyDayFinal(request):
     if request.method == "POST":
         activity_id_list = request.POST.get('activity_id_list')
+        if len(activity_id_list) == 1:
+            return redirect('planMyDayFirst')
+
         activity_id_list = activity_id_list[1:-1]  # ignore last comma
+        skiing = request.POST.get('skiing')
+        skiing = int(skiing)
         morning = []
         afternoon = []
         evening = []
@@ -297,7 +309,8 @@ def planMyDayFinal(request):
         context = {
             'morning': morning,
             'afternoon': afternoon,
-            'evening': evening
+            'evening': evening,
+            'skiing': skiing
         }
         return render(request, 'planMyDayFinal.html', context)
 

@@ -11,6 +11,8 @@
     margin-bottom: 10px;
     padding: 20px 5px 0px 15px;
     vertical-align: middle;
+
+    color: #175167;
 }
 
 .instructors_alert {
@@ -69,9 +71,10 @@
 #linksDiv button {
     border: 0;
     border-radius: 5px;
-    padding: 4px;
+    padding: 8px;
     font-size: 15px;
     color: gray;
+    margin-right: 5px;
 }
 
 #btnInsta:hover {
@@ -143,7 +146,8 @@ form button:hover {
 
 .instDeleteButton {
     color: #c72828;
-    font-weight: bold;
+    /*font-weight: bold;*/
+    border: 2px solid #c72828;
 }
 
 .instDeleteButton:hover {
