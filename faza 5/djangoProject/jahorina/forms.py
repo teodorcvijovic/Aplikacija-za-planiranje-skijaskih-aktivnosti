@@ -72,48 +72,81 @@ class SkiInstructorCreationForm(UserCreationForm):
         label='Potvrda lozinke',
         widget=forms.PasswordInput(attrs={'class': 'loginInputs', 'placeholder': 'Potvrdite unetu lozinku'}),
     )
+    '''
+        first_name: forms.CharField
+    '''
     first_name = forms.CharField(
         label='Ime',
         widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite ime'})
     )
+    '''
+        last_name: forms.CharField
+    '''
     last_name = forms.CharField(
         label='Prezime',
         widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite prezime'})
     )
+    '''
+        email: forms.EmailField
+    '''
     email = forms.EmailField(
         label='Email adresa',
         widget=forms.EmailInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite e-mail adresu'})
     )
+    '''
+        phone: forms.CharField
+    '''
     phone = forms.CharField(
         label='Broj telefona',
         widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': '+38* ** *******'})
     )
+    '''
+        instagram: forms.CharField
+    '''
     instagram = forms.CharField(
         label='Link ka Instagram profilu',
         required=False,
         widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Opciono polje'})
     )
+    '''
+        facebook: forms.CharField
+    '''
     facebook = forms.CharField(
         label='Link ka Facebook profilu',
         required=False,
         widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Opciono polje'})
     )
+    '''
+        snapchat: forms.CharField
+    '''
     snapchat = forms.CharField(
         label='Link ka Snapchat profilu',
         required=False,
         widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Opciono polje'})
     )
+    '''
+        experience: forms.IntegerField
+    '''
     experience = forms.IntegerField(
         label='Godine iskustva',
         widget=forms.NumberInput(attrs={'class': 'loginInputs', 'min': 0})
     )
+    '''
+        birthdate: forms.DateField
+    '''
     birthdate = forms.DateField(
         label='Datum rođenja',
         widget=forms.widgets.DateInput(attrs={'class': 'loginInputs', 'type': 'date'})
     )
 
     class Meta:
+        '''
+            model: SkiInstructor
+        '''
         model = SkiInstructor
+        '''
+            fields: Array of String
+        '''
         fields = ['username', 'password1', 'password2', 'first_name', 'last_name',
                   'email', 'phone', 'instagram', 'facebook', 'snapchat', 'experience', 'birthdate']
 
@@ -132,7 +165,9 @@ class SkiInstructorSearchForm(Form):
         SkiInstructorSearchForm: Form used for SkiInstructor search by multiple criteria.
     '''
 
-    # :EXP_CHOICES Array of Tuple:
+    '''
+        EXP_CHOICES: Array of Tuple
+    '''
     EXP_CHOICES = [
         ('other', 'Prikaži sve'),
         ('low', 'Do 3 godine'),
@@ -140,7 +175,13 @@ class SkiInstructorSearchForm(Form):
         ('high', 'Preko 5 godina')
     ]
 
+    '''
+        name: forms.CharField    
+    '''
     name = forms.CharField(label='Ime', max_length=50, required=False)
+    '''
+        experience: forms.CharField    
+    '''
     experience = forms.CharField(label='Iskustvo', widget=forms.Select(choices=EXP_CHOICES))
 
 # filip
@@ -149,6 +190,9 @@ class ActivitySearchForm(Form):
         ActivitySearchForm: Form used for activity search. Used only by moderators/administrator.
     '''
 
+    '''
+        name: forms.CharField
+    '''
     name = forms.CharField(label='Ime', max_length=50, required=False)
 
 
@@ -159,13 +203,25 @@ class AddActivityForm(ModelForm):
     '''
 
     class Meta:
+        '''
+            model: Activity
+        '''
         model = Activity;
+        '''
+            fields: Array of String
+        '''
         fields=['skitrack','obj_name','obj_contact'];
+        '''
+            labels: Dictionary
+        '''
         labels={
             'skitrack':'Staza na kojoj se nalazi aktivnost:',
             'obj_name':'Naziv objekta:',
             'obj_contact':'Kontakt telefon objekta:',
         }
+        '''
+            widgets: Dictionary
+        '''
         widgets = {
             'skitrack': forms.Select(attrs={'class': 'form-select'})
         }
@@ -189,10 +245,24 @@ class AddCategoryForm(ModelForm):
     '''
 
     # root=forms.ChoiceField(choices=[(0,'jutarnja'), (1,'popodnevna'), (2,'vecernja')], label='Tip kategorije');
+
+    '''
+        message: forms.CharField
+    '''
     message=forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 30, 'placeholder' : 'Unesite Vašu poruku'}), required=False)
+
     class Meta:
+        '''
+            model: Category
+        '''
         model=Category;
+        '''
+            fields: Array of String
+        '''
         fields=["name"]
+        '''
+            labels: Dictionary
+        '''
         labels = {
             'name': 'Naziv kategorije:',
         }
@@ -204,8 +274,14 @@ class UpdateTrackForm(ModelForm):
         UpdateTrackForm: Form used for updating SkiTrack information. Only used by authenticated users.
     '''
 
+    '''
+        CHOICES: Array of Tuple
+    '''
     CHOICES = [(1, 'Otvorena'),   (0, 'Zatvorena')]
 
+    '''
+        opened: forms.ChoiceField
+    '''
     opened = forms.ChoiceField(
         choices=CHOICES,
         widget=forms.RadioSelect,
@@ -213,13 +289,25 @@ class UpdateTrackForm(ModelForm):
     )
 
     class Meta:
+        '''
+            model: SkiTrack
+        '''
         model = SkiTrack
+        '''
+            fields: Array of String
+        '''
         fields = ['is_foggy', 'is_busy', 'comment']
+        '''
+            labels: Dictionary
+        '''
         labels = {
             'is_foggy': 'Maglovitost',
             'is_busy': 'Guzva',
             'comment': 'Komentar'
         }
+        '''
+            widget: Dictionary
+        '''
         widgets = {
             'is_foggy': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
             'is_busy': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
@@ -243,6 +331,9 @@ class AddTrackForm(Form):
         AddTrackForm: Form used for adding new SkiTrack.
     '''
 
+    '''
+        name: forms.CharField
+    '''
     name = forms.CharField(
         label='Naziv',
         widget=forms.TextInput(attrs={'placeholder': 'Unesite naziv staze'})
@@ -257,6 +348,9 @@ class AddTrackForm(Form):
     #     required=False
     # )
 
+    '''
+        length: forms.IntegerField
+    '''
     length = forms.IntegerField(
         label='Dužina',
         widget=forms.NumberInput(attrs={'placeholder': 'Dužina u metrima', 'min': 0})
