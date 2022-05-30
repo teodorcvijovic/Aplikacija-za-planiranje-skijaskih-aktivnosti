@@ -1,0 +1,161 @@
+<!-- filip -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+   Isplaniraj moj dan
+{% endblock %}
+
+{% block links %}
+    <script src="{% static 'jquery/jquery-3.6.0.js' %}"></script>
+    <script src = "{% static 'js/planMyDayFirst.js' %}"></script>
+    <link href="{% static "css/planMyDayFirst.css" %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+    <form method="post" action="{% url 'planMyDaySecond' %}">
+    {% csrf_token %}
+    <div class="row justify-content-center">
+        <div class="row" id="planHeader">
+            <h3><i class="fa-solid fa-mountain"></i>&nbsp;Isplaniraj svoj savršen dan na Jahorini</h3>
+            <hr>
+            <p>
+                U saradnji sa našim dragim instruktorima osmislili smo vodič za organizovanje aktivnosti koji je namenjen svim strastvenim skijašima
+                koji su se odlučili da posete Jahorinu (uključujući i tebe).
+            </p>
+            <hr>
+            <p style="margin-bottom: 0">
+                U formi koja se nalazi u nastavku ponuđene su ti razne vrste aktivnosti koje možeš uključiti u svoj dnevni plan.
+            </p>
+        </div>
+
+        <div class="row" id="planContent">
+            <div class="col-xl-4 col-lg-12">
+                <div class="alert alert-light alertPlanner">
+                    <h5>
+                        <i class="fa-solid fa-sun" style="color: rgb(255,187,82);"></i>
+                        Jutarnje aktivnosti
+                    </h5>
+                    <hr>
+                    <p>Kojim aktivnostima bi želeo da započneš dan?</p>
+                    <div class="form-check form-switch sectionDiv">
+                    {% for cat in morningCategories %}
+                        <input type="checkbox" class="form-check-input" name="checks[]" value="{{ cat.name }}" id="id{{ cat.name }}">
+                        <label for="id{{ cat.name }}">{{ cat.name }}</label>
+                        <br>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-12">
+                <div class="alert alert-light alertPlanner">
+                    <h5>
+                        <i class="fa-solid fa-person-skiing" style="color: rgb(171,52,40);"></i>
+                        Popodnevne aktivnosti
+                    </h5>
+                    <hr>
+                    <p>Pauza nakon intenzivnog skijanja?</p>
+                    <div class="form-check form-switch sectionDiv">
+                    {% for cat in afternoonCategories %}
+                        <input type="checkbox" class="form-check-input" name="checks[]" value="{{ cat.name }}" id="id{{ cat.name }}">
+                        <label for="id{{ cat.name }}">{{ cat.name }}</label>
+                        <br>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-12">
+                <div class="alert alert-light alertPlanner">
+                    <h5>
+                        <i class="fa-solid fa-moon" style="color: rgb(112,96,165);"></i>
+                        Večernje aktivnosti
+                    </h5>
+                    <hr>
+                    <p>Kako zamišljaš kraj ispunjenog dana?</p>
+                    <div class="form-check form-switch sectionDiv">
+                    {% for cat in nightCategories %}
+                        <input type="checkbox" class="form-check-input" name="checks[]" value="{{ cat.name }}" id="id{{ cat.name }}">
+                        <label for="id{{ cat.name }}">{{ cat.name }}</label>
+                        <br>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        <div class="row">
+            <div class="alert alert-light alertPlanner justify-content-center" style="margin-left: 10px;">
+                <p> Na osnovu tvog skijaškog znanja ćemo ti preporučiti objekte koji odgovaraju tvojim željama, na stazama koje odgovaraju tvom skijaškom znanju.</p>
+                <hr>
+                <div class="row" id="rangeRow">
+                    <div class="col-sm-6">
+                        <input type="range" min="0" max="2" name="range" id="idRange" oninput="changeRangeLabel(this.value)">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="idRange" id="rangeLabel">
+                            <h5>
+                                <i class="fa-solid fa-person-skiing"></i>
+                                Rekreativac
+                            </h5>
+
+                        </label>
+
+                    </div>
+
+                    <div class="col-sm-3">
+
+                    </div>
+                </div>
+
+                <hr>
+                <button type="submit" id="nextBtn" class="btn btn-outline-success">
+                        <i class="fa-solid fa-angles-right"></i>
+                        Izaberi i pređi na sledeći korak
+
+                </button>
+{#                <input type="submit" id="nextBtn" class = "btn btn-outline-success"value="Izaberi i pređi na sledeći korak">#}
+            </div>
+        </div>
+
+        </div>
+
+
+    </div>
+    </form>
+{#    <!-- TO DO: home page content -->#}
+{##}
+{#        <div id="morning">#}
+{#           <h5>Jutarnje aktivnosti:</h5>#}
+{#            {% for cat in morningCategories %}#}
+{#              <input type="checkbox"  name="checks[]" value="{{ cat.name }}" > {{ cat.name }} <br>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#        <div id="afternoon" style="background-color: lightpink">#}
+{#            <h5>Popodnevne aktivnosti</h5>#}
+{#            {% for cat in afternoonCategories %}#}
+{#              <input type="checkbox" name="checks[]" value="{{ cat.name }}">  {{ cat.name }} <br>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#        <div id="night">#}
+{#            <h5>Vecernje aktivnosti</h5>#}
+{#            {% for cat in nightCategories %}#}
+{#              <input type="checkbox" name="checks[]" value="{{ cat.name }}" >  {{ cat.name }} <br>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#       <br>#}
+{#         <input type="range" min="0" max="2" name="range">#}
+{#        <input type="submit" class = "btn btn-success"value="Izaberi">#}
+
+
+{% endblock %}
+
+{% block footer %}
+    <div class="row" id="myFooter">
+                <p>Copyright &copy 2022</p>
+    </div>
+{% endblock %}

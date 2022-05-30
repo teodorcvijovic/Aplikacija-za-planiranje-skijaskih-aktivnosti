@@ -1,0 +1,53 @@
+/* filip */
+
+/* main white windoe */
+#planMyDaySecondContent {
+    width: 80%;
+    min-width: min-content;
+    margin: 10px;
+    padding: 15px;
+}
+
+/* map styling */
+#jahorinaMap img {
+    border-radius: 5px;
+    border: 5px solid lightslategrey;
+    width: 100%;
+}
+
+/* labels styling */
+.pinLabel {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 3px;
+    border-radius: 5px;
+    font-size: small;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+/* when hovering over labels */
+.pinLabel:hover {
+    border: 2px solid #04aa6d;
+}
+
+hr {
+    margin: 2px;
+
+}
+
+/* active class - toggled in js file */
+.pinClicked {
+    border: 2px solid rgba(185, 183, 183, 0.8);
+    background-color: rgba(185, 183, 183, 0.8);
+}
+
+/* top row with header and button */
+#topRow {
+    margin-bottom: 10px;
+}
+
+#myFooter {
+	width: 100%;
+    padding: 0;
+    margin: 0;
+	text-align: center;
+}

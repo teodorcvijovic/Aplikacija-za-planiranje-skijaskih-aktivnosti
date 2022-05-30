@@ -1,0 +1,101 @@
+<!-- lara & filip -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+<script src="{% static 'jquery/jquery-3.6.0.js' %}"></script>
+<script src = "{% static 'js/defineActivity.js' %}"></script>
+<link href="{% static 'css/defineActivity.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+   Dodajte novu aktivnost
+{% endblock %}
+
+{% block content %}
+    <!-- TO DO: home page content -->
+    {% if user.is_authenticated %}
+    <div class="row justify-content-center">
+    <div class="alert alert-light" id="defineActivityContent">
+        {% if msg %}
+            <div class="alert alert-success">
+                <h3> {{ msg }} </h3>
+            </div>
+        {% endif %}
+
+        <h3>
+{#            {% if category.root == 0 %}#}
+{#                <i class="fa-solid fa-sun"></i>#}
+{#            {% elif category.root == 1 %}#}
+{#                <i class="fa-solid fa-person-skiing"></i>#}
+{#            {% else %}#}
+{#                <i class="fa-solid fa-moon"></i>#}
+{#            {% endif %}#}
+            <i class="fa-solid fa-pen"></i>
+
+            {{ category }} : <i>definisanje aktivnosti</i>
+        </h3>
+        <hr>
+        <form method="post" style="padding-bottom: 10px">
+            {% csrf_token %}
+            <h5>Na kojoj stazi se nalazi objekat koji je vezan za Vašu aktivnost?</h5>
+            {{ form.skitrack }}
+            <hr>
+            <h5>
+                <i class="fa-solid fa-house"></i> Naziv objekta: {{ form.obj_name }}
+            </h5>
+            <br>
+            <h5>
+                <i class="fa-solid fa-phone" style="color: #48c798"></i>
+                Kontakt datog objekta:
+                {{ form.obj_contact }}
+            </h5>
+            <hr>
+                <!-- mapa -->
+                <h5>
+                    <i class="fa-solid fa-location-dot"></i> Molimo Vas da na mapi označite lokaciju datog objekta
+                </h5>
+                <h6 id="poruka" style="color: #48c798"></h6><img src="{% static 'icons/marker.png' %}" id="marker" style="display: none; position: absolute; width: 20px;" />
+                <div id="mapDiv" class="d-flex justify-content-center">
+                    <img src="{% static 'icons/oc-jahorina-ski-mapa9.jpg' %}" id="jahorinaMap">
+                </div>
+
+                <!-- hidden -->
+                <div id="coords" class="d-flex justify-content-center">
+                    <input type="text" name="x" id="coordx" style="display: none">
+                    <input type="text" name="y" id="coordy" style="display: none">
+                </div>
+            <hr>
+            {% if errors %}
+                {% for error in errors %}
+                    <h6 style="color: red">{{ error }}</h6>
+                {% endfor %}
+
+            {% endif %}
+
+
+             <button type="submit" name="category" value="{{ category }}" class="btn btn-outline-success" style="border-width: 2px">
+                    <i class="fa-solid fa-plus"></i>&nbsp;
+                    Dodaj &nbsp;&nbsp;&nbsp;
+             </button>
+
+
+        </form>
+
+        {# must be out of form, othervise it acts as if its submit button #}
+        <button class="btn btn-outline-secondary" style="border-width: 2px"
+                    onclick="window.location.href={% url 'addActivity' %}">
+
+            <i class="fa-solid fa-ban"></i> Obustavi
+
+        </button>
+    </div>
+    </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

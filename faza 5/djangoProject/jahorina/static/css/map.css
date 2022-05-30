@@ -1,0 +1,19 @@
+#mapDiv img {
+    width: 100%;
+    border: 5px solid lightslategrey;
+    border-radius: 5px;
+}
+
+#mapDiv {
+    margin-bottom: 20px;
+}
+
+#coords{
+    margin-bottom: 50px;
+}
+
+#prikazAlert {
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

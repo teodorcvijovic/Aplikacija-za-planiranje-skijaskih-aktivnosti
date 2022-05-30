@@ -1,0 +1,85 @@
+<!-- lara -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+   Dodajte novu aktivnost
+{% endblock %}
+
+{% block links %}
+    <link href="{% static "css/addActivity.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class = "row justify-content-center">
+        <div class="alert alert-light" id="addActivityContent">
+            <h3><i class="fa-solid fa-calendar-plus"></i> Dodavanje nove aktivnosti</h3>
+            <hr>
+            <h5>Izaberite kojoj kategoriji pripada aktivnost koju želite da dodate</h5>
+            {% if perms.jahorina.delete_category %}
+                <p style="color: #fc9803"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp;Ukoliko obrišete neku od kategorija, obrisaće se i sve aktivnosti te kategorije.</p>
+            {% endif %}
+
+            <hr>
+
+            <div class="row" id="trackContent">
+
+                    {% for c in categories %}
+
+                        <div class="col-md-6 col-lg-6 col-xl-4 categoryBox">
+
+                        <form method="post" action="{% url 'defineActivity' %}">
+                            {% csrf_token %}
+                            <button class="category" type="submit" name="cat" value="{{ c.name }}">
+                                 {% if c.root == 0 %}
+                                        <i class="fa-solid fa-sun"></i>
+                                    {% elif c.root == 1 %}
+                                        <i class="fa-solid fa-person-skiing"></i>
+                                    {% else %}
+                                        <i class="fa-solid fa-moon"></i>
+                                {% endif %}
+                                &nbsp;{{ c.name }}
+                            </button>
+        {#                  <input class="btn btn-primary "type="submit" name="cat" value="{{ c.name }}">#}
+                        </form>
+
+                        <!-- delete button -->
+                        {% if perms.jahorina.delete_category %}
+                            <form method="post" action="{% url 'deleteCategory' %}">
+                                {% csrf_token %}
+                                <button class="deleteCategoryButton" type="submit" name="category_id" value="{{ c.id }}"><i class="fa-solid fa-trash-can"></i></button>
+                            </form>
+                        {% endif %}
+
+                        </div>
+                    {% endfor %}
+
+
+                    <div class="col-md-6 col-lg-6 col-xl-4 categoryBox">
+                        <form method="post" action="{% url 'addCategory' %}">
+                        {% csrf_token %}
+                          <button class="category" type="submit" value="" id="newCategoryButton"><i class="fa-solid fa-plus"></i> Dodaj novu kategoriju</button>
+                        </form>
+                    </div>
+
+            </div>
+        </div>
+        </div>
+
+{#        -----------------------------------------------------#}
+
+
+
+
+    {% else %}
+
+    {% endif %}
+{% endblock %}
+
+{#{% block footer %}#}
+{#    <div class="row" id="aFooter">#}
+{#        <p>Copyright &copy 2022</p>#}
+{#    </div>#}
+{#{% endblock %}#}

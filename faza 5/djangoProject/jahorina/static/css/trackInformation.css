@@ -1,0 +1,52 @@
+#wrapper {
+    margin: auto;
+}
+
+/* for the top alert with header */
+#trackAlert {
+    width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+}
+
+/* for lower lightblue box with all tracks */
+#trackContent {
+    width: 80%;
+    background-color: #c2e4f0;
+    border-radius: 5px;
+}
+
+/* wrapper for positioning only */
+.trackBox {
+    margin-top: 15px;
+}
+
+/* for each white track box */
+.tracks {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+/* for edit button on top-right */
+form {
+    float: right;
+}
+
+#editButton {
+    background-color: white;
+    color: gold;
+    border-width: 3px;
+}
+
+#editButton:hover {
+    background-color: gold;
+    color: white;
+}
+
+/* positioning of is_open alert */
+.alertIsOpen {
+    padding : 8px;
+    margin-top: 5px;
+}

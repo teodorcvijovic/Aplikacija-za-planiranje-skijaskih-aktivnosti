@@ -1,0 +1,27 @@
+.form-select {
+    width: 30%;
+}
+
+#defineActivityContent {
+    width: 80%;
+    min-width: min-content;
+    margin: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+#mapDiv img {
+    width: 100%;
+    border: 5px solid lightslategrey;
+    border-radius: 5px;
+}
+
+#mapDiv {
+    margin-bottom: 5px;
+}
+
+#coords{
+    margin-bottom: 5px;
+}
+

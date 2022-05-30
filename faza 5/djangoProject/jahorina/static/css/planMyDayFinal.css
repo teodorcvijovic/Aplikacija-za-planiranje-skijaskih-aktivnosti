@@ -1,0 +1,64 @@
+#finalHeader {
+    background-color: white;
+    width: 80%;
+    padding: 20px 20px 20px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    color: #175167;
+}
+
+#finalContent {
+    background-color: #c2e4f0;
+    width: 80%;
+    padding: 10px;
+    padding-top: 20px;
+    margin: 10px;
+    border-radius: 5px;
+
+}
+
+.finalAlert {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 0;
+}
+
+.objectContent {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 0;
+    font-size: 17px;
+    padding: 10px 20px 20px 20px;
+}
+
+.fa-phone {
+    color: #48c798;
+}
+
+.finalMorning {
+    background: rgb(255,187,82);
+    background: linear-gradient(0deg, rgba(255,187,82,1) 0%, rgba(255,233,166,1) 47%, rgba(255,255,255,1) 100%);
+}
+
+.finalAfternoon {
+    background: rgb(171,52,40);
+background: linear-gradient(0deg, rgba(171,52,40,1) 0%, rgba(244,158,76,1) 33%, rgba(245,238,158,1) 66%, rgba(255,255,255,1) 100%);
+}
+
+.finalEvening {
+    background: rgb(112,96,165);
+    background: linear-gradient(0deg, rgba(112,96,165,1) 0%, rgba(197,145,176,1) 33%, rgba(197,145,176,1) 66%, rgba(255,255,255,1) 100%);
+}
+
+#myFooter {
+	width: 100%;
+    padding: 0;
+    margin: 0;
+	text-align: center;
+}
+
+#instructorButton {
+    padding: 5px 20px 5px 20px;
+    margin-top: 15px;
+    border-width: 2px
+}
+
+

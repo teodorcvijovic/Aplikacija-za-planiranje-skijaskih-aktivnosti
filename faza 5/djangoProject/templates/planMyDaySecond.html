@@ -1,0 +1,90 @@
+<!-- filip -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+    <script src="{% static 'jquery/jquery-3.6.0.js' %}"></script>
+    <script src = "{% static 'js/planMyDaySecond.js' %}"></script>
+    <link href="{% static "css/planMyDaySecond.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+   Isplaniraj moj dan
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+<div class="alert alert-light" id="planMyDaySecondContent" style="margin-bottom: 50px">
+
+
+
+    <form method="post" action="{% url 'planMyDayFinal' %}" style="padding-bottom: 10px;">
+    {% csrf_token %}
+    <input type="hidden" name="skiing" value="{{ skiing }}">
+    {# top row with header  #}
+    <div class="row" id="topRow">
+        <div class="col-sm-10">
+            <h4 style="margin-top: 5px">Klikom odaberi objekte koje želiš da uključiš u svoj plan dana</h4>
+        </div>
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-outline-success" style="border-width: 2px; float: right">
+                <i class="fa-solid fa-angles-right"></i> Dalje
+            </button>
+        </div>
+    </div>
+
+    {# hidden div with labels; labels will be placed dynamicaly on the screen #}
+    <div style="height: 0">
+     {% for act in activities %}
+         <!-- action listeners are added via javascript -->
+         <input type="checkbox" name="a_id" value="{{ act.id }}" id="a_id{{ act.id }}" style="display: none">
+            <label class="pinLabel" for="a_id{{ act.id }}" id="x{{ act.x }} y{{ act.y }}">
+                {% if act.type.root == 0 %}
+                    <i class="fa-solid fa-sun"></i> {{ act.type.name }}
+                    {% elif act.type.root == 1 %}
+                    <i class="fa-solid fa-person-skiing"></i> {{ act.type.name }}
+                    {% else %}
+                    <i class="fa-solid fa-moon"></i> {{ act.type.name }}
+                {% endif %}
+                <hr>
+                {% if act.skitrack.color == 0 %}
+                    <i class="fa-solid fa-location-dot" style="color: dodgerblue"></i>
+                {% elif act.skitrack.color == 1 %}
+                    <i class="fa-solid fa-location-dot" style="color: indianred"></i>
+                {% else %}
+                    <i class="fa-solid fa-location-dot"></i>
+                {% endif %}
+{#                <i class="fa-solid fa-location-dot" style="color: crimson"></i>#}
+                {{ act.obj_name }}
+            </label>
+         <br>
+    {% endfor %}
+    </div>
+
+    {# map #}
+    <div id="jahorinaMap" class="d-flex justify-content-center">
+        <img src="{% static 'icons/oc-jahorina-ski-mapa9.jpg' %}" id="jahorinaPict">
+    </div>
+    <br>
+    <!-- needs to be hidden, used for activity ids passing -->
+    <input type="text" name="activity_id_list" id="a_id_list" hidden>
+
+    </form>
+
+{#    <button class="btn btn-outline-primary" onclick="window.location.reload()" style="border-width: 2px; ">#}
+{#        <i class="fa-solid fa-arrow-rotate-right"></i>#}
+{#        Izaberi ponovo#}
+{#    </button>#}
+
+</div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+    <div class="row" id="myFooter">
+                <p>Copyright &copy 2022</p>
+    </div>
+{% endblock %}

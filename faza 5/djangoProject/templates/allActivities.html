@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+   Prikaz aktivnosti
+{% endblock %}
+
+{% block links %}
+    <link href="{% static "css/allActivities.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+    <div class="row justify-content-center">
+        <div class="row" id="trackAlert">
+            <div class="col-xl-8" style="padding-top: 10px">
+                <form method="post" id="searchForm" style="color: #175167;">
+                    {% csrf_token %}
+                    Naziv:&nbsp;
+                    {{ searchform.name }}
+                    &nbsp;
+                    <button type="submit" id="searchButton" style="color: #175167;">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        Pretraži
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row" id="trackContent">
+            {% if activities %}
+
+                {% for a in activities %}
+
+                    <div class="col-md-12 col-lg-6 col-xl-3 activityBox">
+                    <div class="alert alert-light activity">
+
+                        {% if a.type.root == 0 %}
+                            <i class="fa-solid fa-sun"></i>
+                        {% elif a.type.root == 1 %}
+                            <i class="fa-solid fa-person-skiing"></i>
+                        {% else %}
+                            <i class="fa-solid fa-moon"></i>
+                        {% endif %}
+                        {{ a.type }}
+
+                         <!-- delete button -->
+                        {% if perms.jahorina.delete_activity %}
+                            <form method="post" action="{% url 'deleteActivity' %}">
+                                {% csrf_token %}
+                                <button class="deleteButton" type="submit" name="activity_id" value="{{ a.id }}"><i class="fa-solid fa-trash-can"></i>&nbsp;Obriši</button>
+                            </form>
+                        {% endif %}
+
+                        <hr>
+                        {{ a.obj_name }}
+
+                    </div>
+                    </div>
+                {% endfor %}
+
+            {% else %}
+                <p style="margin: 20px"><i class="fa-regular fa-face-tired"></i>&nbsp;Trenutno nema aktivnosti za prikaz.</p>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

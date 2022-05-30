@@ -1,0 +1,82 @@
+#planHeader {
+    background-color: white;
+    width: 70%;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    color: #175167;
+    font-size: 18px;
+}
+
+#planContent {
+    background-color: #c2e4f0;
+    width: 70%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    padding-top: 20px;
+}
+
+.alertPlanner {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+#rangeRow {
+    padding-top: 25px;
+    color: #04aa6d;
+}
+
+#idRange {
+    width: 40%;
+    min-width: 130px;
+    /*margin: auto;*/
+    display: block;
+    /*padding: 10px;*/
+    float: right;
+
+    -webkit-appearance:none !important;
+     height:3px;
+     background:#04aa6d;
+     border:none;
+     outline:none;
+}
+
+#idRange::-webkit-slider-thumb {
+    -webkit-appearance:none !important;
+     width:25px;
+     height:25px;
+     background:#fcfcfc;
+     border:2px solid #04aa6d;
+     border-radius:50%;
+     cursor:pointer;
+}
+
+#idRange::-webkit-slider-thumb:hover {
+    background: #92cbdf;
+}
+
+#nextBtn {
+    border-width: 2px;
+    float: right;
+}
+
+input[type=checkbox]:checked {
+    background-color: #04aa6d;
+    border-color: #04aa6d;
+
+}
+
+#rangeLabel {
+    font-size: larger;
+    float: left;
+    position: relative;
+    top: -10px;
+}
+
+#myFooter {
+	width: 100%;
+    padding: 0;
+    margin: 0;
+	text-align: center;
+}

@@ -1,0 +1,78 @@
+#wrapper {
+    margin: auto;
+}
+
+/* for the top alert with header */
+#trackAlert {
+    width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+}
+
+/* for lower lightblue box with all tracks */
+#trackContent {
+    width: 80%;
+    background-color: #c2e4f0;
+    border-radius: 5px;
+}
+
+/* wrapper for positioning only */
+.activityBox {
+    margin-top: 15px;
+}
+
+/* for each white box */
+.activity {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* for edit button on top-right */
+form {
+    float: right;
+}
+
+#searchForm {
+   margin-bottom: 10px;
+}
+
+#searchButton {
+    padding: 5px 10px 5px 10px;
+}
+
+.deleteButton {
+    background-color: white;
+    color: #d41e1e;
+    border: 2px solid #d41e1e;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.deleteButton:hover {
+    background-color: #d41e1e;
+    color: white;
+}
+
+/* for search form */
+form {
+    float: right;
+}
+
+form input, select {
+    border: 2px solid #92cbdf;
+    border-radius: 5px;
+
+}
+
+form button {
+    border: 0;
+    border-radius: 5px;
+
+    background-color: #efefef;
+}
+
+form button:hover {
+    background-color: #48c798;
+    color: white;
+}
