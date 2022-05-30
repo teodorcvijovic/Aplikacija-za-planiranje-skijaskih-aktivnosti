@@ -1,8 +1,15 @@
+
+# teodor
+
 import datetime
 
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models import Model
+
+'''
+    Classes which represent application model. Every class represent one database table.
+'''
 
 class MyUser(AbstractUser):
     # fields that already exist in AbstractUser:
@@ -24,6 +31,12 @@ class SkiInstructor(MyUser):
     birthdate = models.DateField()
 
     def __init__(self, *args, **kwargs):
+        '''
+            SkiInstructor initialization.
+            :param args:
+            :param kwargs:
+            :return void:
+        '''
         super(SkiInstructor, self).__init__(*args, **kwargs)
         # removing default username validators
         # username is validated in clean_username() method in SkiInstructorCreationForm class
@@ -36,6 +49,10 @@ class Category(Model):
     message = models.CharField(max_length=250, default=" ")
 
     def __str__(self):
+        '''
+            Category to String conversion.
+            :return: String
+        '''
         return self.name;
 
 class Activity(Model):
@@ -49,6 +66,10 @@ class Activity(Model):
     y = models.DecimalField(decimal_places=20, max_digits=21, default=0.0)
 
     def __str__(self):
+        '''
+            Activity to String conversion.
+            :return: String
+        '''
         return self.obj_name + ' ' + self.obj_contact
 
 class SkiTrack(Model):
@@ -62,4 +83,8 @@ class SkiTrack(Model):
     comment=models.TextField(default='Trenutno nema novih obavestenja.', null=True, blank=True);
 
     def __str__(self):
+        '''
+            SkiTrack to String conversion.
+            :return: String
+        '''
         return self.name;

@@ -9,14 +9,28 @@ from jahorina.models import *
 
 # teodor
 class MyLoginForm(AuthenticationForm):
+    '''
+        MyLoginForm: Form used for user authentication.
+    '''
+
+    '''
+        username: forms.CharField
+    '''
     username = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite korisničko ime'})
     )
+    '''
+        password: forms.CharField
+    '''
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite lozinku'})
     )
 
     def clean(self):
+        '''
+            Method called after data is collected from all form fields.
+            :return: Dictionary:
+        '''
         username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
 
@@ -32,15 +46,28 @@ class MyLoginForm(AuthenticationForm):
 
 # teodor
 class SkiInstructorCreationForm(UserCreationForm):
+    '''
+        SkiInstructorCreationForm: Form used for user registration.
+    '''
+
+    '''
+        username: forms.CharField
+    '''
     username = forms.CharField(
         label='Korisničko ime',
         widget=forms.TextInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite korisničko ime'}),  # css class can be specified in attrs dict
         # validators=[],  # removing predefined username validators
     )
+    '''
+        password1: forms.CharField
+    '''
     password1 = forms.CharField(
         label='Lozinka',
         widget=forms.PasswordInput(attrs={'class': 'loginInputs', 'placeholder': 'Unesite lozinku'}),
     )
+    '''
+        password2: forms.CharField
+    '''
     password2 = forms.CharField(
         label='Potvrda lozinke',
         widget=forms.PasswordInput(attrs={'class': 'loginInputs', 'placeholder': 'Potvrdite unetu lozinku'}),
@@ -100,23 +127,37 @@ class SkiInstructorCreationForm(UserCreationForm):
     #
 
 # filip
-EXP_CHOICES = [
-    ('other', 'Prikaži sve'),
-    ('low', 'Do 3 godine'),
-    ('mid', 'Od 3 do 5 godina'),
-    ('high', 'Preko 5 godina')
-]
-
 class SkiInstructorSearchForm(Form):
+    '''
+        SkiInstructorSearchForm: Form used for SkiInstructor search by multiple criteria.
+    '''
+
+    # :EXP_CHOICES Array of Tuple:
+    EXP_CHOICES = [
+        ('other', 'Prikaži sve'),
+        ('low', 'Do 3 godine'),
+        ('mid', 'Od 3 do 5 godina'),
+        ('high', 'Preko 5 godina')
+    ]
+
     name = forms.CharField(label='Ime', max_length=50, required=False)
     experience = forms.CharField(label='Iskustvo', widget=forms.Select(choices=EXP_CHOICES))
 
+# filip
 class ActivitySearchForm(Form):
+    '''
+        ActivitySearchForm: Form used for activity search. Used only by moderators/administrator.
+    '''
+
     name = forms.CharField(label='Ime', max_length=50, required=False)
 
 
 #lara & filip
 class AddActivityForm(ModelForm):
+    '''
+        AddActivityForm: Form used for adding new Activity.
+    '''
+
     class Meta:
         model = Activity;
         fields=['skitrack','obj_name','obj_contact'];
@@ -130,6 +171,12 @@ class AddActivityForm(ModelForm):
         }
 
         def __init__(self, *args, **kwargs):
+            '''
+                AddActivityForm's Meta class initialization.
+                :param args:
+                :param kwargs:
+                :return void:
+            '''
             super(AddActivityForm, self).__init__(*args, **kwargs)  # Call to ModelForm constructor
             for field in self.fields.values():
                 field.widget.attrs.update({'class': 'addActClass'})
@@ -137,6 +184,10 @@ class AddActivityForm(ModelForm):
 
 #lara
 class AddCategoryForm(ModelForm):
+    '''
+        AddCategoryForm: Form used for adding new Category.
+    '''
+
     # root=forms.ChoiceField(choices=[(0,'jutarnja'), (1,'popodnevna'), (2,'vecernja')], label='Tip kategorije');
     message=forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 30, 'placeholder' : 'Unesite Vašu poruku'}), required=False)
     class Meta:
@@ -149,6 +200,10 @@ class AddCategoryForm(ModelForm):
 
 # lara & filip
 class UpdateTrackForm(ModelForm):
+    '''
+        UpdateTrackForm: Form used for updating SkiTrack information. Only used by authenticated users.
+    '''
+
     CHOICES = [(1, 'Otvorena'),   (0, 'Zatvorena')]
 
     opened = forms.ChoiceField(
@@ -172,12 +227,22 @@ class UpdateTrackForm(ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
+        '''
+            UpdateTrackForm object initialization.
+            :param args:
+            :param kwargs:
+            :return void:
+        '''
         super(UpdateTrackForm, self).__init__(*args, **kwargs)
         self.fields['comment'].required = False
 
 
 # teodor
 class AddTrackForm(Form):
+    '''
+        AddTrackForm: Form used for adding new SkiTrack.
+    '''
+
     name = forms.CharField(
         label='Naziv',
         widget=forms.TextInput(attrs={'placeholder': 'Unesite naziv staze'})
