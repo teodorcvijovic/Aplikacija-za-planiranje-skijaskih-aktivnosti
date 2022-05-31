@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#D:/projects/aplikacija_za_planiranje_skijaskih_aktivnosti/faza 5/djangoProject/jahorina/forms.py</OriginalElement>
+  <nodes>
+    <node x="0.0" y="81.0">django.contrib.auth.forms.UserCreationForm</node>
+    <node x="653.0" y="154.0">jahorina.forms.AddCategoryForm</node>
+    <node x="677.0" y="944.0">jahorina.forms.AddTrackForm</node>
+    <node x="943.0" y="167.0">jahorina.forms.AddActivityForm</node>
+    <node x="12.0" y="361.0">jahorina.forms.SkiInstructorCreationForm</node>
+    <node x="381.0" y="956.0">jahorina.forms.ActivitySearchForm</node>
+    <node x="61.5" y="1185.0">jahorina.forms.MyLoginForm</node>
+    <node x="0.0" y="835.0">django.contrib.auth.forms.AuthenticationForm</node>
+    <node x="940.0" y="932.0">jahorina.forms.SkiInstructorSearchForm</node>
+    <node x="368.0" y="129.0">jahorina.forms.UpdateTrackForm</node>
+    <node x="510.75" y="0.0">django.forms.models.ModelForm</node>
+    <node x="553.75" y="754.0">django.forms.forms.Form</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="jahorina.forms.MyLoginForm" target="django.contrib.auth.forms.AuthenticationForm" relationship="REALIZATION">
+      <point x="0.0" y="-54.0" />
+      <point x="0.0" y="150.0" />
+    </edge>
+    <edge source="jahorina.forms.SkiInstructorCreationForm" target="django.contrib.auth.forms.UserCreationForm" relationship="REALIZATION">
+      <point x="0.0" y="-174.0" />
+      <point x="0.0" y="115.0" />
+    </edge>
+    <edge source="django.contrib.auth.forms.AuthenticationForm" target="django.forms.forms.Form" relationship="REALIZATION">
+      <point x="0.0" y="-150.0" />
+      <point x="180.5" y="810.0" />
+      <point x="658.75" y="810.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="jahorina.forms.AddActivityForm" target="django.forms.models.ModelForm" relationship="REALIZATION">
+      <point x="0.0" y="-29.0" />
+      <point x="1072.5" y="56.0" />
+      <point x="644.25" y="56.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="jahorina.forms.AddCategoryForm" target="django.forms.models.ModelForm" relationship="REALIZATION">
+      <point x="0.0" y="-42.0" />
+      <point x="788.0" y="56.0" />
+      <point x="644.25" y="56.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="jahorina.forms.UpdateTrackForm" target="django.forms.models.ModelForm" relationship="REALIZATION">
+      <point x="0.0" y="-67.0" />
+      <point x="500.5" y="56.0" />
+      <point x="644.25" y="56.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="jahorina.forms.AddTrackForm" target="django.forms.forms.Form" relationship="REALIZATION">
+      <point x="0.0" y="-41.0" />
+      <point x="798.5" y="810.0" />
+      <point x="658.75" y="810.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="jahorina.forms.ActivitySearchForm" target="django.forms.forms.Form" relationship="REALIZATION">
+      <point x="0.0" y="-29.0" />
+      <point x="519.0" y="810.0" />
+      <point x="658.75" y="810.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="jahorina.forms.SkiInstructorSearchForm" target="django.forms.forms.Form" relationship="REALIZATION">
+      <point x="0.0" y="-53.0" />
+      <point x="1095.5" y="810.0" />
+      <point x="658.75" y="810.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="django.contrib.auth.forms.UserCreationForm" target="django.forms.models.ModelForm" relationship="REALIZATION">
+      <point x="0.0" y="-115.0" />
+      <point x="174.0" y="56.0" />
+      <point x="644.25" y="56.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.5087585681645087" showDependencies="false" x="625.5" y="646.5000000000001" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

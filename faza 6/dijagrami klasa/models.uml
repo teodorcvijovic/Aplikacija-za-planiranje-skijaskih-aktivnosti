@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#D:/projects/aplikacija_za_planiranje_skijaskih_aktivnosti/faza 5/djangoProject/jahorina/models.py</OriginalElement>
+  <nodes>
+    <node x="74.5" y="628.0">jahorina.models.SkiInstructor</node>
+    <node x="423.7574850299402" y="100.12724550898204">jahorina.models.SkiTrack</node>
+    <node x="0.0" y="0.0">django.contrib.auth.models.AbstractUser</node>
+    <node x="522.2020958083833" y="483.5">jahorina.models.Category</node>
+    <node x="92.0" y="520.0">jahorina.models.MyUser</node>
+    <node x="686.0" y="226.44161676646704">jahorina.models.Activity</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="jahorina.models.SkiInstructor" target="jahorina.models.MyUser" relationship="REALIZATION">
+      <point x="0.0" y="-102.0" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="jahorina.models.MyUser" target="django.contrib.auth.models.AbstractUser" relationship="REALIZATION">
+      <point x="0.0" y="-29.0" />
+      <point x="0.0" y="235.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6491739552964043" showDependencies="false" x="445.0" y="504.5" />
+  <SelectedNodes>
+    <node>jahorina.models.SkiTrack</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+
