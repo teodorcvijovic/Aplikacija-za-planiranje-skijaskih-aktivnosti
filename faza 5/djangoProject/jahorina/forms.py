@@ -223,7 +223,9 @@ class AddActivityForm(ModelForm):
             widgets: Dictionary
         '''
         widgets = {
-            'skitrack': forms.Select(attrs={'class': 'form-select'})
+            'skitrack': forms.Select(attrs={'class': 'form-select'}),
+            'obj_name': forms.TextInput(attrs={'required': 'true'}),
+            'obj_contact': forms.TextInput(attrs={'required': 'true'})
         }
 
         def __init__(self, *args, **kwargs):
