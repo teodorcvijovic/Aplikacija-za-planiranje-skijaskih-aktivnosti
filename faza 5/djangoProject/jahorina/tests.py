@@ -64,7 +64,7 @@ class CategoryTest(TestCase):
             first_name='test',
             last_name='testic',
             email='test@mail.com',
-            is_moderator=0,
+            is_superuser=1,
         )
 
         testUser.set_password("T@sh@1234")
@@ -84,11 +84,13 @@ class CategoryTest(TestCase):
 
         testCategory.save()
 
-        response = self.client.post('/addActivity/', data={
+        self.client.post('/deleteCategory/', data={
             'category_id': testCategory.id
         })
 
-        self.assertTemplateUsed(response, template_name='addActivity.html')
+        response = self.client.get('/addActivity/')
+
+        self.assertNotContains(response, testCategory.name, html=True)
 
 
 class TracksTest(TestCase):
@@ -130,7 +132,7 @@ class TracksTest(TestCase):
             first_name='test',
             last_name='testic',
             email='test@mail.com',
-            is_moderator=1,
+            is_superuser=1,
         )
 
         testUser.set_password("T@sh@1234")
@@ -148,16 +150,17 @@ class TracksTest(TestCase):
             length=123,
         )
         testTrack.save()
-        self.client.post('/updateTrackInformation/', data={
-            'updateTrack': testTrack.id
-        })
+        # self.client.post('/updateTrackInformation/', data={
+        #     'updateTrack': testTrack.id
+        # })
 
         self.client.post('/deleteSkiTrack/', data={
             'skitrack_id': testTrack.id
         })
 
         response = self.client.get('/trackInformation/')
-        self.assertTemplateUsed(response, 'trackInformation.html')
+        # self.assertTemplateUsed(response, 'trackInformation.html')
+        self.assertNotContains(response, 'TestStaza1', html=True)
 
     def test_update_track_info_get(self):
         Group.objects.create(name='default')
@@ -220,3 +223,122 @@ class TracksTest(TestCase):
         })
 
         self.assertContains(response, 'maglovito', html=True)
+
+
+class ActivityTest(TestCase):
+    def test_show_all_activities_get(self):
+        Group.objects.create(name='default')
+        testUser = MyUser(
+            username='test',
+            first_name='test',
+            last_name='testic',
+            email='test@mail.com',
+            is_superuser=1,
+        )
+
+        testUser.set_password("T@sh@1234")
+        testUser.save()
+
+        testUser.groups.add(Group.objects.get(name='default'))
+        self.client.post('/login/', data={
+            'username': testUser.username,
+            'password': 'T@sh@1234'
+        })
+
+        response = self.client.get('/showAllActivities/')
+        self.assertTemplateUsed(response, 'allActivities.html')
+
+    def test_show_all_activities_post(self):
+        Group.objects.create(name='default')
+        testUser = MyUser(
+            username='test',
+            first_name='test',
+            last_name='testic',
+            email='test@mail.com',
+            is_superuser=1,
+        )
+
+        testUser.set_password("T@sh@1234")
+        testUser.save()
+
+        testUser.groups.add(Group.objects.get(name='default'))
+        self.client.post('/login/', data={
+            'username': testUser.username,
+            'password': 'T@sh@1234'
+        })
+
+        testCategory = Category(
+            name='TestCat',
+            root='0',
+            message='Test message'
+        )
+        testCategory.save()
+
+        testSkiTrack = SkiTrack(
+            name='TestStaza',
+            color=0,
+            length=123,
+        )
+        testSkiTrack.save()
+
+        testActivity = Activity(
+            type=testCategory,
+            skitrack=testSkiTrack,
+            obj_name='TestName',
+            obj_contact='+381 123456'
+        )
+        testActivity.save()
+
+        response = self.client.post('/showAllActivities/', data={
+            'name': testActivity.obj_name
+        })
+
+        self.assertContains(response, testActivity.obj_name, html=True)
+
+    def test_delete_activity(self):
+        Group.objects.create(name='default')
+        testUser = MyUser(
+            username='test',
+            first_name='test',
+            last_name='testic',
+            email='test@mail.com',
+            is_superuser=1,
+        )
+
+        testUser.set_password("T@sh@1234")
+        testUser.save()
+
+        testUser.groups.add(Group.objects.get(name='default'))
+        self.client.post('/login/', data={
+            'username': testUser.username,
+            'password': 'T@sh@1234'
+        })
+
+        testCategory = Category(
+            name='TestCat',
+            root='0',
+            message='Test message'
+        )
+        testCategory.save()
+
+        testSkiTrack = SkiTrack(
+            name='TestStaza',
+            color=0,
+            length=123,
+        )
+        testSkiTrack.save()
+
+        testActivity = Activity(
+            type=testCategory,
+            skitrack=testSkiTrack,
+            obj_name='TestName',
+            obj_contact='+381 123456'
+        )
+        testActivity.save()
+
+        self.client.post('/deleteActivity', data={
+            'activity_id': testActivity.id
+        })
+
+        response = self.client.get('/showAllActivities/')
+        self.assertNotContains(response, testActivity.obj_name, html=True)
