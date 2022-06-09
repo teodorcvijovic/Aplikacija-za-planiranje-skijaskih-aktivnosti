@@ -43,7 +43,7 @@
                         {#/* filip */#}
                         {#/* had to be changed to id, because it interfered with the carousel */#}
                         <li class="nav-item"><a href="{% url 'index' %}" class="active" id="activeNavItem"><i class="fa-solid fa-house-chimney"></i>&nbsp;Početna</a></li>
-                        <li class="nav-item"><a href="{% url 'instructors' %}"><i class="fa-solid fa-person-skiing"></i>&nbsp;Instruktori</a></li>
+                        <li class="nav-item"><a href="{% url 'instructors' %}"><i class="fa-solid fa-person-skiing"></i>&nbsp;<span>Instruktori</span></a></li>
                         <li class="nav-item"><a href="{% url 'trackInformation' %}"><i class="fa-solid fa-mountain"></i>&nbsp;Staze</a></li>
                         <li class="nav-item"><a href="{% url 'planMyDayFirst' %}"><i class="fa-solid fa-pen"></i>&nbsp;Isplaniraj moj dan</a></li>
 
@@ -58,9 +58,9 @@
                 </div>
 
                 {% if not user.is_authenticated %}
-                  <button class="btn navBtn" type="submit" onclick="window.location.href={% url 'loginRequest' %}"><i class="fa-solid fa-user"></i>&nbsp;Prijavite se</button>
+                    <button class="btn navBtn" type="submit" onclick="window.location.href={% url 'loginRequest' %}"><i class="fa-solid fa-user"></i>&nbsp;<span>Prijavite se</span></button>
                 {% else %}
-                  <button class="btn navBtn" type="submit" onclick="window.location.href={% url 'logoutRequest' %}"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;Odjavite se</button>
+                  <button class="btn navBtn" type="submit" onclick="window.location.href={% url 'logoutRequest' %}"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;<span>Odjavite se</span></button>
                 {% endif %}
             </div>
         </div>
