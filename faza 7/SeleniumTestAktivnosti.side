@@ -1,0 +1,1740 @@
+{
+  "id": "2bbc0470-fdc5-45c7-bf0e-ab4b1aeddc93",
+  "version": "2.0",
+  "name": "test_aktivnosti",
+  "url": "http://localhost:8000",
+  "tests": [{
+    "id": "557b5846-4640-47b0-8890-71c76902f6db",
+    "name": "dodajKategoriju",
+    "commands": [{
+      "id": "1fdf6414-cb42-4873-9efc-8cf595a0b361",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1987bb73-2744-487f-9058-9499fa31a26e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "af908978-6b58-40e3-819a-4678688e1b63",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dodaj aktivnost",
+      "targets": [
+        ["linkText=Dodaj aktivnost", "linkText"],
+        ["css=.nav-item:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dodaj aktivnost')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/addActivity/')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Dodaj aktivnost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "71b609fc-88e7-4df8-90c5-80946dbff591",
+      "comment": "",
+      "command": "click",
+      "target": "id=newCategoryButton",
+      "targets": [
+        ["id=newCategoryButton", "id"],
+        ["css=#newCategoryButton", "css:finder"],
+        ["xpath=//button[@id='newCategoryButton']", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,' Dodaj novu kategoriju')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ec87e1b9-92ba-4296-acd6-808114b7cf2f",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_name",
+      "targets": [
+        ["id=id_name", "id"],
+        ["name=name", "name"],
+        ["css=#id_name", "css:finder"],
+        ["xpath=//input[@id='id_name']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/div/h3/input", "xpath:idRelative"],
+        ["xpath=//h3/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "11384a80-1608-4877-9989-3d3243d067d7",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_name",
+      "targets": [
+        ["id=id_name", "id"],
+        ["name=name", "name"],
+        ["css=#id_name", "css:finder"],
+        ["xpath=//input[@id='id_name']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/div/h3/input", "xpath:idRelative"],
+        ["xpath=//h3/input", "xpath:position"]
+      ],
+      "value": "Test1"
+    }, {
+      "id": "3e313586-69da-48db-992c-c2b8a4ca0327",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_message",
+      "targets": [
+        ["id=id_message", "id"],
+        ["name=message", "name"],
+        ["css=#id_message", "css:finder"],
+        ["xpath=//textarea[@id='id_message']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "026b726b-74ff-4634-b1ec-f77dbf820ca0",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_message",
+      "targets": [
+        ["id=id_message", "id"],
+        ["name=message", "name"],
+        ["css=#id_message", "css:finder"],
+        ["xpath=//textarea[@id='id_message']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Poruka1"
+    }, {
+      "id": "52dd80d6-ed8e-416c-9e0c-427191b924c0",
+      "comment": "",
+      "command": "click",
+      "target": "id=plavaLabel",
+      "targets": [
+        ["id=plavaLabel", "id"],
+        ["css=#plavaLabel", "css:finder"],
+        ["xpath=//label[@id='plavaLabel']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/label", "xpath:idRelative"],
+        ["xpath=//label", "xpath:position"],
+        ["xpath=//label[contains(.,' Jutarnje aktivnosti')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "428132bb-adec-4b71-b72a-1851f379820c",
+      "comment": "",
+      "command": "click",
+      "target": "id=addButton",
+      "targets": [
+        ["id=addButton", "id"],
+        ["css=#addButton", "css:finder"],
+        ["xpath=//button[@id='addButton']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "51597f8e-aa0a-4bd8-8cf6-3891a46f2b07",
+      "comment": "",
+      "command": "assertText",
+      "target": "name=cat",
+      "targets": [
+        ["name=cat", "name"],
+        ["css=.col-md-6:nth-child(1) .category", "css:finder"],
+        ["xpath=//button[@name='cat']", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'  Test1')]", "xpath:innerText"]
+      ],
+      "value": " Test1"
+    }, {
+      "id": "24913efd-45ec-4784-8f75-d13660b99b7e",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "ce5c8d3f-3ed4-4eea-9484-01cbdeb7a5b2",
+    "name": "otkaziDodavanje",
+    "commands": [{
+      "id": "dbe86231-c0ca-49fc-9a9e-c72850374eb3",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "508c2672-9295-4774-9b13-c151587c5844",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3b69d854-3ae5-4064-959d-0b4c7acdb31d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dodaj aktivnost",
+      "targets": [
+        ["linkText=Dodaj aktivnost", "linkText"],
+        ["css=.nav-item:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dodaj aktivnost')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/addActivity/')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Dodaj aktivnost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "326a1ad1-c083-483a-b859-d429e854a476",
+      "comment": "",
+      "command": "click",
+      "target": "id=newCategoryButton",
+      "targets": [
+        ["id=newCategoryButton", "id"],
+        ["css=#newCategoryButton", "css:finder"],
+        ["xpath=//button[@id='newCategoryButton']", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div[2]/form/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,' Dodaj novu kategoriju')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1303644f-cfe3-4e6c-bc6d-c9ca2f510d7c",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_name",
+      "targets": [
+        ["id=id_name", "id"],
+        ["name=name", "name"],
+        ["css=#id_name", "css:finder"],
+        ["xpath=//input[@id='id_name']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/div/h3/input", "xpath:idRelative"],
+        ["xpath=//h3/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b422f8d-5559-45ae-81f9-289019e3a46d",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_name",
+      "targets": [
+        ["id=id_name", "id"],
+        ["name=name", "name"],
+        ["css=#id_name", "css:finder"],
+        ["xpath=//input[@id='id_name']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/div/h3/input", "xpath:idRelative"],
+        ["xpath=//h3/input", "xpath:position"]
+      ],
+      "value": "Test2"
+    }, {
+      "id": "fae64f9d-f942-416e-b307-1b4e5c2c3256",
+      "comment": "",
+      "command": "click",
+      "target": "id=cancelButton",
+      "targets": [
+        ["id=cancelButton", "id"],
+        ["css=#cancelButton", "css:finder"],
+        ["xpath=//button[@id='cancelButton']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,' Otkaži')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfb01b21-07bd-45d7-951e-7d23b8b48910",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=newCategoryButton",
+      "targets": [
+        ["id=newCategoryButton", "id"],
+        ["css=#newCategoryButton", "css:finder"],
+        ["xpath=//button[@id='newCategoryButton']", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div[2]/form/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,' Dodaj novu kategoriju')]", "xpath:innerText"]
+      ],
+      "value": "Dodaj novu kategoriju"
+    }, {
+      "id": "e189ccb1-108a-4977-b561-c3a35b781cb9",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "75979e70-1078-4a03-9c3d-c155d10fd2b2",
+    "name": "dodajBezNaziva",
+    "commands": [{
+      "id": "804d53e2-adaa-43ee-9dc2-d56b04388676",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "318aa7d5-5a1c-443d-bcbb-3d083b3538b4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b5c8b996-60b0-4d64-a150-b6bd4883e756",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dodaj aktivnost",
+      "targets": [
+        ["linkText=Dodaj aktivnost", "linkText"],
+        ["css=.nav-item:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dodaj aktivnost')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/addActivity/')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Dodaj aktivnost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a468cfc5-00d5-49b7-9378-b5e1a2bb96f4",
+      "comment": "",
+      "command": "click",
+      "target": "id=newCategoryButton",
+      "targets": [
+        ["id=newCategoryButton", "id"],
+        ["css=#newCategoryButton", "css:finder"],
+        ["xpath=//button[@id='newCategoryButton']", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div[2]/form/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,' Dodaj novu kategoriju')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a9003d45-ea89-4ddf-a111-0572c16e6740",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_message",
+      "targets": [
+        ["id=id_message", "id"],
+        ["name=message", "name"],
+        ["css=#id_message", "css:finder"],
+        ["xpath=//textarea[@id='id_message']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e67cfbfa-da40-4e11-a2b9-0800b1501ecf",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_message",
+      "targets": [
+        ["id=id_message", "id"],
+        ["name=message", "name"],
+        ["css=#id_message", "css:finder"],
+        ["xpath=//textarea[@id='id_message']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Poruka2"
+    }, {
+      "id": "adff73fa-bc64-417d-84ec-f179737459e7",
+      "comment": "",
+      "command": "click",
+      "target": "id=crvenaLabel",
+      "targets": [
+        ["id=crvenaLabel", "id"],
+        ["css=#crvenaLabel", "css:finder"],
+        ["xpath=//label[@id='crvenaLabel']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/label[2]", "xpath:idRelative"],
+        ["xpath=//label[2]", "xpath:position"],
+        ["xpath=//label[contains(.,' Popopodnevne aktivnosti')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7622c7d-f5ed-4889-90c0-c09cbbb6c971",
+      "comment": "",
+      "command": "click",
+      "target": "id=addButton",
+      "targets": [
+        ["id=addButton", "id"],
+        ["css=#addButton", "css:finder"],
+        ["xpath=//button[@id='addButton']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a27feb40-79ad-4cbc-bcbc-164e982bca3f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='addCategoryContent']/form/div/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Naziv kategorije aktivnosti:  ')]", "xpath:innerText"]
+      ],
+      "value": "Naziv kategorije aktivnosti: "
+    }, {
+      "id": "1d22a496-9339-4163-a2e1-47210491e9c4",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "7f71dc52-ac75-4588-853c-c0d80ba8a409",
+    "name": "dodajBezKomentara",
+    "commands": [{
+      "id": "3254a616-5c95-448e-af78-0a95577dd8df",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "97d19e46-8d1c-4844-bfcd-d049fee04920",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e6d7fe00-e911-4e54-984f-cdf5120ee86e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dodaj aktivnost",
+      "targets": [
+        ["linkText=Dodaj aktivnost", "linkText"],
+        ["css=.nav-item:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dodaj aktivnost')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/addActivity/')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Dodaj aktivnost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee886bca-884d-4075-ba1b-565d52d98249",
+      "comment": "",
+      "command": "click",
+      "target": "id=newCategoryButton",
+      "targets": [
+        ["id=newCategoryButton", "id"],
+        ["css=#newCategoryButton", "css:finder"],
+        ["xpath=//button[@id='newCategoryButton']", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div[2]/form/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,' Dodaj novu kategoriju')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "85324fa8-3e93-4cab-960d-fabde1a845e2",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_name",
+      "targets": [
+        ["id=id_name", "id"],
+        ["name=name", "name"],
+        ["css=#id_name", "css:finder"],
+        ["xpath=//input[@id='id_name']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/div/h3/input", "xpath:idRelative"],
+        ["xpath=//h3/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "87ef3ba6-695e-4b8e-b3cd-3bd342bd75fa",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_name",
+      "targets": [
+        ["id=id_name", "id"],
+        ["name=name", "name"],
+        ["css=#id_name", "css:finder"],
+        ["xpath=//input[@id='id_name']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/div/h3/input", "xpath:idRelative"],
+        ["xpath=//h3/input", "xpath:position"]
+      ],
+      "value": "Test3"
+    }, {
+      "id": "ebc6d44e-2208-4144-a330-96ff48c53790",
+      "comment": "",
+      "command": "click",
+      "target": "id=crnaLabel",
+      "targets": [
+        ["id=crnaLabel", "id"],
+        ["css=#crnaLabel", "css:finder"],
+        ["xpath=//label[@id='crnaLabel']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/label[3]", "xpath:idRelative"],
+        ["xpath=//label[3]", "xpath:position"],
+        ["xpath=//label[contains(.,' Večernje aktivnosti')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b4a3908f-fffa-489d-88ab-a73340b7141b",
+      "comment": "",
+      "command": "click",
+      "target": "id=addButton",
+      "targets": [
+        ["id=addButton", "id"],
+        ["css=#addButton", "css:finder"],
+        ["xpath=//button[@id='addButton']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "db797c44-2dff-4f55-a2d1-9696c830bff4",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.col-md-6:nth-child(2) .category",
+      "targets": [
+        ["css=.col-md-6:nth-child(2) .category", "css:finder"],
+        ["xpath=(//button[@name='cat'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div[2]/form/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'  Test3')]", "xpath:innerText"]
+      ],
+      "value": " Test3"
+    }, {
+      "id": "daae85c7-ff3b-4b42-9114-ec651f8a27f0",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "7c5ffc5b-b6ac-44ed-a17f-b93ed30417be",
+    "name": "dodajBezRoot",
+    "commands": [{
+      "id": "cee8e880-ea04-4ac5-9ed9-ea937e3de05c",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2e8d1d26-2296-4634-b832-970c4157d3af",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5e6854c7-2c03-4bc9-91ab-5cf73d61ccf6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dodaj aktivnost",
+      "targets": [
+        ["linkText=Dodaj aktivnost", "linkText"],
+        ["css=.nav-item:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dodaj aktivnost')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/addActivity/')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Dodaj aktivnost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d95cc12-6f9f-4964-938b-04bf0a77ea8a",
+      "comment": "",
+      "command": "click",
+      "target": "id=newCategoryButton",
+      "targets": [
+        ["id=newCategoryButton", "id"],
+        ["css=#newCategoryButton", "css:finder"],
+        ["xpath=//button[@id='newCategoryButton']", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div[3]/form/button", "xpath:idRelative"],
+        ["xpath=//div[3]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,' Dodaj novu kategoriju')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "645ebb9a-477d-4d36-b05e-e21dfe9ddabe",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_name",
+      "targets": [
+        ["id=id_name", "id"],
+        ["name=name", "name"],
+        ["css=#id_name", "css:finder"],
+        ["xpath=//input[@id='id_name']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/div/h3/input", "xpath:idRelative"],
+        ["xpath=//h3/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e2faad4a-1425-4e16-b669-1331f30ab426",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_name",
+      "targets": [
+        ["id=id_name", "id"],
+        ["name=name", "name"],
+        ["css=#id_name", "css:finder"],
+        ["xpath=//input[@id='id_name']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/div/h3/input", "xpath:idRelative"],
+        ["xpath=//h3/input", "xpath:position"]
+      ],
+      "value": "Test4"
+    }, {
+      "id": "f878493d-ef40-4dae-a052-f1f25875251c",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_message",
+      "targets": [
+        ["id=id_message", "id"],
+        ["name=message", "name"],
+        ["css=#id_message", "css:finder"],
+        ["xpath=//textarea[@id='id_message']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9403e7bc-c9e9-4066-ada6-8d870c5c5499",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_message",
+      "targets": [
+        ["id=id_message", "id"],
+        ["name=message", "name"],
+        ["css=#id_message", "css:finder"],
+        ["xpath=//textarea[@id='id_message']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Komentar4"
+    }, {
+      "id": "caae1d22-c315-4969-b77d-ef5cf53c0c8c",
+      "comment": "",
+      "command": "click",
+      "target": "id=addButton",
+      "targets": [
+        ["id=addButton", "id"],
+        ["css=#addButton", "css:finder"],
+        ["xpath=//button[@id='addButton']", "xpath:attributes"],
+        ["xpath=//div[@id='addCategoryContent']/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c71c4df-b181-4a75-928f-138ff5051861",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='addCategoryContent']/form/div/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Naziv kategorije aktivnosti:  ')]", "xpath:innerText"]
+      ],
+      "value": "Naziv kategorije aktivnosti: "
+    }, {
+      "id": "e2f50480-41cf-4b24-b3ca-f1f85996a1ea",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "14846193-ffcf-459f-a7aa-c32c5fc2b211",
+    "name": "obrisiKategoriju",
+    "commands": [{
+      "id": "feea8349-1aab-414c-9045-a77bb9803ae1",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e8785120-1c93-490d-8cc7-15deb62facae",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "efee4237-267f-498e-8f4e-a55c88dc242a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dodaj aktivnost",
+      "targets": [
+        ["linkText=Dodaj aktivnost", "linkText"],
+        ["css=.nav-item:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dodaj aktivnost')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/addActivity/')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Dodaj aktivnost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a21f5d60-bfac-4471-97c9-1476d0fe0c5d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-6:nth-child(2) .deleteCategoryButton > .svg-inline--fa",
+      "targets": [
+        ["css=.col-md-6:nth-child(2) .deleteCategoryButton > .svg-inline--fa", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "cdea79de-fcb5-4f16-b67c-aaf074ef86f5",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=newCategoryButton",
+      "targets": [
+        ["id=newCategoryButton", "id"],
+        ["css=#newCategoryButton", "css:finder"],
+        ["xpath=//button[@id='newCategoryButton']", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div[2]/form/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,' Dodaj novu kategoriju')]", "xpath:innerText"]
+      ],
+      "value": "Dodaj novu kategoriju"
+    }, {
+      "id": "bc3d0768-90fc-4f7d-9d7b-17c70775357e",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "bddc68f0-fca6-456a-86b2-fd0d519bf7c6",
+    "name": "dodajAktivnost",
+    "commands": [{
+      "id": "5d902fc2-97a9-4e00-8316-20150e235c3c",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9b2f9de6-48c8-42af-9fbc-100387f5d1ab",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "20a4be16-0315-404f-b2e1-cffe35a3c298",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dodaj aktivnost",
+      "targets": [
+        ["linkText=Dodaj aktivnost", "linkText"],
+        ["css=.nav-item:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dodaj aktivnost')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/addActivity/')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Dodaj aktivnost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1b582ff-015b-4a49-923f-f285d94ad86f",
+      "comment": "",
+      "command": "click",
+      "target": "name=cat",
+      "targets": [
+        ["name=cat", "name"],
+        ["css=.col-md-6:nth-child(1) .category", "css:finder"],
+        ["xpath=//button[@name='cat']", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'  Test1')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "354dbe08-dd90-4a20-bf7b-f2825eb7f0aa",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_skitrack",
+      "targets": [
+        ["id=id_skitrack", "id"],
+        ["name=skitrack", "name"],
+        ["css=#id_skitrack", "css:finder"],
+        ["xpath=//select[@id='id_skitrack']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d402ec3d-6e5c-4673-9a5d-6c6080ce2279",
+      "comment": "",
+      "command": "select",
+      "target": "id=id_skitrack",
+      "targets": [],
+      "value": "label=Rajska vrata"
+    }, {
+      "id": "56c7a732-b7b9-46e0-9e19-7caf67e542c5",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_obj_name",
+      "targets": [
+        ["id=id_obj_name", "id"],
+        ["name=obj_name", "name"],
+        ["css=#id_obj_name", "css:finder"],
+        ["xpath=//input[@id='id_obj_name']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[2]/input", "xpath:idRelative"],
+        ["xpath=//h5[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6aee9783-5e14-476c-a23a-0321a47779b8",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_obj_name",
+      "targets": [
+        ["id=id_obj_name", "id"],
+        ["name=obj_name", "name"],
+        ["css=#id_obj_name", "css:finder"],
+        ["xpath=//input[@id='id_obj_name']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[2]/input", "xpath:idRelative"],
+        ["xpath=//h5[2]/input", "xpath:position"]
+      ],
+      "value": "Aktivnost1"
+    }, {
+      "id": "c73521c1-9cd3-41cd-a2fa-772a38417ada",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_obj_contact",
+      "targets": [
+        ["id=id_obj_contact", "id"],
+        ["name=obj_contact", "name"],
+        ["css=#id_obj_contact", "css:finder"],
+        ["xpath=//input[@id='id_obj_contact']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[3]/input", "xpath:idRelative"],
+        ["xpath=//h5[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1bf21fa8-7b8c-4204-880c-b94ce794f164",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_obj_contact",
+      "targets": [
+        ["id=id_obj_contact", "id"],
+        ["name=obj_contact", "name"],
+        ["css=#id_obj_contact", "css:finder"],
+        ["xpath=//input[@id='id_obj_contact']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[3]/input", "xpath:idRelative"],
+        ["xpath=//h5[3]/input", "xpath:position"]
+      ],
+      "value": "+381 61 123456"
+    }, {
+      "id": "0fe52e4f-ba8f-4d97-b201-10063bca7f48",
+      "comment": "",
+      "command": "click",
+      "target": "id=jahorinaMap",
+      "targets": [
+        ["id=jahorinaMap", "id"],
+        ["css=#jahorinaMap", "css:finder"],
+        ["xpath=//img[@id='jahorinaMap']", "xpath:attributes"],
+        ["xpath=//div[@id='mapDiv']/img", "xpath:idRelative"],
+        ["xpath=//form/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ad1b7f8c-ec2e-4321-a129-cdd56973604d",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,560)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dabaf6e7-bad6-4387-9aae-aebb9d7590ff",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=.btn-outline-success", "css:finder"],
+        ["xpath=//button[@name='category']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "464b7a8f-ab0a-46cf-8bf2-133f2e5f744b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Isplaniraj moj dan",
+      "targets": [
+        ["linkText=Isplaniraj moj dan", "linkText"],
+        ["css=.nav-item:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Isplaniraj moj dan')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/planMyDayFirst/')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Isplaniraj moj dan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c70438a0-7d58-4b74-acc4-cf3c5c73201f",
+      "comment": "",
+      "command": "click",
+      "target": "id=idTest1",
+      "targets": [
+        ["id=idTest1", "id"],
+        ["name=checks[]", "name"],
+        ["css=#idTest1", "css:finder"],
+        ["xpath=//input[@id='idTest1']", "xpath:attributes"],
+        ["xpath=//div[@id='planContent']/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "62d4b29a-4f0d-4577-8d76-625b9ceea58f",
+      "comment": "",
+      "command": "click",
+      "target": "id=nextBtn",
+      "targets": [
+        ["id=nextBtn", "id"],
+        ["css=#nextBtn", "css:finder"],
+        ["xpath=//button[@id='nextBtn']", "xpath:attributes"],
+        ["xpath=//div[@id='planContent']/div[4]/div/button", "xpath:idRelative"],
+        ["xpath=//div[4]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,' Izaberi i pređi na sledeći korak')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "73f32f6f-da6e-48df-9e24-96b4b130be5b",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=x0.83562028209883720000 y0.79190063730950810000",
+      "targets": [
+        ["id=x0.83562028209883720000 y0.79190063730950810000", "id"],
+        ["css=#x0\\.83562028209883720000\\ y0\\.79190063730950810000", "css:finder"],
+        ["xpath=//label[@id='x0.83562028209883720000 y0.79190063730950810000']", "xpath:attributes"],
+        ["xpath=//div[@id='planMyDaySecondContent']/form/div[2]/label", "xpath:idRelative"],
+        ["xpath=//label", "xpath:position"]
+      ],
+      "value": "Test1\\nAktivnost1"
+    }, {
+      "id": "528b0bf3-d79b-44c9-90e8-27f6d8793fc7",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "95cd7cd6-b6e5-4041-9194-aa5cfafcc3e1",
+    "name": "dodajBezStaze",
+    "commands": [{
+      "id": "0f8d7624-cb58-4b48-9b07-10a31f6ac4fd",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "04e66008-d64d-4298-959d-c66c8476405f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "80db15fd-ed78-4505-a3ba-10cc2003ebe1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dodaj aktivnost",
+      "targets": [
+        ["linkText=Dodaj aktivnost", "linkText"],
+        ["css=.nav-item:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dodaj aktivnost')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/addActivity/')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Dodaj aktivnost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "582e92d8-cdf3-42e3-a520-690a551ff7bc",
+      "comment": "",
+      "command": "click",
+      "target": "name=cat",
+      "targets": [
+        ["name=cat", "name"],
+        ["css=.col-md-6:nth-child(1) .category", "css:finder"],
+        ["xpath=//button[@name='cat']", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'  Test1')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e207986b-aa85-4a20-922a-89de45823035",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_obj_name",
+      "targets": [
+        ["id=id_obj_name", "id"],
+        ["name=obj_name", "name"],
+        ["css=#id_obj_name", "css:finder"],
+        ["xpath=//input[@id='id_obj_name']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[2]/input", "xpath:idRelative"],
+        ["xpath=//h5[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9a565086-9a5b-42c9-9ab0-4b11ae6354ee",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_obj_name",
+      "targets": [
+        ["id=id_obj_name", "id"],
+        ["name=obj_name", "name"],
+        ["css=#id_obj_name", "css:finder"],
+        ["xpath=//input[@id='id_obj_name']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[2]/input", "xpath:idRelative"],
+        ["xpath=//h5[2]/input", "xpath:position"]
+      ],
+      "value": "obj1"
+    }, {
+      "id": "39b407de-dd9c-44a5-a83c-b6cb32f12396",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_obj_contact",
+      "targets": [
+        ["id=id_obj_contact", "id"],
+        ["name=obj_contact", "name"],
+        ["css=#id_obj_contact", "css:finder"],
+        ["xpath=//input[@id='id_obj_contact']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[3]/input", "xpath:idRelative"],
+        ["xpath=//h5[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c4ec7c3-e194-4bf3-a716-b380db20eb16",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_obj_contact",
+      "targets": [
+        ["id=id_obj_contact", "id"],
+        ["name=obj_contact", "name"],
+        ["css=#id_obj_contact", "css:finder"],
+        ["xpath=//input[@id='id_obj_contact']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[3]/input", "xpath:idRelative"],
+        ["xpath=//h5[3]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "d1c2d401-d610-40a0-b773-75b81d6114cb",
+      "comment": "",
+      "command": "click",
+      "target": "id=jahorinaMap",
+      "targets": [
+        ["id=jahorinaMap", "id"],
+        ["css=#jahorinaMap", "css:finder"],
+        ["xpath=//img[@id='jahorinaMap']", "xpath:attributes"],
+        ["xpath=//div[@id='mapDiv']/img", "xpath:idRelative"],
+        ["xpath=//form/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "97ecf097-7faf-4528-ab78-644396e8ee48",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,560)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7582a8ac-19ae-4a91-8641-adc21c1ed83a",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=.btn-outline-success", "css:finder"],
+        ["xpath=//button[@name='category']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d3501d0-2d2e-4e0c-b597-030f0e68b4fd",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='defineActivityContent']/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,' Test1 : definisanje aktivnosti')]", "xpath:innerText"]
+      ],
+      "value": "Test1 : definisanje aktivnosti"
+    }, {
+      "id": "d65a4d60-a416-4a86-bea8-50fee5b65966",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "a7b9b431-8eb3-4628-b167-1e7b1561a637",
+    "name": "dodajAktBezNaziva",
+    "commands": [{
+      "id": "239bf08a-140f-43aa-9915-4221bb833097",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5b9ef974-5325-4b1c-a66f-0e03bdcaad33",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a9534edc-022c-4a68-a60b-8b949afca446",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dodaj aktivnost",
+      "targets": [
+        ["linkText=Dodaj aktivnost", "linkText"],
+        ["css=.nav-item:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dodaj aktivnost')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/addActivity/')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Dodaj aktivnost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c3a8bad4-8f8c-4c57-a47d-5639a83a25be",
+      "comment": "",
+      "command": "click",
+      "target": "name=cat",
+      "targets": [
+        ["name=cat", "name"],
+        ["css=.col-md-6:nth-child(1) .category", "css:finder"],
+        ["xpath=//button[@name='cat']", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'  Test1')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7abcbee8-1133-4d51-8f6d-17a950058edb",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_skitrack",
+      "targets": [
+        ["id=id_skitrack", "id"],
+        ["name=skitrack", "name"],
+        ["css=#id_skitrack", "css:finder"],
+        ["xpath=//select[@id='id_skitrack']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "022c0708-182a-4376-b412-c4c3efceaed7",
+      "comment": "",
+      "command": "select",
+      "target": "id=id_skitrack",
+      "targets": [],
+      "value": "label=Rajska vrata"
+    }, {
+      "id": "2b991f4b-93d8-43e0-8bd7-b0d1afe86308",
+      "comment": "",
+      "command": "click",
+      "target": "css=form",
+      "targets": [
+        ["css=form", "css:finder"],
+        ["xpath=//div[@id='defineActivityContent']/form", "xpath:idRelative"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a75c0dd0-fb3b-43fc-a421-4649d8d7666e",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_obj_contact",
+      "targets": [
+        ["id=id_obj_contact", "id"],
+        ["name=obj_contact", "name"],
+        ["css=#id_obj_contact", "css:finder"],
+        ["xpath=//input[@id='id_obj_contact']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[3]/input", "xpath:idRelative"],
+        ["xpath=//h5[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d5df910-7c3f-4369-a83b-050d1db3c9c8",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_obj_contact",
+      "targets": [
+        ["id=id_obj_contact", "id"],
+        ["name=obj_contact", "name"],
+        ["css=#id_obj_contact", "css:finder"],
+        ["xpath=//input[@id='id_obj_contact']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[3]/input", "xpath:idRelative"],
+        ["xpath=//h5[3]/input", "xpath:position"]
+      ],
+      "value": "789"
+    }, {
+      "id": "4ee0236d-7eea-4d53-93d2-ee136f469e0d",
+      "comment": "",
+      "command": "click",
+      "target": "id=jahorinaMap",
+      "targets": [
+        ["id=jahorinaMap", "id"],
+        ["css=#jahorinaMap", "css:finder"],
+        ["xpath=//img[@id='jahorinaMap']", "xpath:attributes"],
+        ["xpath=//div[@id='mapDiv']/img", "xpath:idRelative"],
+        ["xpath=//form/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "91f00ad3-c57d-4e4f-ae2f-40842383e71e",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,551)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "80bc6ba2-c388-49b8-8d1f-4248752276b8",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=.btn-outline-success", "css:finder"],
+        ["xpath=//button[@name='category']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "635d82d2-c3d7-4db2-a047-f4519c9aef7c",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='defineActivityContent']/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,' Test1 : definisanje aktivnosti')]", "xpath:innerText"]
+      ],
+      "value": "Test1 : definisanje aktivnosti"
+    }, {
+      "id": "ac4f47f4-e160-4847-83b0-7c59cf6fa202",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "8e0ecc44-217c-416c-9b49-786128f1eecc",
+    "name": "dodajBezBrTel",
+    "commands": [{
+      "id": "c2610627-de49-488c-8e74-e72e05258406",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d5090f4d-de31-4744-9c3f-6e25e45772cc",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0794b547-4bf2-4859-9a00-073c69dd13cc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dodaj aktivnost",
+      "targets": [
+        ["linkText=Dodaj aktivnost", "linkText"],
+        ["css=.nav-item:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dodaj aktivnost')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/addActivity/')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Dodaj aktivnost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ca8dbd5a-9915-43f5-8fc4-a9a7c2132e6c",
+      "comment": "",
+      "command": "click",
+      "target": "name=cat",
+      "targets": [
+        ["name=cat", "name"],
+        ["css=.col-md-6:nth-child(1) .category", "css:finder"],
+        ["xpath=//button[@name='cat']", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'  Test1')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "48b2d7fb-abab-4e8c-8e95-6a3a1c6d2477",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_skitrack",
+      "targets": [
+        ["id=id_skitrack", "id"],
+        ["name=skitrack", "name"],
+        ["css=#id_skitrack", "css:finder"],
+        ["xpath=//select[@id='id_skitrack']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7dc80a85-14ed-4211-a262-4d4658263ff3",
+      "comment": "",
+      "command": "select",
+      "target": "id=id_skitrack",
+      "targets": [],
+      "value": "label=Rajska vrata"
+    }, {
+      "id": "3ce7b78e-0205-4dfe-abfe-32ed92c13877",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_obj_name",
+      "targets": [
+        ["id=id_obj_name", "id"],
+        ["name=obj_name", "name"],
+        ["css=#id_obj_name", "css:finder"],
+        ["xpath=//input[@id='id_obj_name']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[2]/input", "xpath:idRelative"],
+        ["xpath=//h5[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7bca9149-f9ca-43aa-8d6c-2ad6a2d3dbaf",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_obj_name",
+      "targets": [
+        ["id=id_obj_name", "id"],
+        ["name=obj_name", "name"],
+        ["css=#id_obj_name", "css:finder"],
+        ["xpath=//input[@id='id_obj_name']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[2]/input", "xpath:idRelative"],
+        ["xpath=//h5[2]/input", "xpath:position"]
+      ],
+      "value": "abc"
+    }, {
+      "id": "70ecd2b4-10e9-4f1b-a1c8-1cc7efbd05ed",
+      "comment": "",
+      "command": "click",
+      "target": "id=jahorinaMap",
+      "targets": [
+        ["id=jahorinaMap", "id"],
+        ["css=#jahorinaMap", "css:finder"],
+        ["xpath=//img[@id='jahorinaMap']", "xpath:attributes"],
+        ["xpath=//div[@id='mapDiv']/img", "xpath:idRelative"],
+        ["xpath=//form/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0321aa9b-7091-4cad-a4a5-01e3f119eecc",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,551)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "faa49f4d-0d3f-431c-acbb-3db125441c52",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=.btn-outline-success", "css:finder"],
+        ["xpath=//button[@name='category']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c26cefe8-6d3b-4caa-9100-06346dce51d9",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='defineActivityContent']/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,' Test1 : definisanje aktivnosti')]", "xpath:innerText"]
+      ],
+      "value": "Test1 : definisanje aktivnosti"
+    }, {
+      "id": "0a370441-0343-42e5-93d2-9929a501f544",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "4f445973-6ed1-46a6-92e5-5db67479e561",
+    "name": "dodajBezLokacije",
+    "commands": [{
+      "id": "e39beff8-ed81-48a7-aee8-2a80a9d34de8",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "80c881e0-f7a7-4748-8fa1-eead14cce48e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d141405e-d282-4547-b7a3-525c19078ddc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dodaj aktivnost",
+      "targets": [
+        ["linkText=Dodaj aktivnost", "linkText"],
+        ["css=.nav-item:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dodaj aktivnost')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/addActivity/')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Dodaj aktivnost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "21c9cd00-1e25-4b3f-8c45-661e0fb53522",
+      "comment": "",
+      "command": "click",
+      "target": "name=cat",
+      "targets": [
+        ["name=cat", "name"],
+        ["css=.col-md-6:nth-child(1) .category", "css:finder"],
+        ["xpath=//button[@name='cat']", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'  Test1')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d5dbc22d-f2b1-4862-b8a0-fad6dbbc0ccc",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_skitrack",
+      "targets": [
+        ["id=id_skitrack", "id"],
+        ["name=skitrack", "name"],
+        ["css=#id_skitrack", "css:finder"],
+        ["xpath=//select[@id='id_skitrack']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "40407164-8b82-4949-8466-5a0801d1910e",
+      "comment": "",
+      "command": "select",
+      "target": "id=id_skitrack",
+      "targets": [],
+      "value": "label=Rajska vrata"
+    }, {
+      "id": "814be3d3-966c-4db6-b664-6c755350b672",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_obj_name",
+      "targets": [
+        ["id=id_obj_name", "id"],
+        ["name=obj_name", "name"],
+        ["css=#id_obj_name", "css:finder"],
+        ["xpath=//input[@id='id_obj_name']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[2]/input", "xpath:idRelative"],
+        ["xpath=//h5[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "90e873b3-6cef-4cd6-af6a-a6cc86d5dd46",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_obj_name",
+      "targets": [
+        ["id=id_obj_name", "id"],
+        ["name=obj_name", "name"],
+        ["css=#id_obj_name", "css:finder"],
+        ["xpath=//input[@id='id_obj_name']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[2]/input", "xpath:idRelative"],
+        ["xpath=//h5[2]/input", "xpath:position"]
+      ],
+      "value": "abc"
+    }, {
+      "id": "a4d079dd-2fca-4435-9dab-d58b915f44b1",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_obj_contact",
+      "targets": [
+        ["id=id_obj_contact", "id"],
+        ["name=obj_contact", "name"],
+        ["css=#id_obj_contact", "css:finder"],
+        ["xpath=//input[@id='id_obj_contact']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[3]/input", "xpath:idRelative"],
+        ["xpath=//h5[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "92daa08b-28b7-456e-b927-8e51995f56fb",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_obj_contact",
+      "targets": [
+        ["id=id_obj_contact", "id"],
+        ["name=obj_contact", "name"],
+        ["css=#id_obj_contact", "css:finder"],
+        ["xpath=//input[@id='id_obj_contact']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[3]/input", "xpath:idRelative"],
+        ["xpath=//h5[3]/input", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "c55e60c2-f2dd-418b-9063-700d89cc2b90",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=.btn-outline-success", "css:finder"],
+        ["xpath=//button[@name='category']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "63634ce0-38af-4802-b676-520ba3e9041b",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h6:nth-child(15)",
+      "targets": [
+        ["css=h6:nth-child(15)", "css:finder"],
+        ["xpath=//div[@id='defineActivityContent']/form/h6[2]", "xpath:idRelative"],
+        ["xpath=//h6[2]", "xpath:position"],
+        ["xpath=//h6[contains(.,'Niste locirali objekat na mapi!')]", "xpath:innerText"]
+      ],
+      "value": "Niste locirali objekat na mapi!"
+    }, {
+      "id": "03f3b913-5fa7-41e5-91cf-552ed7a72905",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "629c2b35-2f72-486a-9df4-9c0d56812847",
+    "name": "otkaziDodavanjeAktivnosti",
+    "commands": [{
+      "id": "5aa0c137-1ac4-4606-bca2-2e06ffd32b53",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b13bfb60-7d57-4fee-a604-27b760e048fe",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2bee1d68-2bd2-4a16-a446-fe0aaa9459f1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dodaj aktivnost",
+      "targets": [
+        ["linkText=Dodaj aktivnost", "linkText"],
+        ["css=.nav-item:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dodaj aktivnost')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/addActivity/')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Dodaj aktivnost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d47e90bf-2e9c-46ea-aef6-2b47920b9183",
+      "comment": "",
+      "command": "click",
+      "target": "name=cat",
+      "targets": [
+        ["name=cat", "name"],
+        ["css=.col-md-6:nth-child(1) .category", "css:finder"],
+        ["xpath=//button[@name='cat']", "xpath:attributes"],
+        ["xpath=//div[@id='trackContent']/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'  Test1')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "24711fb0-1bc4-4a11-bd03-80d567224424",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_skitrack",
+      "targets": [
+        ["id=id_skitrack", "id"],
+        ["name=skitrack", "name"],
+        ["css=#id_skitrack", "css:finder"],
+        ["xpath=//select[@id='id_skitrack']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "23dc8892-4f13-4be7-90c8-8f932ec78b95",
+      "comment": "",
+      "command": "select",
+      "target": "id=id_skitrack",
+      "targets": [],
+      "value": "label=Rajska vrata"
+    }, {
+      "id": "624aa380-9923-480e-90fe-283994f60ef3",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_obj_name",
+      "targets": [
+        ["id=id_obj_name", "id"],
+        ["name=obj_name", "name"],
+        ["css=#id_obj_name", "css:finder"],
+        ["xpath=//input[@id='id_obj_name']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[2]/input", "xpath:idRelative"],
+        ["xpath=//h5[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "88738cd0-228d-40ee-97e2-28d66e5ddb6f",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_obj_name",
+      "targets": [
+        ["id=id_obj_name", "id"],
+        ["name=obj_name", "name"],
+        ["css=#id_obj_name", "css:finder"],
+        ["xpath=//input[@id='id_obj_name']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[2]/input", "xpath:idRelative"],
+        ["xpath=//h5[2]/input", "xpath:position"]
+      ],
+      "value": "abc"
+    }, {
+      "id": "4ed9f4a9-352c-42d9-9c48-44080c9e449f",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_obj_contact",
+      "targets": [
+        ["id=id_obj_contact", "id"],
+        ["name=obj_contact", "name"],
+        ["css=#id_obj_contact", "css:finder"],
+        ["xpath=//input[@id='id_obj_contact']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[3]/input", "xpath:idRelative"],
+        ["xpath=//h5[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "96b9c750-98ef-4d4a-aa0b-49072f9c1f5b",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_obj_contact",
+      "targets": [
+        ["id=id_obj_contact", "id"],
+        ["name=obj_contact", "name"],
+        ["css=#id_obj_contact", "css:finder"],
+        ["xpath=//input[@id='id_obj_contact']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/form/h5[3]/input", "xpath:idRelative"],
+        ["xpath=//h5[3]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "c2b4304f-d1d7-4d87-97a7-ed996d789c6e",
+      "comment": "",
+      "command": "click",
+      "target": "id=jahorinaMap",
+      "targets": [
+        ["id=jahorinaMap", "id"],
+        ["css=#jahorinaMap", "css:finder"],
+        ["xpath=//img[@id='jahorinaMap']", "xpath:attributes"],
+        ["xpath=//div[@id='mapDiv']/img", "xpath:idRelative"],
+        ["xpath=//form/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "913b6832-1fca-4fdb-9568-3264da8e1bf2",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,551)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5eec55cc-cfac-485b-9486-4325715323f1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-outline-secondary",
+      "targets": [
+        ["css=.btn-outline-secondary", "css:finder"],
+        ["xpath=//button[@onclick='window.location.href=/addActivity/']", "xpath:attributes"],
+        ["xpath=//div[@id='defineActivityContent']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,' Obustavi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "da21ffce-8a5c-4bc4-80ae-136c9f7cf2e0",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='addActivityContent']/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,' Dodavanje nove aktivnosti')]", "xpath:innerText"]
+      ],
+      "value": "Dodavanje nove aktivnosti"
+    }, {
+      "id": "b7d982c2-bdab-41e2-8d2f-6027ef19e286",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "3be9c464-ef6a-4d78-9da8-095d3df17951",
+    "name": "Dodavanje kategorije",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["557b5846-4640-47b0-8890-71c76902f6db", "ce5c8d3f-3ed4-4eea-9484-01cbdeb7a5b2", "75979e70-1078-4a03-9c3d-c155d10fd2b2", "7f71dc52-ac75-4588-853c-c0d80ba8a409", "7c5ffc5b-b6ac-44ed-a17f-b93ed30417be", "14846193-ffcf-459f-a7aa-c32c5fc2b211"]
+  }, {
+    "id": "2d945cc6-4918-4854-8d4a-60fa21df6843",
+    "name": "Dodavanje aktivnosti",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["bddc68f0-fca6-456a-86b2-fd0d519bf7c6", "95cd7cd6-b6e5-4041-9194-aa5cfafcc3e1", "a7b9b431-8eb3-4628-b167-1e7b1561a637", "8e0ecc44-217c-416c-9b49-786128f1eecc", "4f445973-6ed1-46a6-92e5-5db67479e561", "629c2b35-2f72-486a-9df4-9c0d56812847"]
+  }],
+  "urls": ["http://localhost:8000/"],
+  "plugins": []
+}
