@@ -1,0 +1,333 @@
+{
+  "id": "6e2bcad1-5d25-45a4-ae2d-9ab3392e05d1",
+  "version": "2.0",
+  "name": "test_neprijavljen",
+  "url": "http://localhost:8000/",
+  "tests": [{
+    "id": "64df9f41-6ed3-47e9-a633-e3abd1e1f734",
+    "name": "prikazPocetna",
+    "commands": [{
+      "id": "f524804b-e87a-4626-8b96-0ec897371bd0",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6eebd5e4-f08e-455b-8ea4-15c613c9a223",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b3a6e382-d67e-49d5-bc5a-3ae6b32ffb8b",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#headerTitle > span:nth-child(1)",
+      "targets": [
+        ["css=#headerTitle > span:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='headerTitle']/span", "xpath:idRelative"],
+        ["xpath=//span", "xpath:position"],
+        ["xpath=//span[contains(.,'Jahorina')]", "xpath:innerText"]
+      ],
+      "value": "Jahorina"
+    }, {
+      "id": "b6688da5-7bd2-478f-9a02-c459bd2c8904",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "d48a88fb-6648-4807-bf6b-8211db7b6ec5",
+    "name": "prikazInstruktori",
+    "commands": [{
+      "id": "57951243-73d6-43e1-a5db-01bd6c686838",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6f845b7e-a89c-4c4b-8e26-d6d8acd80ea2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8a13a970-2e0d-409c-97dd-96b1013c444d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Instruktori",
+      "targets": [
+        ["linkText=Instruktori", "linkText"],
+        ["css=.nav-item:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Instruktori')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/instructors/')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Instruktori')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7dde32b9-555e-4449-9779-33e181ae56c2",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=form",
+      "targets": [
+        ["css=form", "css:finder"],
+        ["xpath=//div[@id='searchBar']/form", "xpath:idRelative"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": "Ime:  Iskustvo:  \\n  \\nPrikaži sve\\n  Do 3 godine\\n  Od 3 do 5 godina\\n  Preko 5 godina\\n  Pretraži"
+    }, {
+      "id": "da3daaf1-22dd-4c39-a35c-998f285d17d4",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "a5999367-95cc-413a-b9ca-53a9626abd5a",
+    "name": "prikaziStaze",
+    "commands": [{
+      "id": "84e16fc4-4a7a-44bf-a794-d9f79bb36330",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0abd23dc-09ce-4d9d-b0a5-597fbf2c11a1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4ef807bc-db8d-43af-b8b8-5937f09a521f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Staze",
+      "targets": [
+        ["linkText=Staze", "linkText"],
+        ["css=.nav-item:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Staze')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/trackInformation/')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Staze')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "682c54fe-a43f-4179-9025-103708968e19",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.col-xl-8 > h3",
+      "targets": [
+        ["css=.col-xl-8 > h3", "css:finder"],
+        ["xpath=//div[@id='trackAlert']/div/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Obaveštenja o stazama')]", "xpath:innerText"]
+      ],
+      "value": "Obaveštenja o stazama"
+    }, {
+      "id": "14ff8635-66e4-4fc7-9463-9046842df9a3",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "3dde9089-76c3-4936-8c58-0bb8cd9a31a9",
+    "name": "prikazIsplaniraj",
+    "commands": [{
+      "id": "e7898b64-d725-42c9-8cc3-748ef965a4ad",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "788ee4ab-634f-4993-ac96-f4f122d7675e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "496cd7ff-86e6-4e91-9c9a-860b723530ce",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Isplaniraj moj dan",
+      "targets": [
+        ["linkText=Isplaniraj moj dan", "linkText"],
+        ["css=.nav-item:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Isplaniraj moj dan')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/planMyDayFirst/')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Isplaniraj moj dan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6c05b02b-f7be-461f-adce-2a3a50de598f",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='planHeader']/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,' Isplaniraj svoj savršen dan na Jahorini')]", "xpath:innerText"]
+      ],
+      "value": " Isplaniraj svoj savršen dan na Jahorini"
+    }, {
+      "id": "5eb11d1f-3cfc-4ccd-8c87-60318d90a264",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e725c496-0d2a-4132-9e47-d123e90ff49e",
+    "name": "prikazLogin",
+    "commands": [{
+      "id": "333323ac-bee0-499c-aedb-bf1aa6d436fe",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "63159636-09af-4f54-a6ea-bd006c22aeb2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "850aec2e-54da-4cbd-a545-55d9fb311f7b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='navigationBar']/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,' Prijavite se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2a8a221b-e678-41bf-bc32-668dc1b2d1e2",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.loginLabel:nth-child(2)",
+      "targets": [],
+      "value": "Korisničko ime"
+    }, {
+      "id": "f559cdb1-af4b-47d3-a058-86d0b03c3258",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "3448cd0b-64cc-40b9-8ef0-3105a9067dc0",
+    "name": "prikazRegister",
+    "commands": [{
+      "id": "07682352-aa30-42a2-b656-9685bd5820ad",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "140d0e12-6e2f-4105-94ad-63277702649a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6809e4cb-546c-4645-99e7-da958f76edee",
+      "comment": "",
+      "command": "click",
+      "target": "id=navigationBar",
+      "targets": [
+        ["id=navigationBar", "id"],
+        ["css=#navigationBar", "css:finder"],
+        ["xpath=//div[@id='navigationBar']", "xpath:attributes"],
+        ["xpath=//div[@id='header']/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d7885a7-d077-4453-8453-f41d7c035f7f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='navigationBar']/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,' Prijavite se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "188c89a0-1672-48ee-ae0f-ac42a46ef94e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=ovde",
+      "targets": [
+        ["linkText=ovde", "linkText"],
+        ["css=p > a", "css:finder"],
+        ["xpath=//a[contains(text(),'ovde')]", "xpath:link"],
+        ["xpath=//div[@id='loginFormWindow']/p/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/register/')]", "xpath:href"],
+        ["xpath=//p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'ovde')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0df0b7d5-ba5f-459a-845d-1e1e9b970047",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=regTitle",
+      "targets": [
+        ["id=regTitle", "id"],
+        ["css=#regTitle", "css:finder"],
+        ["xpath=//div[@id='regTitle']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": " Registracija"
+    }, {
+      "id": "571e1961-c226-4c65-8387-e29b674d367c",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "72888d04-aaa7-464c-98b3-8bb635c49917",
+    "name": "Prikaz",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["64df9f41-6ed3-47e9-a633-e3abd1e1f734", "d48a88fb-6648-4807-bf6b-8211db7b6ec5", "a5999367-95cc-413a-b9ca-53a9626abd5a", "3dde9089-76c3-4936-8c58-0bb8cd9a31a9", "e725c496-0d2a-4132-9e47-d123e90ff49e", "3448cd0b-64cc-40b9-8ef0-3105a9067dc0"]
+  }],
+  "urls": ["http://localhost:8000/"],
+  "plugins": []
+}
