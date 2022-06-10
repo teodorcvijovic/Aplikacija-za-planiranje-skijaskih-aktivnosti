@@ -13,6 +13,11 @@ from .models import *
 
 # teodor
 def index(request):
+    '''
+        Home page view.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     context = {
 
     }
@@ -21,6 +26,12 @@ def index(request):
 
 # teodor
 def loginRequest(request):
+    '''
+        View that renders page for user authentication.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
+
     loginform = MyLoginForm(request, request.POST or None)
 
     if loginform.is_valid():
@@ -41,12 +52,22 @@ def loginRequest(request):
 
 # teodor
 def logoutRequest(request):
+    '''
+        Logout current user.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     logout(request)
     return redirect('index')
 
 
 # teodor
 def register(request):
+    '''
+        View that renders page for user registration.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     regform = SkiInstructorCreationForm(request.POST)
     errors = []
 
@@ -97,8 +118,12 @@ def register(request):
 
 
 # teodor & filip
-# page that shows all SkiInstructors
 def instructors(request):
+    '''
+        View that renders page which contains all SkiInstructors' information.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     searchForm = SkiInstructorSearchForm(data=request.POST or None)
     ins = []
 
@@ -159,6 +184,11 @@ def instructors(request):
 
 # filip
 def map(request):
+    '''
+        View that renders map. Used for testing purposes.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     context = {
         
     }
@@ -168,6 +198,11 @@ def map(request):
 @login_required(login_url='loginRequest')
 @permission_required('jahorina.delete_skiinstructor', raise_exception=True)
 def deleteSkiInstructor(request):
+    '''
+        SkiInstructor deletion, which can be done only by moderator or administrator.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     if request.method == 'POST':
         id = request.POST.get('i_id')
         if id:
@@ -179,6 +214,11 @@ def deleteSkiInstructor(request):
 # lara
 @login_required(login_url='loginRequest')
 def addActivity(request):
+    '''
+        View renders page that shows all categories, which is the first step for adding new Activity.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     categories = Category.objects.all();
     context = {
         'categories': categories
@@ -188,6 +228,11 @@ def addActivity(request):
 
 # lara
 def defineActivity(request):
+    '''
+        Specifying Activity coordinates on the map and other details.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     form = AddActivityForm(request.POST);
     errors = []
     msg = "";
@@ -226,6 +271,11 @@ def defineActivity(request):
 
 # lara
 def addCategory(request):
+    '''
+        Adding new Category.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     form = AddCategoryForm(request.POST);
     errors = []
     if (form.is_valid()):
@@ -250,6 +300,12 @@ def addCategory(request):
 
 # lara
 def planMyDayFirst(request):
+    '''
+        Choosing multiple Categories and answering questions about skiing skills. Collected information are used for
+        next step in ski day planning.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     morningCategories = Category.objects.filter(root=0);
     afternoonCategories = Category.objects.filter(root=1);
     nigthCategories = Category.objects.filter(root=2);
@@ -263,6 +319,12 @@ def planMyDayFirst(request):
 
 # lara
 def planMyDaySecond(request):
+    '''
+        Choosing objects from map, which are shown based on previously collected information. Collected information are used for
+        final step in ski day planning.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     if (request.method == "POST"):
         checked = request.POST.getlist('checks[]');
         if len(checked) == 0:
@@ -289,6 +351,11 @@ def planMyDaySecond(request):
 
 # teodor
 def planMyDayFinal(request):
+    '''
+        View renders a page which shows final curated ski day plan.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     if request.method == "POST":
         activity_id_list = request.POST.get('activity_id_list')
         if len(activity_id_list) == 1:
@@ -316,6 +383,11 @@ def planMyDayFinal(request):
 
 # lara
 def showTrackInformation(request):
+    '''
+        Showing all information about SkiTracks.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     tracks = SkiTrack.objects.all();
     context = {
         'tracks': tracks
@@ -326,6 +398,11 @@ def showTrackInformation(request):
 
 # lara
 def updateTrackInformation(request):
+    '''
+        Changing the information of a SkiTrack.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     form = UpdateTrackForm(request.POST or None);
     trackId = request.POST.get("updateTrack");
     track = SkiTrack.objects.get(id=trackId);
@@ -352,6 +429,11 @@ def updateTrackInformation(request):
 # teodor
 @login_required(login_url='loginRequest')
 def addTrack(request):
+    '''
+        View that renders form for adding new SkiTrack.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     trackform = AddTrackForm(request.POST or None)
     errors = []
 
@@ -380,6 +462,11 @@ def addTrack(request):
 @login_required(login_url='loginRequest')
 @permission_required('jahorina.delete_skitrack', raise_exception=True)
 def deleteSkiTrack(request):
+    '''
+        SkiTrack deletion, which can be done only by moderator or administrator.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     id = request.POST.get('skitrack_id')
     if id:
         track = SkiTrack.objects.filter(pk=id).first()
@@ -391,6 +478,11 @@ def deleteSkiTrack(request):
 @login_required(login_url='loginRequest')
 @permission_required('jahorina.delete_category', raise_exception=True)
 def deleteCategory(request):
+    '''
+        Category deletion, which can be done only by moderator or administrator.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     id = request.POST.get('category_id')
     if id:
         c = Category.objects.filter(pk=id).first()
@@ -402,6 +494,11 @@ def deleteCategory(request):
 @login_required(login_url='loginRequest')
 @permission_required('jahorina.delete_activity', raise_exception=True)
 def showAllActivities(request):
+    '''
+        View can be called only by a moderator or administrator, and it is used for deletion of inappropriate activities.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     form = ActivitySearchForm(request.POST or None)
 
     if form.is_valid():
@@ -423,6 +520,11 @@ def showAllActivities(request):
 @login_required(login_url='loginRequest')
 @permission_required('jahorina.delete_activity', raise_exception=True)
 def deleteActivity(request):
+    '''
+        Activity deletion, which can be done only by moderator or administrator.
+        :param request: HttpRequest
+        :return: HttpResponse
+    '''
     id = request.POST.get('activity_id')
     if id:
         a = Activity.objects.filter(pk=id).first()
