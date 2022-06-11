@@ -423,7 +423,7 @@ def testUspjesnaRegistracija():
     date = chrome_driver.find_element(by=By.NAME, value="birthdate");
     button = chrome_driver.find_element(by=By.XPATH, value="/html/body/div/div[2]/div[2]/div[2]/div/form/button");
 
-    username.send_keys("nikola");
+    username.send_keys("nikola58");
     password1.send_keys("pbkdf2_sha256$320000$WD4xM2OBg4jiISOlm0ORTs$roNb4HbetXYqOAHHiChwef/9wdGyvnxoNYRv9E5OQNc=");
     password2.send_keys("pbkdf2_sha256$320000$WD4xM2OBg4jiISOlm0ORTs$roNb4HbetXYqOAHHiChwef/9wdGyvnxoNYRv9E5OQNc=");
     firstName.send_keys("Nikola");
