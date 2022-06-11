@@ -10,7 +10,6 @@ from .models import *
 
 # Create your views here.
 
-
 # teodor
 def index(request):
     '''
@@ -190,7 +189,7 @@ def map(request):
         :return: HttpResponse
     '''
     context = {
-        
+
     }
     return render(request, 'map.html', context)
 
@@ -358,7 +357,7 @@ def planMyDayFinal(request):
     '''
     if request.method == "POST":
         activity_id_list = request.POST.get('activity_id_list')
-        if len(activity_id_list) == 1:
+        if len(activity_id_list) <= 1:
             return redirect('planMyDayFirst')
 
         activity_id_list = activity_id_list[1:-1]  # ignore last comma
